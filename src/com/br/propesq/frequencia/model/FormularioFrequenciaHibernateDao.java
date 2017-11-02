@@ -55,7 +55,7 @@ public class FormularioFrequenciaHibernateDao {
 		List<FormularioFrequencia> lista = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		lista = manager.createQuery("SELECT f FROM FormularioFrequencia f ORDER BY f.nome").getResultList();
+		lista = manager.createQuery("SELECT f FROM FormularioFrequencia f ORDER BY f.dataEntrega").getResultList();
 		manager.close();
 		factory.close();
 		return lista;

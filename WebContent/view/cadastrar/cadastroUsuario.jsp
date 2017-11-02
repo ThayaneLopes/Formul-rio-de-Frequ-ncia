@@ -23,19 +23,14 @@
 		<input type="text" name="email" id="email"> <br>
 	</fieldset>
 	<fieldset>
-		<legend>Tipo Pessoais </legend>
-		<label>É Gestor?</label>
-		<input type="radio" name="gestor" value="yes" checked=""> Sim
-		<input type="radio" name="gestor" value="no" > Não <br>
-		<label>É Orientador?</label>
-		<input type="radio" name="orientador" value="yes" checked=""> Sim
-		<input type="radio" name="orientador" value="no" > Não <br>
-		<label>Faz parte PROPESQ?</label>
-		<input type="radio" name="propesq" value="yes" checked=""> Sim
-		<input type="radio" name="propesq" value="no" > Não <br>
-	</fieldset>
-	<fieldset>
 		<legend>Dados Adicionais </legend>
+		<label>Tipo de Usuario:</label>
+			<select name="tipo_usuario" > 
+					<option value=""> Selecione </option> 
+					<c:forEach items="${listaTipoUsuario}" var="obj"> 
+					<option value="${obj.id}"> ${obj.descricao} </option> 
+				</c:forEach> 
+			</select><br>
 		<label>Login:</label>
 		<input type="text" name="login" id="login"> <br>
 		<label>Senha:</label>
@@ -45,8 +40,15 @@
 		<label>Link do Currículo na Plataforma Lattes:</label>
 		<input type="text" name="curriculo" id="curriculo"> <br>
 		<label>Campus:</label>
-		<input type="text" name="campus" id="campus"><br>
+				<select name="campus" > 
+					<option value=""> Selecione </option> 
+					<c:forEach items="${listaCampus}" var="obj"> 
+					<option value="${obj.id}"> ${obj.nome} </option> 
+				</c:forEach> 
+			</select><br>
 	</fieldset>
+	<input type="submit" value="Cadastrar">
+	<input type="reset" value="Limpar">
 
 </body>
 </html>

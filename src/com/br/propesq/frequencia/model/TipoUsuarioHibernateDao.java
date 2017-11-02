@@ -55,7 +55,7 @@ public class TipoUsuarioHibernateDao {
 		List<TipoUsuario> lista = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		lista = manager.createQuery("SELECT u FROM TipoUsuario u ORDER BY u.nome").getResultList();
+		lista = manager.createQuery("SELECT u FROM TipoUsuario u ORDER BY u.id").getResultList();
 		manager.close();
 		factory.close();
 		return lista;

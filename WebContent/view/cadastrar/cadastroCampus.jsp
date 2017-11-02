@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>Cadastro de Campus</h2>
+<h2>Cadastro de Campus</h2>
 	<fieldset>
 		<label>Nome:</label>
 		<input type="text" name="nome" id="nome"> <br>
@@ -54,9 +54,12 @@
 			<option value="SP">São Paulo</option>
 			<option value="SE">Sergipe</option>
 			<option value="TO">Tocantins</option>
-		</select>
+		</select> <br>
+		<input type="submit" value="Cadastrar">
+		<input type="reset" value="Limpar">
 		
 	</fieldset>
+	
 
 </body>
 </html>

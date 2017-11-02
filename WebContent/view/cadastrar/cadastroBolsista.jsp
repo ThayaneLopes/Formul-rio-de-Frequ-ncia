@@ -10,7 +10,7 @@
 
 	<h2>Cadastro de Bolsista</h2>
 
-	<form>
+<form>
 		<fieldset>
 			<legend>Dados Pessoais</legend>
 			<label>Nome Completo:</label>
@@ -26,15 +26,22 @@
 		</fieldset>
 		<fieldset>
 			<legend>Dados Bancários</legend>
+			<label>Banco</label>
+			<input type="text" name="">
 			<label>Agência:</label>
 			<input type="text" name="agencia" id="agencia"><br>
 			<label>Conta:</label>
 			<input type="text" name="conta" id="conta"> <br>
-		</fieldset>
-		<fieldset>
-			<legend>Dados Escolar</legend>
-			<label>Campus:</label>
-			<input type="text" name="campus" id="campus"> <br>
+			</fieldset>
+			<fieldset>
+				<legend>Dados Escolar</legend>
+				<label>Campus:</label>
+				<select name="campus" > 
+					<option value=""> Selecione </option> 
+					<c:forEach items="${listaCampus}" var="obj"> 
+					<option value="${obj.id}"> ${obj.nome} </option> 
+				</c:forEach> 
+			</select><br>
 			<label>Matrícula:</label>
 			<input type="text" name="matricula" id="matricula"><br>
 			<label>Histórico Escolar:</label>
@@ -66,7 +73,9 @@
 				<option value="pibitAfIfpe">PIBIC AF IFPE </option>
 				<option value="pibicAfCnpq">PIBIC AF CNPq </option>
 				<option value="icVoluntario">IC VOLUNTÁRIO</option>
-			</select>
+			</select><br>
+			<input type="submit" value="Cadastrar">
+			<input type="reset" value="Limpar">
 		</fieldset>
 	</form>
 

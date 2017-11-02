@@ -12,34 +12,19 @@ public class TipoUsuario {
 	@Id
 	private int id;
 	@Column
-	private boolean gestor;
-	@Column
-	private boolean orientador;
-	@Column
-	private boolean propesq;
+	private String descricao;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public boolean isGestor() {
-		return gestor;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setGestor(boolean gestor) {
-		this.gestor = gestor;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
-	public boolean isOrientador() {
-		return orientador;
-	}
-	public void setOrientador(boolean orientador) {
-		this.orientador = orientador;
-	}
-	public boolean isPropesq() {
-		return propesq;
-	}
-	public void setPropesq(boolean propesq) {
-		this.propesq = propesq;
-	}
+	
 	
 }

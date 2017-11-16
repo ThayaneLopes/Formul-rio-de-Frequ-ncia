@@ -7,9 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.model.Bolsista;
-import com.br.propesq.frequencia.model.BolsistaHibernateDao;
 import com.br.propesq.frequencia.model.Campus;
-import com.br.propesq.frequencia.model.CampusHibernateDao;
+
+import Dao.BolsistaHibernateDao;
+import Dao.CampusHibernateDao;
 
 @Controller
 public class BolsistaController {

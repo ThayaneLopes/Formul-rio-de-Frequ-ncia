@@ -4,7 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.model.Campus;
-import com.br.propesq.frequencia.model.CampusHibernateDao;
+
+import Dao.CampusHibernateDao;
 
 @Controller
 public class CampusController {

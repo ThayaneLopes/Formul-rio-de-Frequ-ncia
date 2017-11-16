@@ -7,11 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.model.Campus;
-import com.br.propesq.frequencia.model.CampusHibernateDao;
 import com.br.propesq.frequencia.model.TipoUsuario;
-import com.br.propesq.frequencia.model.TipoUsuarioHibernateDao;
 import com.br.propesq.frequencia.model.Usuario;
-import com.br.propesq.frequencia.model.UsuarioHibernateDao;
+
+import Dao.CampusHibernateDao;
+import Dao.TipoUsuarioHibernateDao;
+import Dao.UsuarioHibernateDao;
 
 @Controller
 public class UsuarioController {

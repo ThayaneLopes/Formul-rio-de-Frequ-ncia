@@ -6,13 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.br.propesq.frequencia.Dao.CampusHibernateDao;
+import com.br.propesq.frequencia.Dao.TipoUsuarioHibernateDao;
+import com.br.propesq.frequencia.Dao.UsuarioHibernateDao;
 import com.br.propesq.frequencia.model.Campus;
 import com.br.propesq.frequencia.model.TipoUsuario;
 import com.br.propesq.frequencia.model.Usuario;
-
-import Dao.CampusHibernateDao;
-import Dao.TipoUsuarioHibernateDao;
-import Dao.UsuarioHibernateDao;
 
 @Controller
 public class UsuarioController {

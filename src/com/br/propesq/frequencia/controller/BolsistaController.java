@@ -6,11 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.br.propesq.frequencia.Dao.BolsistaHibernateDao;
+import com.br.propesq.frequencia.Dao.CampusHibernateDao;
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.Campus;
-
-import Dao.BolsistaHibernateDao;
-import Dao.CampusHibernateDao;
 
 @Controller
 public class BolsistaController {

@@ -1,4 +1,4 @@
-package Dao;
+package com.br.propesq.frequencia.Dao;
 
 import java.util.List;
 
@@ -6,27 +6,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.br.propesq.frequencia.model.FormularioFrequencia;
+import com.br.propesq.frequencia.model.Campus;
 
-public class FormularioFrequenciaHibernateDao {
-	
+public class CampusHibernateDao {
 	private static final String PERSISTENCE_UNIT = "propesq";
 
-	public void salvar(FormularioFrequencia formularioFrequencia) {
+	public void salvar(Campus campus) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.persist(formularioFrequencia);
+		manager.persist(campus);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
 	}
 
-	public void alterar(FormularioFrequencia formularioFrequencia) {
+	public void alterar(Campus campus) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.merge(formularioFrequencia);
+		manager.merge(campus);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
@@ -35,34 +34,33 @@ public class FormularioFrequenciaHibernateDao {
 	public void remover(int id) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		FormularioFrequencia formularioFrequencia = manager.find(FormularioFrequencia.class, id);
+		Campus campus = manager.find(Campus.class, id);
 		manager.getTransaction().begin();
-		manager.remove(formularioFrequencia);
+		manager.remove(campus);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
 	}
 
-	public FormularioFrequencia buscarPorId(int id) {
-		FormularioFrequencia obj = null;
+	public Campus buscarPorId(int id) {
+		Campus obj = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		obj = manager.find(FormularioFrequencia.class, id);
+		obj = manager.find(Campus.class, id);
 		manager.close();
 		factory.close();
 		return obj;
 	}
 
-	public List<FormularioFrequencia> listar() {
-		List<FormularioFrequencia> lista = null;
+	public List<Campus> listar() {
+		List<Campus> lista = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		lista = manager.createQuery("SELECT f FROM FormularioFrequencia f ORDER BY f.dataEntrega").getResultList();
+		lista = manager.createQuery("SELECT c FROM Campus c ORDER BY c.nome").getResultList();
 		manager.close();
 		factory.close();
 		return lista;
 	}
-
 
 
 }

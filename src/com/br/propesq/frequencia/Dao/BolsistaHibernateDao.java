@@ -1,4 +1,4 @@
-package Dao;
+package com.br.propesq.frequencia.Dao;
 
 import java.util.List;
 

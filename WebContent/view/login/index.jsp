@@ -30,7 +30,7 @@
         </div>
         <!-- <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
 
-        <button class="btn btn-lg btn-primary btn-block btn-signin"><a href="view/Menu/menuGestor.html">Acessar</a></button>
+        <button class="btn btn-lg btn-primary btn-block btn-signin"><a href="view/Menu/menuGestor.jsp">Acessar</a></button>
     </form><!-- /form -->
     <a href="#" class="forgot-password">
         Forgot the password?

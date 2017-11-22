@@ -6,24 +6,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MenuController {
 
-	@RequestMapping("index")
+	@RequestMapping("/index")
 	public String index() {
 		return "login/index";
 	}
 
-	@RequestMapping("menuGestor")
+	@RequestMapping("/menuGestor")
 	public String menuGestor() {
 		return "menu/menuGestor";
 	}
 
-	@RequestMapping("menuOrientador")
+	@RequestMapping("/menuOrientador")
 	public String menuOrientador() {
 		return "menu/menuOrientador";
 	}
 
-	@RequestMapping("menuBolsista")
+	@RequestMapping("/menuBolsista")
 	public String menuBolsista() {
 		return "menu/menuBolsista";
 
 	}
+	
 }

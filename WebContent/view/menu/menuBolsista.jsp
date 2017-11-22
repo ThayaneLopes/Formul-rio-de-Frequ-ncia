@@ -37,14 +37,14 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <i class="fa fa-pencil fa-fw"></i>
-           <span class="nav-link-text">FormulÃ¡rio</span>
+           <span class="nav-link-text">Formulário</span>
          </a>
          <ul class="sidenav-second-level collapse" id="collapseMulti">
           <li>
-            <a href="#">Preencher FormulÃ¡rio</a>
+            <a href="#">Preencher Formulário</a>
           </li>
           <li>
-            <a href="#">Alterar FormulÃ¡rio</a>
+            <a href="#">Alterar Formulário</a>
           </li>
 
         </ul>
@@ -61,7 +61,7 @@
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
         <a class="nav-link" href="#">
           <i class="fa fa-search" aria-hidden="true"></i>
-          <span class="nav-link-text">Buscar por FormulÃ¡rio</span>
+          <span class="nav-link-text">Buscar por Formulário</span>
         </a>
       </li> 
       
@@ -114,7 +114,7 @@
 <footer class="sticky-footer">
   <div class="container">
     <div class="text-center">
-      <small>Copyright Â© PROPESQ 2017</small>
+      <small>Copyright © PROPESQ 2017</small>
     </div>
   </div>
 </footer>
@@ -129,7 +129,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">Ã—</span>
+          <span aria-hidden="true">×—</span>
         </button>
       </div>
       <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

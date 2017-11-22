@@ -4,6 +4,7 @@
 <html>
 
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,13 +12,13 @@
   <meta name="author" content="">
   <title>Menu</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="view/menu/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="view/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="view/menu/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="view/menu/css/sb-admin.css" rel="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -37,7 +38,7 @@
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Validar FormulÃ¡rios</span>
+            <span class="nav-link-text">Validar Formulários</span>
           </a>
         </li>
 
@@ -75,7 +76,7 @@
          </a>
          <ul class="sidenav-second-level collapse" id="collapseMulti">
           <li>
-            <a href="#">Buscar por FormulÃ¡rio</a>
+            <a href="#">Buscar por Formulário</a>
           </li>
           <li>
             <a href="#">Buscar por Bolsista</a>
@@ -131,7 +132,7 @@
 <footer class="sticky-footer">
   <div class="container">
     <div class="text-center">
-      <small>Copyright Â© PROPESQ 2017</small>
+      <small>Copyright © PROPESQ 2017</small>
     </div>
   </div>
 </footer>
@@ -146,7 +147,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">Ã—</span>
+          <span aria-hidden="true">×</span>
         </button>
       </div>
       <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>

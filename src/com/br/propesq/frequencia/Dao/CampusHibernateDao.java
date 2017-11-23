@@ -53,14 +53,15 @@ public class CampusHibernateDao {
 	}
 
 	public List<Campus> listar() {
-		List<Campus> lista = null;
+		List<Campus> listaCampus = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		lista = manager.createQuery("SELECT c FROM Campus c ORDER BY c.nome").getResultList();
+		listaCampus = manager.createQuery("SELECT c FROM Campus c ORDER BY c.nome").getResultList();
 		manager.close();
 		factory.close();
-		return lista;
+		return listaCampus;
 	}
+
 
 
 }

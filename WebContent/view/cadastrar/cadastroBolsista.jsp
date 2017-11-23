@@ -9,8 +9,9 @@
 <body>
 
 	<h2>Cadastro de Bolsista</h2>
+	<div style="text-align: center; color: red;"> ${msg} </div>
 
-<form>
+<form action="cadastroComSucessoBolsista" method="post">
 		<fieldset>
 			<legend>Dados Pessoais</legend>
 			<label>Nome Completo:</label>

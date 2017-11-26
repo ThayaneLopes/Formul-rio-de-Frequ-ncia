@@ -10,7 +10,7 @@ import com.br.propesq.frequencia.model.TipoUsuario;
 
 public class TipoUsuarioHibernateDao {
 	
-	private static final String PERSISTENCE_UNIT = "propesq";
+	private static final String PERSISTENCE_UNIT = "tipo_usuario";
 
 	public void salvar(TipoUsuario tipoUsuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);

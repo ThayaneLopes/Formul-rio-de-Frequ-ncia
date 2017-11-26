@@ -10,7 +10,7 @@ import com.br.propesq.frequencia.model.FormularioFrequencia;
 
 public class FormularioFrequenciaHibernateDao {
 	
-	private static final String PERSISTENCE_UNIT = "propesq";
+	private static final String PERSISTENCE_UNIT = "formulario_frequencia";
 
 	public void salvar(FormularioFrequencia formularioFrequencia) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);

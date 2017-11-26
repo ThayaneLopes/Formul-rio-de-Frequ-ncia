@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import com.br.propesq.frequencia.model.Campus;
 
 public class CampusHibernateDao {
-	private static final String PERSISTENCE_UNIT = "propesq";
+	private static final String PERSISTENCE_UNIT = "campus";
 
 	public void salvar(Campus campus) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);

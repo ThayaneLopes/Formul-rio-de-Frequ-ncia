@@ -10,7 +10,7 @@ import com.br.propesq.frequencia.model.Bolsista;
 
 public class BolsistaHibernateDao {
 
-	private static final String PERSISTENCE_UNIT = "propesq";
+	private static final String PERSISTENCE_UNIT = "bolsista";
 
 	public void salvar(Bolsista bolsista) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);

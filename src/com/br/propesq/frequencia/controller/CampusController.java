@@ -1,7 +1,9 @@
 package com.br.propesq.frequencia.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import com.br.propesq.frequencia.Dao.CampusHibernateDao;
 import com.br.propesq.frequencia.model.Campus;
@@ -14,6 +16,16 @@ public class CampusController {
 		CampusHibernateDao dao = new CampusHibernateDao();
 		dao.salvar(campus);
 		return "cadastrar/cadastroCampus";
+	}
+	@RequestMapping("/cadastroComSucessoCampus")
+	public String cadastroComSucessoCampus(Campus campus, Model model) {
+
+		CampusHibernateDao dao = new CampusHibernateDao();
+		dao.salvar(campus);
+		model.addAttribute("msg", "Campus Incluído com Sucesso!");
+
+		return "forward:cadastroCampus";
+
 	}
 
 }

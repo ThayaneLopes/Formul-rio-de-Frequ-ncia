@@ -5,11 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.br.propesq.frequencia.model.Campus;
 
 public class CampusHibernateDao {
-	private static final String PERSISTENCE_UNIT = "campus";
+	private static final String PERSISTENCE_UNIT = "propesq";
 
 	public void salvar(Campus campus) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
@@ -62,6 +63,25 @@ public class CampusHibernateDao {
 		return listaCampus;
 	}
 
+	 public List<Campus> pesquisar(String descricao, Integer idCategoria) {
+
+			List<Campus> lista = null;
+			Query query = null;
+
+			EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
+			EntityManager manager = factory.createEntityManager();
+
+			if (!descricao.equals("") && idCategoria == null) {
+			    query = manager.createQuery("SELECT c FROM Campus c WHERE c.nome");
+			    query.setParameter("paramDescricao", "%" + descricao + "%");
+			} 
+			
+			lista = query.getResultList();
+			manager.close();
+			factory.close();
+
+			return lista;
+		}
 
 
 }

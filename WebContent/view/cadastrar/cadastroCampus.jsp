@@ -4,23 +4,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cadastro Campus</title>
 </head>
 <body>
 	<h2>Cadastro de Campus</h2>
 	<form action="cadastroComSucessoCampus" method="post">
+	<div style="text-align: center; color: red;"> ${msg} </div>
 		<fieldset>
-			<label>Nome:</label> <input type="text" name="nome" id="nome">
-			<br> <label>Telefone</label> <input type="text" name="telefone"
-				id="telefone"> <br> <label>Logradouro:</label> <input
-				type="text" name="logradouro" id="logradouro"> <br> <label>Número:</label>
-			<input type="text" name="numero" id="numero"> <br> <label>Complemento:</label>
-			<input type="text" name="complemento" id="complemento"> <br>
-			<label>Bairro:</label> <input type="text" name="bairro" id="bairro">
-			<br> <label>Cidade:</label> <input type="text" name="cidade"
-				id="cidade"> <br> <label>CEP:</label> <input
-				type="text" name="cep" id="cep"> <br> <label
-				for="estado">Estado: </label> <select id="estado" name="estado">
+			<label>Nome:</label> 
+			<input type="text" name="nome" id="nome">
+			<br> 
+			<label>Telefone</label> 
+			<input type="text" name="telefone"	id="telefone"> 
+			<br> 
+			<label>Logradouro:</label> 
+			<input type="text" name="logradouro" id="logradouro"> 
+			<br> 
+			<label>Número:</label>
+			<input type="text" name="numero" id="numero"> 
+			<br> 
+			<label>Complemento:</label>
+			<input type="text" name="complemento" id="complemento"> 
+			<br>
+			<label>Bairro:</label>
+			<input type="text" name="bairro" id="bairro">
+			<br> 
+			<label>Cidade:</label> 
+			<input type="text" name="cidade"id="cidade"> 
+			<br>
+			 <label>CEP:</label> 
+			 <input	type="text" name="cep" id="cep"> 
+			 <br> 
+			 <label	for="estado">Estado: </label> 
+			 <select id="estado" name="estado">
 				<option>Selecione um estado</option>
 				<option value="AC">Acre</option>
 				<option value="AL">Alagoas</option>
@@ -47,7 +63,8 @@
 				<option value="SC">Santa Catarina</option>
 				<option value="SP">São Paulo</option>
 				<option value="SE">Sergipe</option>
-				<option value="TO">Tocantins</option>
+				<option value="TO">Tocantins</option> 
+				<br>
 			</select> <br> <input type="submit" value="Cadastrar"> <input
 				type="reset" value="Limpar">
 

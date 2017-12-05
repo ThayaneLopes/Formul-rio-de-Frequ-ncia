@@ -7,9 +7,9 @@
 <title>Cadastro Bolsita</title>
 </head>
 <body>
-
-	<h2>Cadastro de Bolsista</h2>
 	<div style="text-align: center; color: red;"> ${msg} </div>
+	<h2>Cadastro de Bolsista</h2>
+	
 
 <form action="cadastroComSucessoBolsista" method="post">
 		<fieldset>

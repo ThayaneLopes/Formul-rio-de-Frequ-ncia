@@ -44,6 +44,7 @@ public class Bolsista {
 	private String tituloPlano;
 	@Column(name="tipo_projeto")
 	private String tipoProjeto;
+	private Perfil perfil;
 	
 	public int getId() {
 		return id;
@@ -140,6 +141,12 @@ public class Bolsista {
 	}
 	public void setTipoProjeto(String tipoProjeto) {
 		this.tipoProjeto = tipoProjeto;
+	}
+	public Perfil getPerfil() {
+		return perfil;
+	}
+	public void setPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 	
 	

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
 <link href="view/login/loginStyle.css" rel="stylesheet" type="text/css">
 <scrip src="loginMain.js"></scrip>
@@ -19,15 +19,15 @@
 	<div class="container">
 		<div class="card card-container">
 			<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-			
-			<img id="profile-img" class="profile-img-card" src="view/login/logo.png" />
-			<p id="profile-name" class="profile-name-card"></p>
-			<form class="form-signin">
 
-				<input type="text" id="inputLogin" class="form-control"
-					placeholder="Login" required autofocus> <input
-					type="password" id="inputPassword" class="form-control"
-					placeholder="Password" required>
+			<img id="profile-img" class="profile-img-card"
+				src="view/login/logo.png" />
+			<p id="profile-name" class="profile-name-card"></p>
+
+			<form action="login" class="form-signin">
+
+				<input type="text" id="inputLogin" class="form-control"	placeholder="Login" required autofocus> 
+				<input	type="password" id="inputPassword" class="form-control"	placeholder="Password" required>
 				<div id="remember" class="checkbox">
 					<label> <input type="checkbox" value="remember-me">
 						Remember me

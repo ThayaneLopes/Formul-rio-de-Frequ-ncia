@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<div style="text-align: center; color: red;"> ${msg} </div>
 	<h2>Cadastro Usuário</h2>
 
 	<fieldset>

@@ -18,19 +18,29 @@ public class UsuarioController {
 
 	@RequestMapping("cadastroUsuario")
 	public String cadastroUsuario(Usuario usuario, Model model) {
-		
-		CampusHibernateDao campusDao = new CampusHibernateDao(); 
-		List<Campus> listaCampus = campusDao.listar(); 
+
+		CampusHibernateDao campusDao = new CampusHibernateDao();
+		List<Campus> listaCampus = campusDao.listar();
 		model.addAttribute("listaCampus", listaCampus);
-		
-		TipoUsuarioHibernateDao tipoUsuarioDao = new TipoUsuarioHibernateDao(); 
-		List<TipoUsuario> listaTipoUsuario = tipoUsuarioDao.listar(); 
+
+		TipoUsuarioHibernateDao tipoUsuarioDao = new TipoUsuarioHibernateDao();
+		List<TipoUsuario> listaTipoUsuario = tipoUsuarioDao.listar();
 		model.addAttribute("listaTipoUsuario", listaTipoUsuario);
-		
-		
+
 		UsuarioHibernateDao dao = new UsuarioHibernateDao();
 		dao.salvar(usuario);
 		return "cadastrar/cadastroUsuario";
+	}
+
+	@RequestMapping("/cadastroComSucessoUsuario")
+	public String cadastroComSucessoUsuario(Usuario usuario, Model model) {
+
+		UsuarioHibernateDao dao = new UsuarioHibernateDao();
+		dao.salvar(usuario);
+		model.addAttribute("msg", "Usuario Incluído com Sucesso!");
+
+		return "forward:cadastroUsuario";
+
 	}
 
 }

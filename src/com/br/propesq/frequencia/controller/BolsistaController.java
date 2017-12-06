@@ -21,12 +21,13 @@ public class BolsistaController {
 		return "cadastrar/cadastroBolsista";
 	}
 
-	@RequestMapping("/cadastroComSucessoBolsista")
+	@RequestMapping("cadastroComSucessoBolsista")
 	public String cadastroComSucessoBolsista(Bolsista bolsista, Model model) {
 
 		BolsistaHibernateDao dao = new BolsistaHibernateDao();
 		dao.salvar(bolsista);
 		model.addAttribute("msg", "Usuário Incluído com Sucesso!");
+		model.addAttribute("url", "cadastroComSucessoBolsista");
 
 		return "forward:cadastroBolsista";
 
@@ -40,7 +41,7 @@ public class BolsistaController {
 		bolsista = dao.buscarVoluntarioLogin(login);
 		if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
 			session.setAttribute("usuarioLogado", bolsista);
-			session.setAttribute("perfil", bolsista.getPerfil().toString());
+			//session.setAttribute("perfil", bolsista.getPerfil().toString());
 			return "forward:menuLogout";
 		} else {
 			return "forward:menuBolsista";

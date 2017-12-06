@@ -3,11 +3,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+ 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastro Bolsita</title>
+<title>Cadastro Bolsista</title>
 </head>
 <body>
-	<div style="text-align: center; color: red;"> ${msg} </div>
+  <c:import url="menuBolsista" />
+	
 	<h2>Cadastro de Bolsista</h2>
 	
 
@@ -27,8 +29,8 @@
 		</fieldset>
 		<fieldset>
 			<legend>Dados Bancários</legend>
-			<label>Banco</label>
-			<input type="text" name="">
+					<label>Banco</label>
+					<input type="text" name="">
 			<label>Agência:</label>
 			<input type="text" name="agencia" id="agencia"><br>
 			<label>Conta:</label>
@@ -37,11 +39,7 @@
 			<fieldset>
 				<legend>Dados Escolar</legend>
 				<label>Campus:</label>
-				<select name="campus" > 
-					<option value=""> Selecione </option> 
-					<c:forEach items="${listaCampus}" var="obj"> 
-					<option value="${obj.id}"> ${obj.nome} </option> 
-				</c:forEach> 
+				
 			</select><br>
 			<label>Matrícula:</label>
 			<input type="text" name="matricula" id="matricula"><br>
@@ -57,7 +55,7 @@
 			<label>Senha Inicial de Acesso:</label>
 			<input type="text" name="senha" id="senha"> <br>
 			<label>Confirmar Senha:</label>
-			<input type="text" name="senha" id="senha"><br>
+			<input type="text" name="repetirsenha" id="repetirsenha"><br>
 			<label>Título do Plano de Tabalho:</label>
 			<input type="text" name="tituloPlano" id="tituloPlano"> <br>
 			<label>Tipo de Projeto</label>

@@ -15,7 +15,7 @@ import com.mysql.jdbc.Connection;
 
 public class BolsistaHibernateDao {
 
-	private static final String PERSISTENCE_UNIT = "FormulariodeFrequencia";
+	private static final String PERSISTENCE_UNIT = "propesq";
 	private Connection connection;
 
 	public void salvar(Bolsista bolsista) {
@@ -108,10 +108,8 @@ public class BolsistaHibernateDao {
 		bolsista.setCurriculo(rs.getString("curriculo"));
 		bolsista.setLogin(rs.getString("login"));
 		bolsista.setTituloPlano(rs.getString("tituloplano"));
-		bolsista.setTipoProjeto(rs.getString("tipoprojeto"));
 		bolsista.setTelefone(rs.getString("telefone"));
 		bolsista.setSenha(rs.getString("senha"));
-		bolsista.setPerfil(Perfil.valueOf(rs.getString("perfil")));
 		return bolsista;
 	}
 

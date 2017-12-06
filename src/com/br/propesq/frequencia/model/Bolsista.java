@@ -13,38 +13,37 @@ public class Bolsista {
 
 	@Id
 	private int id;
-	@ManyToOne    
-	@JoinColumn(name = "id_campus")
-	private Campus campus;
 	@Column
 	private String nome;
 	@Column
 	private String matricula;
 	@Column
-	private String rg;
+	private String login;
 	@Column
 	private String cpf;
 	@Column
-	private String agencia;
-	@Column
-	private String conta;
+	private String rg;
 	@Column(name="historico_escolar")
 	private String historicoEscolar;
 	@Column
 	private String curriculo;
-	@Column
-	private String telefone;
+	@Column(name="titulo_plano")
+	private String tituloPlano;
 	@Column
 	private String email;
 	@Column
-	private String login;
+	private String telefone;
+	@Column
+	private String agencia;
+	@Column
+	private String conta;
 	@Column
 	private String senha;
-	@Column(name="titulo_plano")
-	private String tituloPlano;
-	@Column(name="tipo_projeto")
-	private String tipoProjeto;
-	private Perfil perfil;
+	@ManyToOne    
+	@JoinColumn(name = "campus")
+	private Campus campus;
+	
+	
 	
 	public int getId() {
 		return id;
@@ -136,18 +135,7 @@ public class Bolsista {
 	public void setTituloPlano(String tituloPlano) {
 		this.tituloPlano = tituloPlano;
 	}
-	public String getTipoProjeto() {
-		return tipoProjeto;
-	}
-	public void setTipoProjeto(String tipoProjeto) {
-		this.tipoProjeto = tipoProjeto;
-	}
-	public Perfil getPerfil() {
-		return perfil;
-	}
-	public void setPerfil(Perfil perfil) {
-		this.perfil = perfil;
-	}
+	
 	
 	
 	

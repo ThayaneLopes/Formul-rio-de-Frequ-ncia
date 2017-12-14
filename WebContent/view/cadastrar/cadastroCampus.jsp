@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<script type="text/javascript" src="view/js/main.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastro Campus</title>
 </head>
@@ -15,7 +16,7 @@
 			<input type="text" name="nome" id="nome">
 			<br> 
 			<label>Telefone</label> 
-			<input type="text" name="telefone"	id="telefone"> 
+			<input type="text" name="telefone"	id="telefone" onkeyup="maskIt(this,event,'(##) #####-####')"> 
 			<br> 
 			<label>Logradouro:</label> 
 			<input type="text" name="logradouro" id="logradouro"> 
@@ -33,7 +34,7 @@
 			<input type="text" name="cidade"id="cidade"> 
 			<br>
 			 <label>CEP:</label> 
-			 <input	type="text" name="cep" id="cep"> 
+			 <input	type="text" name="cep" id="cep" onkeyup="maskIt(this,event,'##.###-###')"> 
 			 <br> 
 			 <label	for="estado">Estado: </label> 
 			 <select id="estado" name="estado">
@@ -48,7 +49,7 @@
 				<option value="GO">Goiás</option>
 				<option value="MA">Maranhão</option>
 				<option value="MT">Mato Grosso</option>
-				<option value="MS">MAto Grosso do Sul</option>
+				<option value="MS">Mato Grosso do Sul</option>
 				<option value="MG">Minas Gerais</option>
 				<option value="PA">Pará</option>
 				<option value="PB">Paraíba</option>

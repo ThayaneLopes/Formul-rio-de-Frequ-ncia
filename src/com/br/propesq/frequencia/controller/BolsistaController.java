@@ -18,7 +18,7 @@ public class BolsistaController {
 	@RequestMapping("cadastroBolsista")
 	public String cadastroBolsista(Model model) {
 
-		return "cadastrar/cadastroBolsista";
+		return "Bolsista/cadastroBolsista";
 	}
 
 	@RequestMapping("cadastroComSucessoBolsista")
@@ -33,6 +33,19 @@ public class BolsistaController {
 
 	}
 
+	@RequestMapping("/menuBolsista")
+	public String menuBolsista() {
+		return "Bolsista/menuBolsista";
+
+	}
+	
+	@RequestMapping("/loginBolsista")
+	public String loginBolsista() {
+		return "Bolsista/loginBolsista";
+
+	}
+	
+
 	@RequestMapping("/login")
 	public String login(String login, String senha, HttpSession session)
 			throws CannotPerformOperationException, InvalidHashException {
@@ -41,7 +54,7 @@ public class BolsistaController {
 		bolsista = dao.buscarVoluntarioLogin(login);
 		if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
 			session.setAttribute("usuarioLogado", bolsista);
-			//session.setAttribute("perfil", bolsista.getPerfil().toString());
+			// session.setAttribute("perfil", bolsista.getPerfil().toString());
 			return "forward:menuLogout";
 		} else {
 			return "forward:menuBolsista";
@@ -51,7 +64,7 @@ public class BolsistaController {
 	@RequestMapping("efetuarLogout")
 	public String logout(HttpSession session) {
 		session.invalidate();
-		return "forward:index";
+		return "forward:menuBolsista";
 	}
 
 }

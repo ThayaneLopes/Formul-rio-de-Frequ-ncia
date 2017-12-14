@@ -1,14 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
-<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-<link src="loginStyle.css" rel="stylesheet" type="text/css">
-<script src="loginMain.js"></script>
+<link href="view/css/loginStyle.css" rel="stylesheet" type="text/css">
+<scrip src="view/js/loginMain.js"></scrip>
+
 </head>
 <body>
 
@@ -19,15 +19,15 @@
 	<div class="container">
 		<div class="card card-container">
 			<!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-			
-			<img id="profile-img" class="profile-img-card" src="logo.png" />
-			<p id="profile-name" class="profile-name-card"></p>
-			<form class="form-signin">
 
-				<input type="text" id="inputLogin" class="form-control"
-					placeholder="Login" required autofocus> <input
-					type="password" id="inputPassword" class="form-control"
-					placeholder="Password" required>
+			<img id="profile-img" class="profile-img-card"
+				src="view/login/logo.png" />
+			<p id="profile-name" class="profile-name-card"></p>
+
+			<form action="login" class="form-signin">
+
+				<input type="text" id="inputLogin" class="form-control"	placeholder="Login" required autofocus> 
+				<input	type="password" id="inputPassword" class="form-control"	placeholder="Password" required>
 				<div id="remember" class="checkbox">
 					<label> <input type="checkbox" value="remember-me">
 						Remember me

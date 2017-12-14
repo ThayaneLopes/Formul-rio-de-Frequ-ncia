@@ -16,12 +16,12 @@ public class CampusController {
 	
 		return "cadastrar/cadastroCampus";
 	}
-	@RequestMapping("/cadastroComSucessoCampus")
+	@RequestMapping("cadastroComSucessoCampus")
 	public String cadastroComSucessoCampus( Campus campus, Model model) {
 
 		CampusHibernateDao dao = new CampusHibernateDao();
 		dao.salvar(campus);
-		model.addAttribute("msg", "Campus Incluído com Sucesso!");
+		model.addAttribute("msg", "Campus inserido com Sucesso!");
 
 		return "forward:cadastroCampus";
 

@@ -6,8 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Login</title>
-<link href="view/login/loginStyle.css" rel="stylesheet" type="text/css">
-<scrip src="loginMain.js"></scrip>
+<link href="view/css/loginStyle.css" rel="stylesheet" type="text/css">
+<scrip src="view/js/loginMain.js"></scrip>
 
 </head>
 <body>
@@ -36,7 +36,7 @@
 				<!-- <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
 
 				<button class="btn btn-lg btn-primary btn-block btn-signin">
-					<a href="menuGestor">Acessar</a>
+					<a href="menuOrientador">Acessar</a>
 				</button>
 			</form>
 			<!-- /form -->

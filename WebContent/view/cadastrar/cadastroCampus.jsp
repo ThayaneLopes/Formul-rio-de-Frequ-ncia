@@ -10,34 +10,19 @@
 <body>
 	<h2>Cadastro de Campus</h2>
 	<form action="cadastroComSucessoCampus" method="post">
-	<div style="text-align: center; color: red;"> ${msg} </div>
+		<div style="text-align: center; color: red;">${msg}</div>
 		<fieldset>
-			<label>Nome:</label> 
-			<input type="text" name="nome" id="nome">
-			<br> 
-			<label>Telefone</label> 
-			<input type="text" name="telefone"	id="telefone" onkeyup="maskIt(this,event,'(##) #####-####')"> 
-			<br> 
-			<label>Logradouro:</label> 
-			<input type="text" name="logradouro" id="logradouro"> 
-			<br> 
-			<label>Número:</label>
-			<input type="text" name="numero" id="numero"> 
-			<br> 
-			<label>Complemento:</label>
-			<input type="text" name="complemento" id="complemento"> 
-			<br>
-			<label>Bairro:</label>
-			<input type="text" name="bairro" id="bairro">
-			<br> 
-			<label>Cidade:</label> 
-			<input type="text" name="cidade"id="cidade"> 
-			<br>
-			 <label>CEP:</label> 
-			 <input	type="text" name="cep" id="cep" onkeyup="maskIt(this,event,'##.###-###')"> 
-			 <br> 
-			 <label	for="estado">Estado: </label> 
-			 <select id="estado" name="estado">
+			<label>Nome:</label> <input type="text" name="nome" id="nome">
+			<br> <label>Telefone</label> <input type="text" name="telefone"
+				id="telefone" onkeyup="maskIt(this,event,'(##) #####-####')">
+			<br> <label>Logradouro:</label> <input type="text"
+				name="logradouro" id="logradouro"> <br> <label>Número:</label>
+			<input type="text" name="numero" id="numero"> <br> <label>Complemento:</label>
+			<input type="text" name="complemento" id="complemento"> <br>
+			<label>Bairro:</label> <input type="text" name="bairro" id="bairro">
+			<br> <label>Cidade:</label> <input type="text" name="cidade"
+				id="cidade"> <br> <label for="estado">Estado: </label>
+			<select id="estado" name="estado">
 				<option>Selecione um estado</option>
 				<option value="AC">Acre</option>
 				<option value="AL">Alagoas</option>
@@ -64,10 +49,13 @@
 				<option value="SC">Santa Catarina</option>
 				<option value="SP">São Paulo</option>
 				<option value="SE">Sergipe</option>
-				<option value="TO">Tocantins</option> 
-				<br>
-			</select> <br> <input type="submit" value="Cadastrar"> <input
-				type="reset" value="Limpar">
+				<option value="TO">Tocantins</option>
+
+
+			</select> <br> <label>CEP:</label> <input type="text" name="cep" id="cep"
+				onkeyup="maskIt(this,event,'##.###-###')"> <br>
+			<input type="submit" value="Cadastrar"> <input type="reset"
+				value="Limpar">
 
 		</fieldset>
 

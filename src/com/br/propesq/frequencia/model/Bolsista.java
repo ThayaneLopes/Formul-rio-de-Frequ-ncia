@@ -1,50 +1,36 @@
 package com.br.propesq.frequencia.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity 
-@Table(name = "bolsista")
 public class Bolsista {
 
-	@Id
+	
 	private int id;
-	@Column
 	private String nome;
-	@Column
 	private String matricula;
-	@Column
 	private String login;
-	@Column
 	private String cpf;
-	@Column
 	private String rg;
-	@Column(name="historico_escolar")
 	private String historicoEscolar;
-	@Column
 	private String curriculo;
-	@Column(name="titulo_plano")
 	private String tituloPlano;
-	@Column
 	private String email;
-	@Column
 	private String telefone;
-	@Column
 	private String agencia;
-	@Column
 	private String conta;
-	@Column
 	private String senha;
-	@ManyToOne    
-	@JoinColumn(name = "campus")
 	private Campus campus;
+	private String banco;
+	private String tipoProjeto;
+
 	
 	
 	
+	public String getBanco() {
+		return banco;
+	}
+	public void setBanco(String banco) {
+		this.banco = banco;
+	}
 	public int getId() {
 		return id;
 	}
@@ -134,6 +120,12 @@ public class Bolsista {
 	}
 	public void setTituloPlano(String tituloPlano) {
 		this.tituloPlano = tituloPlano;
+	}
+	public String getTipoProjeto() {
+		return tipoProjeto;
+	}
+	public void setTipoProjeto(String tipoProjeto) {
+		this.tipoProjeto = tipoProjeto;
 	}
 	
 	

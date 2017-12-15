@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.br.propesq.frequencia.Dao.UsuarioHibernateDao;
+import com.br.propesq.frequencia.hibernate.UsuarioHibernateDao;
 import com.br.propesq.frequencia.model.Usuario;
 
 

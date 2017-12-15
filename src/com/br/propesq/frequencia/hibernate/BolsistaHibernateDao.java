@@ -1,4 +1,4 @@
-package com.br.propesq.frequencia.Dao;
+package com.br.propesq.frequencia.hibernate;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

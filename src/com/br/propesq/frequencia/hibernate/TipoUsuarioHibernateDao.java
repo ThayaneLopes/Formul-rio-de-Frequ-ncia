@@ -1,4 +1,4 @@
-package com.br.propesq.frequencia.Dao;
+package com.br.propesq.frequencia.hibernate;
 
 import java.util.List;
 
@@ -6,27 +6,27 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.br.propesq.frequencia.model.FormularioFrequencia;
+import com.br.propesq.frequencia.model.TipoUsuario;
 
-public class FormularioFrequenciaHibernateDao {
+public class TipoUsuarioHibernateDao {
 	
-	private static final String PERSISTENCE_UNIT = "formulario_frequencia";
+	private static final String PERSISTENCE_UNIT = "tipo_usuario";
 
-	public void salvar(FormularioFrequencia formularioFrequencia) {
+	public void salvar(TipoUsuario tipoUsuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.persist(formularioFrequencia);
+		manager.persist(tipoUsuario);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
 	}
 
-	public void alterar(FormularioFrequencia formularioFrequencia) {
+	public void alterar(TipoUsuario tipoUsuario) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		manager.merge(formularioFrequencia);
+		manager.merge(tipoUsuario);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
@@ -35,34 +35,33 @@ public class FormularioFrequenciaHibernateDao {
 	public void remover(int id) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		FormularioFrequencia formularioFrequencia = manager.find(FormularioFrequencia.class, id);
+		TipoUsuario tipoUsuario = manager.find(TipoUsuario.class, id);
 		manager.getTransaction().begin();
-		manager.remove(formularioFrequencia);
+		manager.remove(tipoUsuario);
 		manager.getTransaction().commit();
 		manager.close();
 		factory.close();
 	}
 
-	public FormularioFrequencia buscarPorId(int id) {
-		FormularioFrequencia obj = null;
+	public TipoUsuario buscarPorId(int id) {
+		TipoUsuario obj = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		obj = manager.find(FormularioFrequencia.class, id);
+		obj = manager.find(TipoUsuario.class, id);
 		manager.close();
 		factory.close();
 		return obj;
 	}
 
-	public List<FormularioFrequencia> listar() {
-		List<FormularioFrequencia> lista = null;
+	public List<TipoUsuario> listar() {
+		List<TipoUsuario> lista = null;
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 		EntityManager manager = factory.createEntityManager();
-		lista = manager.createQuery("SELECT f FROM FormularioFrequencia f ORDER BY f.dataEntrega").getResultList();
+		lista = manager.createQuery("SELECT u FROM TipoUsuario u ORDER BY u.id").getResultList();
 		manager.close();
 		factory.close();
 		return lista;
 	}
-
 
 
 }

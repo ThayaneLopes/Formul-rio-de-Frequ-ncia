@@ -58,7 +58,7 @@
       </li> 
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="cadastroBolsista">
          <i class="fa fa-pencil fa-fw"></i>
          <span class="nav-link-text">Cadastrar Bolsista</span>
        </a>

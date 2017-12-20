@@ -32,9 +32,19 @@ public class BolsistaController {
 		dao.salvar(bolsista);
 		model.addAttribute("msg", "Usuário Incluído com Sucesso!");
 
-		return "forward:cadastroBolsista";
+		return "forward:listarBolsista";
 
 	}
+	
+	@RequestMapping("removerBolsista")
+    public String removerBolsista(Bolsista bolsista, Model model) {
+
+		BolsistaDao dao = new BolsistaDao();
+	dao.remover(bolsista.getId());
+	model.addAttribute("mensagem", "Bolsista Removido com Sucesso");
+
+	return "forward:listarBolsista";
+    }
 
 	@RequestMapping("/menuBolsista")
 	public String menuBolsista() {
@@ -59,7 +69,7 @@ public class BolsistaController {
 		List<Bolsista> listaBolsista = dao2.listar();
 		model.addAttribute("listaBolsista", listaBolsista);
 
-		return "Bolsista/cadastroBolsista";
+		return "Bolsista/listaBolsista";
 	}
 
 }

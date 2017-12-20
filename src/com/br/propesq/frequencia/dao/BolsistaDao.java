@@ -58,6 +58,21 @@ public class BolsistaDao {
 		}
 	}
 
+	public void remover(Integer id) {
+
+		try {
+
+		    String sql = "DELETE FROM bolsista WHERE id = ?";
+		    PreparedStatement stmt = connection.prepareStatement(sql);
+		    stmt.setInt(1, id);
+
+		    stmt.execute();
+		    connection.close();
+
+		} catch (SQLException e) {
+		    throw new RuntimeException(e);
+		}
+	    }
 	public List<Bolsista> listar() {
 		try {
 			List<Bolsista> listaBolsista = new ArrayList<Bolsista>();
@@ -85,9 +100,9 @@ public class BolsistaDao {
 				bolsista.setConta(rs.getString("conta"));
 				bolsista.setMatricula(rs.getString("matricula"));
 				bolsista.setCurriculo(rs.getString("curriculo"));
-				bolsista.setHistoricoEscolar(rs.getString("historicoEscolar"));
-				bolsista.setTituloPlano(rs.getString("tituloPlano"));
-				bolsista.setTipoProjeto(rs.getString("tipoProjeto"));
+				bolsista.setHistoricoEscolar(rs.getString("historico_escolar"));
+				bolsista.setTituloPlano(rs.getString("titulo_plano"));
+				bolsista.setTipoProjeto(rs.getString("tipo_projeto"));
 				bolsista.setLogin(rs.getString("login"));
 
 				listaBolsista.add(bolsista);

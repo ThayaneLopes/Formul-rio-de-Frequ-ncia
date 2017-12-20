@@ -42,7 +42,7 @@ public class UsuarioController {
 
 	@RequestMapping("/menuOrientador")
 	public String menuOrientador() {
-		return "menu/menuOrientador";
+		return "Orientador/menuOrientador";
 	}
 
 }

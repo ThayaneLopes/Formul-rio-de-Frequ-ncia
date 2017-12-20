@@ -26,8 +26,7 @@ public class BolsistaController {
 	}
 
 	@RequestMapping("cadastroComSucessoBolsista")
-	public String cadastroComSucessoBolsista(Bolsista bolsista, Model model)throws CannotPerformOperationException  {
-		
+	public String cadastroComSucessoBolsista(Bolsista bolsista, Model model) throws CannotPerformOperationException {
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.salvar(bolsista);
@@ -49,25 +48,18 @@ public class BolsistaController {
 
 	}
 
-	// @RequestMapping("/login")
-	// public String login(String login, String senha, HttpSession session)
-	// throws CannotPerformOperationException, InvalidHashException {
-	// Bolsista bolsista;
-	// BolsistaHibernateDao dao = new BolsistaHibernateDao();
-	// bolsista = dao.buscarVoluntarioLogin(login);
-	// if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
-	// session.setAttribute("usuarioLogado", bolsista);
-	// // session.setAttribute("perfil", bolsista.getPerfil().toString());
-	// return "forward:menuLogout";
-	// } else {
-	// return "forward:menuBolsista";
-	// }
-	// }
+	@RequestMapping("listarBolsista")
+	public String listarBolsista(Model model) {
 
-	// @RequestMapping("efetuarLogout")
-	// public String logout(HttpSession session) {
-	// session.invalidate();
-	// return "forward:menuBolsista";
-	// }
+		CampusDao dao = new CampusDao();
+		List<Campus> listaCampus = dao.listar();
+		model.addAttribute("listaCampus", listaCampus);
+
+		BolsistaDao dao2 = new BolsistaDao();
+		List<Bolsista> listaBolsista = dao2.listar();
+		model.addAttribute("listaBolsista", listaBolsista);
+
+		return "Bolsista/cadastroBolsista";
+	}
 
 }

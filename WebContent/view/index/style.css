@@ -1,6 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
+
+body{
+	background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+}
 * {
   box-sizing: border-box;
+  
 }
 
 .rollovers {

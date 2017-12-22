@@ -10,7 +10,9 @@ import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.CampusDao;
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.Campus;
+import com.br.propesq.frequencia.util.PasswordStorage;
 import com.br.propesq.frequencia.util.PasswordStorage.CannotPerformOperationException;
+import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
 
 @Controller
 public class BolsistaController {
@@ -35,16 +37,16 @@ public class BolsistaController {
 		return "forward:listarBolsista";
 
 	}
-	
+
 	@RequestMapping("removerBolsista")
-    public String removerBolsista(Bolsista bolsista, Model model) {
+	public String removerBolsista(Bolsista bolsista, Model model) {
 
 		BolsistaDao dao = new BolsistaDao();
-	dao.remover(bolsista.getId());
-	model.addAttribute("mensagem", "Bolsista Removido com Sucesso");
+		dao.remover(bolsista.getId());
+		model.addAttribute("mensagem", "Bolsista Removido com Sucesso");
 
-	return "forward:listarBolsista";
-    }
+		return "forward:listarBolsista";
+	}
 
 	@RequestMapping("/menuBolsista")
 	public String menuBolsista() {
@@ -72,4 +74,18 @@ public class BolsistaController {
 		return "Bolsista/listaBolsista";
 	}
 
+	@RequestMapping("efetuarLoginBolsista")
+	public String efetuarLoginBolsista(String login, String senha)
+			throws CannotPerformOperationException, InvalidHashException {
+		Bolsista bolsista;
+		BolsistaDao dao = new BolsistaDao();
+		bolsista = dao.buscarBolsista(login);
+		if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
+			System.out.println("senha correta");
+		} else {
+			System.out.println("senha incorreta");
+		}
+		return "Bolsista/menuBolsista";
+
+	}
 }

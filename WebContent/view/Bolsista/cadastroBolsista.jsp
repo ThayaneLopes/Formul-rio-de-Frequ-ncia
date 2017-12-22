@@ -6,12 +6,23 @@
 <html>
 <head>
 <script type="text/javascript" src="view/js/main.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="view/Bolsista/menuBolsista.css">
+<link rel="stylesheet" type="text/css"
+	href="view/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css"
+	href="view/css/style.css" />
+<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+	rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastro Bolsista</title>
+
 </head>
 <body>
-
-
+<c:import url="../Orientador/menuOrientador.jsp"/>
+<div class="menu">
 	<h2>Cadastro de Bolsista</h2>
 	<div style="text-align: center; color: red;">${msg}</div>
 
@@ -83,17 +94,19 @@
 	</form>
 
 	<script>
-	
- function validar(dom,tipo){
-  	switch(tipo){
-  		case'num':var regex=/[A-Za-z]/g;break;
-  		case'text':var regex=/\d/g;break;
-  	}
-  	dom.value=dom.value.replace(regex,'');
-  }
-	
-	
-	</script>
+		function validar(dom, tipo) {
+			switch (tipo) {
+			case 'num':
+				var regex = /[A-Za-z]/g;
+				break;
+			case 'text':
+				var regex = /\d/g;
+				break;
+			}
+			dom.value = dom.value.replace(regex, '');
+		}
 
+	</script>
+</div>
 </body>
 </html>

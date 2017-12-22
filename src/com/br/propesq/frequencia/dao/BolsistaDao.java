@@ -62,17 +62,18 @@ public class BolsistaDao {
 
 		try {
 
-		    String sql = "DELETE FROM bolsista WHERE id = ?";
-		    PreparedStatement stmt = connection.prepareStatement(sql);
-		    stmt.setInt(1, id);
+			String sql = "DELETE FROM bolsista WHERE id = ?";
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, id);
 
-		    stmt.execute();
-		    connection.close();
+			stmt.execute();
+			connection.close();
 
 		} catch (SQLException e) {
-		    throw new RuntimeException(e);
+			throw new RuntimeException(e);
 		}
-	    }
+	}
+
 	public List<Bolsista> listar() {
 		try {
 			List<Bolsista> listaBolsista = new ArrayList<Bolsista>();
@@ -117,5 +118,69 @@ public class BolsistaDao {
 		}
 
 	}
+
+	private Bolsista montarObjeto(ResultSet rs) throws SQLException {
+
+		Bolsista bolsista = new Bolsista();
+		
+		bolsista.setId(rs.getInt("id"));
+		bolsista.setNome(rs.getString("nome"));
+		bolsista.setTelefone(rs.getString("telefone"));
+		bolsista.setEmail(rs.getString("email"));
+		bolsista.setRg(rs.getString("rg"));
+		bolsista.setCpf(rs.getString("cpf"));
+		bolsista.setBanco(rs.getString("banco"));
+		bolsista.setAgencia(rs.getString("agencia"));
+		bolsista.setConta(rs.getString("conta"));
+		bolsista.setMatricula(rs.getString("matricula"));
+		bolsista.setCurriculo(rs.getString("curriculo"));
+		bolsista.setHistoricoEscolar(rs.getString("historico_escolar"));
+		bolsista.setTituloPlano(rs.getString("titulo_plano"));
+		bolsista.setTipoProjeto(rs.getString("tipo_projeto"));
+		bolsista.setLogin(rs.getString("login"));;
+		bolsista.setSenha(rs.getString("senha"));
+
+		return bolsista;
+	    }
+	public Bolsista buscarBolsista(String login) {
+		 		try {
+		 
+		 			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM bolsista WHERE login = ?");
+		 			stmt.setString(1, login);
+		 			ResultSet rs = stmt.executeQuery();
+		 
+		 			Bolsista bolsista = new Bolsista();
+		 
+		 			while (rs.next()) {
+		 
+		 				bolsista.setId(rs.getInt("id"));
+		 				bolsista.setNome(rs.getString("nome"));
+		 				bolsista.setTelefone(rs.getString("telefone"));
+		 				bolsista.setEmail(rs.getString("email"));
+		 				bolsista.setRg(rs.getString("rg"));
+		 				bolsista.setCpf(rs.getString("cpf"));
+		 				bolsista.setBanco(rs.getString("banco"));
+		 				bolsista.setAgencia(rs.getString("agencia"));
+		 				bolsista.setConta(rs.getString("conta"));
+		 				bolsista.setMatricula(rs.getString("matricula"));
+		 				bolsista.setCurriculo(rs.getString("curriculo"));
+		 				bolsista.setHistoricoEscolar(rs.getString("historico_escolar"));
+		 				bolsista.setTituloPlano(rs.getString("titulo_plano"));
+		 				bolsista.setTipoProjeto(rs.getString("tipo_projeto"));
+		 				bolsista.setLogin(rs.getString("login"));
+		 				bolsista.setSenha(rs.getString("senha"));
+		 			}
+		 
+		 			rs.close();
+		 			stmt.close();
+		 			connection.close();
+		 
+		 			return bolsista;
+		 
+		 		} catch (SQLException e) {
+		 			throw new RuntimeException(e);
+		 		}
+		 
+		 	}
 
 }

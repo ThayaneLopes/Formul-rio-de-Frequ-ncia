@@ -6,14 +6,16 @@ import com.br.propesq.frequencia.dao.CampusDao;
 import com.br.propesq.frequencia.model.Campus;
 
 public class CampusConverter implements Converter<String, Campus> {
-
-	public Campus convert(String id) {
-		if (!id.equals("")) {
+	@Override
+	public Campus convert(String campus) {
+		if (campus != null && !campus.isEmpty()) {
 			CampusDao dao = new CampusDao();
-			return dao.buscarPorId(Integer.valueOf(id));
-		} else {
+			return dao.buscarPorId(Integer.valueOf(campus));
+		} else  {
 			return null;
 		}
 
 	}
 }
+
+

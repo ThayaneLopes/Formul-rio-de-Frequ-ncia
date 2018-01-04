@@ -5,17 +5,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" src="view/js/main.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="view/Bolsista/menuBolsista.css">
-<link rel="stylesheet" type="text/css"
-	href="view/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css"
-	href="view/css/style.css" />
-<script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-	rel="stylesheet">
+<script type="text/javascript" src="view/js/mascara.js"></script>
+<script type="text/javascript" src="view/js/cadastroMain.js"></script>
+<link rel="stylesheet" type="text/css"	href="view/css/cadastroStyle.css" />
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastro Bolsista</title>
 
@@ -25,9 +17,8 @@
 <div class="menu">
 	<h2>Cadastro de Bolsista</h2>
 	<div style="text-align: center; color: red;">${msg}</div>
-
-
-	<form action="cadastroComSucessoBolsista" method="post">
+ 
+	<form action="cadastroComSucessoBolsista" method="post" id="form_cadastro">
 		<fieldset>
 			<legend>Dados Pessoais</legend>
 			<label>Nome Completo:</label> <input type="text" name="nome"
@@ -67,23 +58,23 @@
 			<legend>Dados para o Projeto</legend>
 			<label>Login:</label> <input type="text" name="login" id="login">
 			<br> <label>Senha Inicial de Acesso:</label> <input
-				type="password" name="senha" id="senha" onclick="validarSenha()">
+				type="password" name="senha" id="senha">
 			<br> <label>Título do Plano de Trabalho:</label> <input
 				type="text" name="tituloPlano" id="tituloPlano"> <br> <label
 				for="tipoProjeto">Tipo de Projeto</label> <select name="tipoProjeto"
 				id="tipoProjeto">
 				<option>Selecione o Tipo</option>
-				<option value="pibicGradIfpe">PIBIC GRAD IFPE</option>
-				<option value="pibicGradCnpq">PIBIC GRAD CNPq</option>
-				<option value="biaFacepe">BIA FACEPE</option>
-				<option value="biaIfpe">BIA IFPE</option>
-				<option value="pibicTecnico">PIBIC TÉCNICO</option>
-				<option value="pibitiTecnico">PIBITI TÉCNICO</option>
-				<option value="pibitiGradIfpe">PIBITI GRAD IFPE</option>
-				<option value="pibitiGradCnpq">PIBITI GRAD CNPq</option>
-				<option value="pibitAfIfpe">PIBIC AF IFPE</option>
-				<option value="pibicAfCnpq">PIBIC AF CNPq</option>
-				<option value="icVoluntario">IC VOLUNTÁRIO</option>
+				<option value="PIBIC GRAD IFPE">PIBIC GRAD IFPE</option>
+				<option value="PIBIC GRAD CNPq">PIBIC GRAD CNPq</option>
+				<option value="BIA FACEPE">BIA FACEPE</option>
+				<option value="BIA IFPE">BIA IFPE</option>
+				<option value="PIBIC TÉCNICO">PIBIC TÉCNICO</option>
+				<option value="PIBITI TÉCNICO">PIBITI TÉCNICO</option>
+				<option value="PIBITI GRAD IFPE">PIBITI GRAD IFPE</option>
+				<option value="PIBITI GRAD CNPq">PIBITI GRAD CNPq</option>
+				<option value="PIBIC AF IFPE">PIBIC AF IFPE</option>
+				<option value="PIBIC AF CNPq">PIBIC AF CNPq</option>
+				<option value="IC VOLUNTÁRIO">IC VOLUNTÁRIO</option>
 			</select><br>
 
 		</fieldset>
@@ -92,6 +83,14 @@
 		<input type="submit" value="Cadastrar"> <input type="reset"
 			value="Limpar">
 	</form>
+	 
+	<script src="view/jq/jquery-2.1.4.min.js"></script>
+       <script src="view/jq/jquery.validate.min.js"></script>
+       <script>
+             $(function(){
+                    $("#form_cadastro").validate();
+             });
+      </script>
 
 	<script>
 		function validar(dom, tipo) {

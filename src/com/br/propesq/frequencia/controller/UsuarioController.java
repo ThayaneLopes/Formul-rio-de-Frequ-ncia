@@ -1,24 +1,41 @@
 package com.br.propesq.frequencia.controller;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.br.propesq.frequencia.dao.CampusDao;
+import com.br.propesq.frequencia.dao.TipoUsuarioDao;
 import com.br.propesq.frequencia.hibernate.UsuarioHibernateDao;
+import com.br.propesq.frequencia.model.Campus;
+import com.br.propesq.frequencia.model.TipoUsuario;
 import com.br.propesq.frequencia.model.Usuario;
+import com.br.propesq.frequencia.util.PasswordStorage.CannotPerformOperationException;
 
 
 @Controller
 public class UsuarioController {
 
 	@RequestMapping("cadastroUsuario")
-	public String cadastroUsuario() {
+	public String cadastroUsuario(Model model) {
+		
+		CampusDao dao = new CampusDao();
+		List<Campus> listaCampus = dao.listar();
+		model.addAttribute("listaCampus", listaCampus);
+		
+		TipoUsuarioDao dao2 = new TipoUsuarioDao();
+		List<TipoUsuario> listaTipoUsuario = dao2.listar();
+		model.addAttribute("listaTipoUsuario", listaTipoUsuario);
+		
+		
 		return "cadastrar/cadastroUsuario";
 	}
 
 	@RequestMapping("/cadastroComSucessoUsuario")
-	public String cadastroComSucessoUsuario(Usuario usuario, Model model) {
+	public String cadastroComSucessoUsuario(Usuario usuario, Model model) throws CannotPerformOperationException {
 
 		UsuarioHibernateDao dao = new UsuarioHibernateDao();
 		dao.salvar(usuario);

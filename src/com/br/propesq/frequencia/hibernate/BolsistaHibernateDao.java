@@ -10,7 +10,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.br.propesq.frequencia.model.Bolsista;
-import com.br.propesq.frequencia.model.Perfil;
 import com.mysql.jdbc.Connection;
 
 public class BolsistaHibernateDao {

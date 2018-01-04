@@ -2,6 +2,8 @@ package com.br.propesq.frequencia.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -87,5 +89,12 @@ public class BolsistaController {
 		}
 		return "Bolsista/menuBolsista";
 
+	}
+	@RequestMapping("efetuarLogoutBolsista")
+	public String efetuarLogoutBolsista(HttpSession session) {
+		session.invalidate();
+		System.out.println("logout efetuado com sucesso");
+		return "forward:loginBolsista";
+		
 	}
 }

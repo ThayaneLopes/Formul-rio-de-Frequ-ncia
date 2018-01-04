@@ -8,7 +8,7 @@
 	<style>
 		h2{
 			text-align: center;
-			color:#3CB371;
+			color:#fff;
 			font-family: Courier, monospace;
 			margin-top: 6%;
 			margin-bottom: 4%;

@@ -1,18 +1,12 @@
 package com.br.propesq.frequencia.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity 
-@Table(name = "tipo_usuario")
 public class TipoUsuario {
 
-	@Id
+	
 	private int id;
-	@Column
 	private String descricao;
+	
 	public int getId() {
 		return id;
 	}

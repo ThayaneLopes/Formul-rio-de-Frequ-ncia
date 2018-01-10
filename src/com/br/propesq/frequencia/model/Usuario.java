@@ -1,40 +1,22 @@
 package com.br.propesq.frequencia.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-@Entity 
-@Table(name = "usuario")
+
 public class Usuario {
 
-	@Id
+	
 	private int id;
-	@ManyToOne    
-	@JoinColumn(name = "id_campus")
 	private Campus campus;
-	@ManyToOne    
-	@JoinColumn(name = "id_tipo_usuario")
 	private TipoUsuario tipoUsuario;
-	@Column
 	private String nome;
-	@Column
 	private String login;
-	@Column
 	private String senha;
-	@Column
 	private String curriculo;
-	@Column
 	private String telefone;
-	@Column
 	private String rg;
-	@Column
 	private String cpf;
-	@Column
 	private String email;
+	
 	public int getId() {
 		return id;
 	}

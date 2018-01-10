@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.dao.CampusDao;
 import com.br.propesq.frequencia.dao.TipoUsuarioDao;
-import com.br.propesq.frequencia.hibernate.UsuarioHibernateDao;
+import com.br.propesq.frequencia.dao.UsuarioDao;
 import com.br.propesq.frequencia.model.Campus;
 import com.br.propesq.frequencia.model.TipoUsuario;
 import com.br.propesq.frequencia.model.Usuario;
@@ -34,10 +34,10 @@ public class UsuarioController {
 		return "cadastrar/cadastroUsuario";
 	}
 
-	@RequestMapping("/cadastroComSucessoUsuario")
+	@RequestMapping("cadastroComSucessoUsuario")
 	public String cadastroComSucessoUsuario(Usuario usuario, Model model) throws CannotPerformOperationException {
 
-		UsuarioHibernateDao dao = new UsuarioHibernateDao();
+		UsuarioDao dao = new UsuarioDao();
 		dao.salvar(usuario);
 		model.addAttribute("msg", "Usuario Incluído com Sucesso!");
 

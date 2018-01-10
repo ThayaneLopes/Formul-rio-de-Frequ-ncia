@@ -20,6 +20,7 @@
 </head>
 <body>
 <c:import url="../Orientador/menuOrientador.jsp"/>
+
 <div class="menu">
 	<a href="cadastroBolsista">Cadastrar novo bolsista</a>
 

@@ -5,3 +5,6 @@ h2{
 	text-align:center;
 	color:#228B22;
 }
+.menu > table{
+	margin-left:25%;
+}

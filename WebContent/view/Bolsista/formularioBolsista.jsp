@@ -3,25 +3,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+  <script language="JavaScript" type="text/javascript">
+            function InserirData(){
+            var d=new Date();
+            var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
+            var TODAY = monthname[d.getMonth()] +  "/" + d.getFullYear();
+            formBoslsista.mesAno.value = TODAY;
+            formBoslsista.mesano.value = TODAY;
+            }
+        </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>ss</title>
 </head>
-<body>
+<body onload="return InserirData();">
 
-	<form>
-		<label>Mês/Ano:</label>
+ 
+	<form method="post" name="formBoslsista">
+	<label>Mês/Ano:</label>
+		<input type="hidden" name="mesAno">
 	<fieldset>
 		<legend>Dados Usuários</legend>
 		<label>Nome do Estudante Pesquisador:</label>
-		<input type="" name=""> <br>
+		<input type="text" name="nome" value=" ${usuarioLogado.nome}" disabled> <br>
 		<label>Matricula do Estudante Pesquisador:</label>
-		<input type="" name=""> <br>
+		<input type="text" name="matricula" value=" ${usuarioLogado.matricula}" disabled> <br>
 		<label>Título do Plano de Trabalho do Bolsista:</label>
-		<input type="" name=""> <br>
+		<input type="Text" name="planoTrabalho" value=" ${usuarioLogado.tituloPlano}" disabled> <br>
 		<label>Nome do Orientador:</label>
 		<input type="" name=""> <br>
 		<label>Tipo de Projeto</label>
-		<input type="" name=""><br>
+		<input type="text" name="tipoProjeto" value=" ${usuarioLogado.tipoProjeto}" disabled ><br>
 	</fieldset>
 	<fieldset>
 		<legend>Cronograma</legend>

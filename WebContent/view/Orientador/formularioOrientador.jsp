@@ -9,10 +9,11 @@
 <body>
 <form>
 		<label>Mês/Ano:</label>
+		<input type="date" name="mesAno">
 	<fieldset>
 		<legend>Dados Usuários</legend>
 		<label>Nome do Estudante Pesquisador:</label>
-		<input type="" name=""> <br>
+		<input type="" name="nome" value="${usuarioLogado.nome}" disabled> <br>
 		<label>Matricula do Estudante Pesquisador:</label>
 		<input type="" name=""> <br>
 		<label>Título do Plano de Trabalho do Bolsista:</label>

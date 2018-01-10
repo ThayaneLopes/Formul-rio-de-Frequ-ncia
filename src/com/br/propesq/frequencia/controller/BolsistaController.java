@@ -77,16 +77,20 @@ public class BolsistaController {
 	}
 
 	@RequestMapping("efetuarLoginBolsista")
-	public String efetuarLoginBolsista(String login, String senha)
+	public String efetuarLoginBolsista(String login, String senha, HttpSession session)
 			throws CannotPerformOperationException, InvalidHashException {
 		Bolsista bolsista;
 		BolsistaDao dao = new BolsistaDao();
 		bolsista = dao.buscarBolsista(login);
+		BolsistaDao dao2 = new BolsistaDao();
+		Bolsista usuarioLogado = dao2.sessaoBolsista(bolsista); 
 		if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
 			System.out.println("senha correta");
 		} else {
 			System.out.println("senha incorreta");
 		}
+		
+		 session.setAttribute("usuarioLogado", usuarioLogado); 
 		return "Bolsista/menuBolsista";
 
 	}
@@ -96,5 +100,10 @@ public class BolsistaController {
 		System.out.println("logout efetuado com sucesso");
 		return "forward:loginBolsista";
 		
+	}
+	
+	@RequestMapping("formularioBolsista")
+	public String formularioBolsista() {
+		return "Bolsista/formularioBolsista";		
 	}
 }

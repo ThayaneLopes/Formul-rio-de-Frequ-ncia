@@ -26,7 +26,7 @@ public class UsuarioDao {
 	public void salvar(Usuario usuario) throws CannotPerformOperationException {
 		try {
 
-			String sql = "INSERT INTO usuario (nome,telefone,rg,cpf,email,id_tipo_usuario, login, senha, curriculo, id_campus) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO usuario2 (nome,telefone,rg,cpf,email,tipo_usuario, login, senha, curriculo, campus) VALUES (?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getTelefone());

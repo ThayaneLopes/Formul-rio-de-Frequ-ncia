@@ -1,47 +1,31 @@
 package com.br.propesq.frequencia.model;
 
-import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-
-@Entity 
-@Table(name = "formulario_frequencia")
 public class FormularioFrequencia {
 
-	@Id
+	
 	private int id;
 	private String mesAno;
-	@ManyToOne    
-	@JoinColumn(name = "id_bolsista")
 	private Bolsista bolsista;
-	@ManyToOne    
-	@JoinColumn(name = "id_usuario")
 	private Usuario usuario;
-	@Column(name="resumo_atividades")
 	private String resumoAtividades;
-	@Column(name="situacao_cronograma")
 	private String situacaoCronograma;
-	@Column
 	private String justificativa;
-	@Column(name="carga_horaria")
 	private String cargaHoraria;
-	@Column(name="interesse_atividades")
 	private String interesseAtividades;
-	@Column(name="progresso_alcancado")
 	private String progressoAlcancado;
-	@Column(name="pagamento_bolsa")
 	private String pagamentoBolsa;
-	@Column(name="comentarios_estudante")
 	private String comentariosEstudante;
-	@Column(name="comentarios_orientador")
 	private String comentariosOrientador;
-	@Column(name="data_entrega")
-	private Date dataEntrega;
+	private String dataEntrega;
+	
+
+	public String getDataEntrega() {
+		return dataEntrega;
+	}
+	public void setDataEntrega(String dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
 	public int getId() {
 		return id;
 	}
@@ -120,12 +104,7 @@ public class FormularioFrequencia {
 	public void setComentariosOrientador(String comentariosOrientador) {
 		this.comentariosOrientador = comentariosOrientador;
 	}
-	public Date getDataEntrega() {
-		return dataEntrega;
-	}
-	public void setDataEntrega(Date dataEntrega) {
-		this.dataEntrega = dataEntrega;
-	}
+
 	
 	
 	

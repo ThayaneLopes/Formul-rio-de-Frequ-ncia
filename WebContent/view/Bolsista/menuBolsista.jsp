@@ -4,8 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css"
-	href="view/css/style.css" />
+<link rel="stylesheet" type="text/css" href="view/css/style.css" />
 <script type="text/javascript" src="view/js/main.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="view/Bolsista/menuBolsista.css">
@@ -21,45 +20,46 @@
 <body>
 
 
-<div class="nav-side-menu">
+	<div class="nav-side-menu">
 
 
-	<div class="menu-list">
+		<div class="menu-list">
 
 
-		<ul id="menu-content" class="menu-content collapse out">
+			<ul id="menu-content" class="menu-content collapse out">
 
-			<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
-				data-target="#menu-content"></i>
-			<li><a href="#"> <i class="fa fa-home"></i> Home
-			</a></li>
+				<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
+					data-target="#menu-content"></i>
+				<li><a href="#"> <i class="fa fa-home"></i> Home
+				</a></li>
 
-			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="formularioBolsista"><i class="fa fa-pencil fa-fw"></i> Preencher
-					Formulário </a>
-			</li>
-			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-list"></i> Formulários </a>
-			</li>
-			<li data-toggle="collapse" data-target="#service" class="collapsed">
-				<a href="#"><i class="fa fa-keyboard-o"></i> Alterar Formulário
-			</a>
-			</li>
+				<li data-toggle="collapse" data-target="#new" class="collapsed">
+					<a href="formularioBolsista"><i class="fa fa-pencil fa-fw"></i>
+						Preencher Formulário </a>
+				</li>
+				<li data-toggle="collapse" data-target="#new" class="collapsed">
+					<a href="#"><i class="fa fa-list"></i> Formulários </a>
+				</li>
+				<li data-toggle="collapse" data-target="#service" class="collapsed">
+					<a href="#"><i class="fa fa-keyboard-o"></i> Alterar Formulário
+				</a>
+				</li>
 
-			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-key"></i> Alterar Senha </a>
-			</li>
-			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="efetuarLogoutBolsista"><i class="fa fa-sign-out"></i> Sair </a>
-			</li>
+				<li data-toggle="collapse" data-target="#new" class="collapsed">
+					<a href="#"><i class="fa fa-key"></i> Alterar Senha </a>
+				</li>
+				<li data-toggle="collapse" data-target="#new" class="collapsed">
+					<a href="efetuarLogoutBolsista"><i class="fa fa-sign-out"></i>
+						Sair </a>
+				</li>
 
 
 
 
-		</ul>
+			</ul>
+		</div>
+
 	</div>
-
-</div>
-</div>
+	</div>
 </body>
 </html>

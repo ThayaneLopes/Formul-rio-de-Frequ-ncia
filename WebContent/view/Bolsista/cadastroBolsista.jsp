@@ -6,8 +6,9 @@
 <html>
 <head>
 <script type="text/javascript" src="view/js/mascara.js"></script>
-<script type="text/javascript" src="view/js/cadastroMain.js"></script>
 <link rel="stylesheet" type="text/css"	href="view/css/cadastroStyle.css" />
+<script type="text/javascript" src="view/js/main.js" ></script>
+<script type="text/javascript" src="view/jq/jquery.min.js" ></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Cadastro Bolsista</title>
 
@@ -18,12 +19,12 @@
 	<h2>Cadastro de Bolsista</h2>
 	<div style="text-align: center; color: red;">${msg}</div>
  
-	<form action="cadastroComSucessoBolsista" method="post" id="form_cadastro">
+	<form action="cadastroComSucessoBolsista" method="post">
 		<fieldset>
 			<legend>Dados Pessoais</legend>
 			<label>Nome Completo:</label> <input type="text" name="nome"
 				id="nome"> <br> <label>Telefone:</label> <input
-				type="text" name="telefone" id="telefone"
+				type="text" name="telefone" id="telefone" onkeyup="validar(this,'num');"
 				onkeyup="maskIt(this,event,'(##) #####-####')"><br> <label>E-mail:</label>
 			<input type="text" name="email" id="email"><br> <label>Número
 				do Documento de Identificação:</label> <input type="text" name="rg" id="rg"><br>
@@ -84,13 +85,8 @@
 			value="Limpar">
 	</form>
 	 
-	<script src="view/jq/jquery-2.1.4.min.js"></script>
-       <script src="view/jq/jquery.validate.min.js"></script>
-       <script>
-             $(function(){
-                    $("#form_cadastro").validate();
-             });
-      </script>
+
+
 
 	<script>
 		function validar(dom, tipo) {
@@ -104,7 +100,8 @@
 			}
 			dom.value = dom.value.replace(regex, '');
 		}
-
+		}
+		
 	</script>
 </div>
 </body>

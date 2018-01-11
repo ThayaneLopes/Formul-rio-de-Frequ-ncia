@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.CampusDao;
+import com.br.propesq.frequencia.dao.FormularioFrequenciaDao;
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.Campus;
+import com.br.propesq.frequencia.model.FormularioFrequencia;
 import com.br.propesq.frequencia.util.PasswordStorage;
 import com.br.propesq.frequencia.util.PasswordStorage.CannotPerformOperationException;
 import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
@@ -102,8 +104,5 @@ public class BolsistaController {
 		
 	}
 	
-	@RequestMapping("formularioBolsista")
-	public String formularioBolsista() {
-		return "Bolsista/formularioBolsista";		
-	}
+
 }

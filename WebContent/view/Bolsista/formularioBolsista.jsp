@@ -1,36 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link rel="stylesheet" type="text/css"	href="view/css/cadastroStyle.css" />
   <script language="JavaScript" type="text/javascript">
             function InserirData(){
             var d=new Date();
             var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
-            var TODAY = monthname[d.getMonth()] +  "/" + d.getFullYear();
-            formBoslsista.mesAno.value = TODAY;
-            formBoslsista.mesano.value = TODAY;
+            var THISMONTH = monthname[d.getMonth()] +  "/" + d.getFullYear();
+            var TODAY = d.getDate() + "/" + monthname[d.getMonth()] +  "/" + d.getFullYear();
+            formBolsista.mesAno.value = THISMONTH;
+            formBolsista.data_entrega.value = TODAY;
             }
         </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ss</title>
 </head>
 <body onload="return InserirData();">
-
+<c:import url="../Orientador/menuOrientador.jsp"/>
+<div class="menu">
  
-	<form method="post" name="formBoslsista">
-	<label>Mês/Ano:</label>
+	<form method="post" action="formularioBolsistaComSucesso"  name="formBolsista">
+	<div style="text-align: center; color: green;">${msg}</div>
 		<input type="hidden" name="mesAno">
 	<fieldset>
 		<legend>Dados Usuários</legend>
 		<label>Nome do Estudante Pesquisador:</label>
+		<input type="hidden" name="bolsista" value=" ${usuarioLogado.id}">
 		<input type="text" name="nome" value=" ${usuarioLogado.nome}" disabled> <br>
 		<label>Matricula do Estudante Pesquisador:</label>
 		<input type="text" name="matricula" value=" ${usuarioLogado.matricula}" disabled> <br>
 		<label>Título do Plano de Trabalho do Bolsista:</label>
 		<input type="Text" name="planoTrabalho" value=" ${usuarioLogado.tituloPlano}" disabled> <br>
 		<label>Nome do Orientador:</label>
-		<input type="" name=""> <br>
+		<input type="text" name="orientador"> <br>
 		<label>Tipo de Projeto</label>
 		<input type="text" name="tipoProjeto" value=" ${usuarioLogado.tipoProjeto}" disabled ><br>
 	</fieldset>
@@ -83,7 +88,9 @@
 		<label>Comentários e Dificuldades do Orinetador:</label> <br>
 		<textarea rows="10" cols="100" maxlength="500"></textarea>
 	</fieldset>
+	<input type="hidden" name="data_entrega">
+	<input type="submit" value="Enviar"> <input type="reset" value="limpar">
 
 	</form>
-</body>
+</div>
 </html>

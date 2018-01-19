@@ -74,9 +74,13 @@ public class BolsistaController {
 		CampusDao dao = new CampusDao();
 		List<Campus> listaCampus = dao.listar();
 		model.addAttribute("listaCampus", listaCampus);
+		
+		UsuarioDao dao2 = new UsuarioDao();
+		List<Usuario> listaUsuario = dao2.listar();
+		model.addAttribute("listaUsuario", listaUsuario);
 
-		BolsistaDao dao2 = new BolsistaDao();
-		List<Bolsista> listaBolsista = dao2.listar();
+		BolsistaDao dao3 = new BolsistaDao();
+		List<Bolsista> listaBolsista = dao3.listar();
 		model.addAttribute("listaBolsista", listaBolsista);
 
 		return "Bolsista/listaBolsista";

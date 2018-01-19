@@ -16,9 +16,12 @@
 
 <div class="menu">
 
-	<a href="cadastroBolsista">Cadastrar novo bolsista</a>
-
-	<table border="1" style="width: 100%" id="tabelaListaBolsista">
+	<br> 
+	<a href="cadastroBolsista" class="btn btn-info">Cadastrar novo bolsista</a>
+	
+	
+<br><br>
+	<table border=1; style="width: 100%" id="tabelaListaBolsista">
 		<tr>
 			<td>Nome</td>
 			<td>Matrícula</td>
@@ -43,12 +46,13 @@
 				<td>${bolsista.email}</td>
 				<td>${bolsista.telefone}</td>
 				<td>${bolsista.campus.nome}</td>
-				<td><a href="removerBolsista?id=${bolsista.id}">Remover</a></td>
+				<td><a href="removerBolsista?id=${bolsista.id}" class="btn btn-danger">Remover</a></td>
 
 			</tr>
 		</c:forEach>
 
 	</table>
+
 </div>
 </body>
 </html>

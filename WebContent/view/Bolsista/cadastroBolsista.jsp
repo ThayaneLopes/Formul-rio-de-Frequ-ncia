@@ -108,21 +108,8 @@
 		<input type="reset" class="btn btn-default" value="Limpar">
 		
 	</form>
-	 <script src="view/jq/jquery-3.2.1.min.js"></script>
-       <script src="view/jq/jquery.validate.min.js"></script>
-       <script src="view/js/cadastroMain.js"></script>
-       <script>
-             $(function(){
-                    $("#form_cadastro").validate();
-             });
-       </script>
-
-
-
-
-
-
-	<script>
+	<script src="view/js/mascara.js"></script>
+		<script>
 		function validar(dom, tipo) {
 			switch (tipo) {
 			case 'num':
@@ -134,9 +121,24 @@
 			}
 			dom.value = dom.value.replace(regex, '');
 		}
-		}
+		
 		
 	</script>
+	 <script src="view/jq/jquery-3.2.1.min.js"></script>
+       <script src="view/jq/jquery.validate.min.js"></script>
+       <script src="view/js/cadastroMain.js"></script>
+       <script>
+             $(function(){
+                    $("#form_cadastro").validate();
+             });
+       </script>
+
+}
+
+
+
+
+
 </div>
 </body>
 </html>

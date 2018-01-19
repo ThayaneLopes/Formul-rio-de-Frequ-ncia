@@ -124,7 +124,7 @@ public class BolsistaController {
 	return "Bolsista/alterarBolsista";
     }
 	 @RequestMapping("/alterarBolsista")
-	    public String alterarProduto(Bolsista bolsista, Model model)throws CannotPerformOperationException {
+	    public String alterarProduto(Bolsista bolsista, Model model) throws CannotPerformOperationException {
 
 		 BolsistaDao dao = new BolsistaDao();
 		dao.alterar(bolsista);

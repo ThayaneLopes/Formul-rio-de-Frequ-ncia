@@ -59,6 +59,25 @@ public class BolsistaDao {
 			throw new RuntimeException(e);
 		}
 	}
+	public void alterar(Bolsista bolsista) throws CannotPerformOperationException {
+
+		String sql = "UPDATE bolsista SET senha=? WHERE id =?";
+		PreparedStatement stmt;
+		
+		try {
+		    stmt = connection.prepareStatement(sql);
+
+		    new PasswordStorage();
+			String hash = PasswordStorage.createHash(bolsista.getSenha());
+			stmt.setString(1, hash);
+			stmt.setInt(2, bolsista.getId());
+		    stmt.execute();
+		    connection.close();
+
+		} catch (SQLException e) {
+		    throw new RuntimeException(e);
+		}
+	    }
 
 	public void remover(Integer id) {
 
@@ -208,24 +227,7 @@ public class BolsistaDao {
 			throw new RuntimeException(e);
 		}
 	}
-	public void alterar(Bolsista bolsista) throws CannotPerformOperationException {
-
-		String sql = "UPDATE bolsista SET senha=? WHERE id =?";
-		PreparedStatement stmt;
-		
-		try {
-		    stmt = connection.prepareStatement(sql);
-
-		    new PasswordStorage();
-			String hash = PasswordStorage.createHash(bolsista.getSenha());
-			stmt.setString(1, hash);
-		    stmt.execute();
-		    connection.close();
-
-		} catch (SQLException e) {
-		    throw new RuntimeException(e);
-		}
-	    }
+	
 	public Bolsista BuscarBolsistaPorId(int id) {
 		try {
 

@@ -8,12 +8,11 @@
 <script type="text/javascript" src="view/js/mascara.js"></script>
 <link rel="stylesheet" type="text/css"	href="view/css/cadastroStyle.css" />
 <script type="text/javascript" src="view/js/main.js" ></script>
-<script type="text/javascript" src="view/jq/jquery.min.js" ></script>
 <link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
 <script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Cadastro Bolsista</title>
 
+<title>Cadastro Bolsista</title>
 </head>
 <body>
 <c:import url="../Orientador/menuOrientador.jsp"/>
@@ -22,7 +21,7 @@
 	
 	<div style="text-align: center; color: red;">${msg}</div>
  
-	<form action="cadastroComSucessoBolsista" method="post">
+	<form action="cadastroComSucessoBolsista" method="post" class="form" id="form_cadastro">
 		<fieldset>
 		<br>
 			<legend><i><b>Dados Pessoais</b></i></legend>
@@ -43,7 +42,7 @@
 			<legend><i><b>Dados Bancários</b></i></legend>
 
 			<label>Banco</label> 
-			<input type="text" name="banco" id="banco" class="form-control" required="required">
+			<input type="text" name="banco" id="banco" class="form-control" required="required"><br>
 			<label>Agência:</label> 
 			<input type="text" name="agencia"	id="agencia" onkeyup="maskIt(this,event,' ####-###')" class="form-control" required="required"><br>
 			<label>Conta:</label> 
@@ -109,7 +108,17 @@
 		<input type="reset" class="btn btn-default" value="Limpar">
 		
 	</form>
-	 
+	 <script src="view/jq/jquery-3.2.1.min.js"></script>
+       <script src="view/jq/jquery.validate.min.js"></script>
+       <script src="view/js/cadastroMain.js"></script>
+       <script>
+             $(function(){
+                    $("#form_cadastro").validate();
+             });
+       </script>
+
+
+
 
 
 

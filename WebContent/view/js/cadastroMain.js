@@ -4,6 +4,10 @@ $("#form_cadastro").validate({
                     required:true,
                     minlength:3
              },
+             telefone:{
+                 required:true,
+                 minlength:14
+          },
              email:{
                     required:true
              },
@@ -57,6 +61,10 @@ $("#form_cadastro").validate({
                     required:"Por favor, informe seu nome",
                     minlength:"O nome deve ter pelo menos 3 caracteres"
              },
+             telefone:{
+                 required:"Por favor, informe seu telefone",
+                 minlength:"O nome deve ter pelo menos 14 caracteres"
+          },
              email:{
                     required:"É necessário informar um email"
              },

@@ -46,7 +46,7 @@
 				</li>
 
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
-					<a href="#"><i class="fa fa-key"></i> Alterar Senha </a>
+					<a href="exibirAlterarBolsista"><i class="fa fa-key"></i> Alterar Senha </a>
 				</li>
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
 					<a href="efetuarLogoutBolsista"><i class="fa fa-sign-out"></i>

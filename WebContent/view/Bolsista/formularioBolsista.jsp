@@ -19,7 +19,7 @@
 <title>ss</title>
 </head>
 <body onload="return InserirData();">
-<c:import url="../Orientador/menuOrientador.jsp"/>
+<c:import url="../Bolsista/menuBolsista.jsp"/>
 <div class="menu">
  
 	<form method="post" action="formularioBolsistaComSucesso"  name="formBolsista">
@@ -35,7 +35,7 @@
 		<label>Título do Plano de Trabalho do Bolsista:</label>
 		<input type="Text" name="planoTrabalho" value=" ${usuarioLogado.tituloPlano}" disabled> <br>
 		<label>Nome do Orientador:</label>
-		<input type="text" name="orientador"> <br>
+		<input type="text" name="orientador" value=" ${usuarioLogado.orientador}" disabled> <br>
 		<label>Tipo de Projeto</label>
 		<input type="text" name="tipoProjeto" value=" ${usuarioLogado.tipoProjeto}" disabled ><br>
 	</fieldset>

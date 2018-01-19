@@ -42,8 +42,7 @@
 		</fieldset>
 		<fieldset>
 			<legend>Dados Escolar</legend>
-			<label>Campus:</label> <select name="campus" class="form-control"
-				style="width: 300px;">
+			<label>Campus:</label> <select name="campus" class="form-control"	style="width: 300px;">
 				<option value="">Selecione</option>
 				<c:forEach items="${listaCampus}" var="obj">
 					<option value="${obj.id}">${obj.nome}</option>
@@ -57,6 +56,14 @@
 		</fieldset>
 		<fieldset>
 			<legend>Dados para o Projeto</legend>
+			<label>Orientador</label>
+			<select name="orientador" class="form-control"	style="width: 300px;">
+				<option value="">Selecione</option>
+				<c:forEach items="${listaUsuario}" var="obj">
+					<option value="${obj.id}">${obj.nome}</option>
+				</c:forEach>
+			</select> <br>
+			
 			<label>Login:</label> <input type="text" name="login" id="login">
 			<br> <label>Senha Inicial de Acesso:</label> <input
 				type="password" name="senha" id="senha">

@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.CampusDao;
-import com.br.propesq.frequencia.dao.FormularioFrequenciaDao;
+import com.br.propesq.frequencia.dao.UsuarioDao;
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.Campus;
-import com.br.propesq.frequencia.model.FormularioFrequencia;
+import com.br.propesq.frequencia.model.Usuario;
 import com.br.propesq.frequencia.util.PasswordStorage;
 import com.br.propesq.frequencia.util.PasswordStorage.CannotPerformOperationException;
 import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
@@ -27,6 +27,10 @@ public class BolsistaController {
 		CampusDao dao = new CampusDao();
 		List<Campus> listaCampus = dao.listar();
 		model.addAttribute("listaCampus", listaCampus);
+		
+		UsuarioDao dao2 = new UsuarioDao();
+		List<Usuario> listaUsuario = dao2.listar();
+		model.addAttribute("listaUsuario", listaUsuario);
 
 		return "Bolsista/cadastroBolsista";
 	}
@@ -84,8 +88,10 @@ public class BolsistaController {
 		Bolsista bolsista;
 		BolsistaDao dao = new BolsistaDao();
 		bolsista = dao.buscarBolsista(login);
+		
 		BolsistaDao dao2 = new BolsistaDao();
 		Bolsista usuarioLogado = dao2.sessaoBolsista(bolsista); 
+		
 		if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
 			System.out.println("senha correta");
 		} else {
@@ -103,6 +109,26 @@ public class BolsistaController {
 		return "forward:loginBolsista";
 		
 	}
+	@RequestMapping("exibirAlterarBolsista")
+    public String exibirAlterarBolsista(Bolsista bolsista, Model model) {
+
+	BolsistaDao dao = new BolsistaDao();
+	Bolsista bolsistaCompleto = dao.BuscarBolsistaPorId(bolsista.getId());
+	model.addAttribute("bolsista", bolsistaCompleto);
+
+
+	return "Bolsista/alterarBolsista";
+    }
+	 @RequestMapping("/alterarBolsista")
+	    public String alterarProduto(Bolsista bolsista, Model model)throws CannotPerformOperationException {
+
+		 BolsistaDao dao = new BolsistaDao();
+		dao.alterar(bolsista);
+		model.addAttribute("mensagem", "Senha Alterado com Sucesso!");
+
+		return "forward:exibirAlterarBolsista";
+	    }
+
 	
 
 }

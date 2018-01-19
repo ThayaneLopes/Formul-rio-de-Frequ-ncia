@@ -21,10 +21,17 @@ public class Bolsista {
 	private Campus campus;
 	private String banco;
 	private String tipoProjeto;
+	private Usuario orientador;
 
 	
 	
 	
+	public Usuario getOrientador() {
+		return orientador;
+	}
+	public void setOrientador(Usuario orientador) {
+		this.orientador = orientador;
+	}
 	public String getBanco() {
 		return banco;
 	}

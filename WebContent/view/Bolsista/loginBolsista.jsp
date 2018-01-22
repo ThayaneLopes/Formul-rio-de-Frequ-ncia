@@ -16,16 +16,18 @@
 		<div class="card card-container">
 			<img id="profile-img" class="profile-img-card"	src="view/img/logo.png" />
 			<p id="profile-name" class="profile-name-card"></p>
+			<div style="text-align: center; color: red;"><b>${msg}</b></div>
+			
 			<form action="efetuarLoginBolsista" method="post" class="form-signin">
+				
 				<input type="text" id="login" name="login" class="form-control"	placeholder="Login" required autofocus> 
 				<input	type="password" name="senha" id="senha" class="form-control" placeholder="Senha" required>
-				<div id="remember" class="checkbox">
-					<label> <input type="checkbox" value="remember-me">
-						Remember me
-					</label>
-				</div>
+				
+				
 				<input type="submit" value="Acessar" class="btn btn-lg btn-primary btn-block btn-signin">
 			</form>
+			
+			
 
 			<a href="#" class="forgot-password"> Forgot the password? </a>
 		</div>

@@ -29,7 +29,7 @@ public class FormularioFrequenciaDao {
 	public void salvarBolsista(FormularioFrequencia formularioFrequencia) {
 		try {
 
-			String sql = "INSERT INTO formulario_frequencia (mesAno,id_bolsista, id_orientador, resumo_atividades,comentarios_estudante, data_entrega, nome_bolsista, matricula_bolsista,titulo_plano,tipo_projeto,nome_orientador ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO formulario_frequencia (mesAno,id_bolsista, id_usuario, resumo_atividades,comentarios_estudante, data_entrega, nome_bolsista, matricula_bolsista,titulo_plano,tipo_projeto,nome_orientador ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, formularioFrequencia.getMesAno());
 			stmt.setInt(2, formularioFrequencia.getBolsista().getId());
@@ -82,7 +82,7 @@ public class FormularioFrequenciaDao {
 				FormularioFrequencia formularioFrequencia = new FormularioFrequencia();
 				formularioFrequencia.setId(rs.getInt("id"));
 
-				int idUsuario = rs.getInt("id_orientador");
+				int idUsuario = rs.getInt("id_usuario");
 				UsuarioDao dao = new UsuarioDao();
 				Usuario usuario = dao.buscarPorId(idUsuario);
 				formularioFrequencia.setUsuario(usuario);
@@ -101,7 +101,7 @@ public class FormularioFrequenciaDao {
 				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
-				formularioFrequencia.setDataEntrega(rs.getString("data_estrega"));
+				formularioFrequencia.setDataEntrega(rs.getString("data_entrega"));
 
 				listarFormularioBolsista.add(formularioFrequencia);
 			}
@@ -132,7 +132,7 @@ public class FormularioFrequenciaDao {
 
 				
 
-				int idUsuario = rs.getInt("id_orientador");
+				int idUsuario = rs.getInt("id_usuario");
 				UsuarioDao dao = new UsuarioDao();
 				Usuario usuario = dao.buscarPorId(idUsuario);
 				formularioFrequencia.setUsuario(usuario);
@@ -151,7 +151,7 @@ public class FormularioFrequenciaDao {
 				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
-				formularioFrequencia.setDataEntrega(rs.getString("data_estrega"));
+				formularioFrequencia.setDataEntrega(rs.getString("data_entrega"));
 			}
 
 			rs.close();

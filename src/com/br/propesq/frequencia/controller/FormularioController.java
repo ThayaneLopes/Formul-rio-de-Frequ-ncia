@@ -7,14 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.dao.BolsistaDao;
-import com.br.propesq.frequencia.dao.CampusDao;
 import com.br.propesq.frequencia.dao.FormularioFrequenciaDao;
 import com.br.propesq.frequencia.dao.UsuarioDao;
 import com.br.propesq.frequencia.model.Bolsista;
-import com.br.propesq.frequencia.model.Campus;
 import com.br.propesq.frequencia.model.FormularioFrequencia;
 import com.br.propesq.frequencia.model.Usuario;
-import com.br.propesq.frequencia.util.PasswordStorage.CannotPerformOperationException;
 
 @Controller
 public class FormularioController {
@@ -59,8 +56,8 @@ public class FormularioController {
 		public String listaFormularioBolsista(Model model) {
 
 			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
-			List<FormularioFrequencia> listarFormularioBolsista = dao.listarFormularioBolsista();
-			model.addAttribute("listarFormularioBolsista", listarFormularioBolsista);
+			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();
+			model.addAttribute("listaFormularioBolsista", listaFormularioBolsista);
 			
 			UsuarioDao dao2 = new UsuarioDao();
 			List<Usuario> listaUsuario = dao2.listar();

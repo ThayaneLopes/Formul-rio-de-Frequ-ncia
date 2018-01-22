@@ -91,8 +91,8 @@ $("#form_cadastro").validate({
              },            
              matricula:{
             	 required:"A matrícula deve ser preenchida",
-            	 minlength:"Matrícula deve ter 8 caracteres",
-            	 maxlength:"Matrícula deve ter 8 caracteres"
+            	 minlength:"Matrícula deve ter 13 caracteres",
+            	 maxlength:"Matrícula deve ter 13 caracteres"
              },
              curriculo:{
             	 required:"O currículo deve ser preenchido",

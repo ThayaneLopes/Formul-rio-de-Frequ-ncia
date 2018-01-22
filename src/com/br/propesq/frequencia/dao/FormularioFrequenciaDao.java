@@ -2,10 +2,14 @@ package com.br.propesq.frequencia.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-
+import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.FormularioFrequencia;
+import com.br.propesq.frequencia.model.Usuario;
 import com.br.propesq.frequencia.util.ConnectionFactory;
 
 public class FormularioFrequenciaDao {
@@ -22,30 +26,144 @@ public class FormularioFrequenciaDao {
 
 	}
 	
-	public void salvar(FormularioFrequencia formularioFrequencia) {
+	public void salvarBolsista(FormularioFrequencia formularioFrequencia) {
 		try {
 
-			String sql = "INSERT INTO formulario_frequencia (mes_ano,id_bolsista, id_usuario, situacao_cronograma, justificativa, resumo_atividades, carga_horaria, interesse_atividades, progresso_alcancado, pagamento_bolsa,comentarios_estudante, comentarios_orientador, data_entrega ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO formulario_frequencia (mesAno,id_bolsista, id_orientador, resumo_atividades,comentarios_estudante, data_entrega, nome_bolsista, matricula_bolsista,titulo_plano,tipo_projeto,nome_orientador ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, formularioFrequencia.getMesAno());
 			stmt.setInt(2, formularioFrequencia.getBolsista().getId());
 			stmt.setInt(3, formularioFrequencia.getUsuario().getId());
-			stmt.setString(4, formularioFrequencia.getSituacaoCronograma());
-			stmt.setString(5, formularioFrequencia.getJustificativa());
-			stmt.setString(6, formularioFrequencia.getResumoAtividades());
-			stmt.setString(7, formularioFrequencia.getCargaHoraria());
-			stmt.setString(8, formularioFrequencia.getInteresseAtividades());
-			stmt.setString(9, formularioFrequencia.getProgressoAlcancado());
-			stmt.setString(10, formularioFrequencia.getPagamentoBolsa());
-			stmt.setString(11, formularioFrequencia.getComentariosEstudante());
-			stmt.setString(12, formularioFrequencia.getComentariosOrientador());
-			stmt.setString(13, formularioFrequencia.getDataEntrega());
+			stmt.setString(4, formularioFrequencia.getResumoAtividades());
+			stmt.setString(5, formularioFrequencia.getComentariosEstudante());
+			stmt.setString(6, formularioFrequencia.getDataEntrega());
+			stmt.setString(7, formularioFrequencia.getNomeBolsista());
+			stmt.setString(8, formularioFrequencia.getMatriculaBolsista());
+			stmt.setString(9, formularioFrequencia.getTituloPlano());
+			stmt.setString(10, formularioFrequencia.getTipoProjeto());
+			stmt.setString(11, formularioFrequencia.getNomeOrientador());
+			
 			
 			stmt.execute();
 			connection.close();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		
+	}
+	
+	public void alterarBolsista(FormularioFrequencia formularioFrequencia){
+
+		String sql = "UPDATE formulario_frequencia SET resumo_atividades=?,comentarios_estudante=? WHERE id =?";
+		PreparedStatement stmt;
+		
+		try {
+		    stmt = connection.prepareStatement(sql);
+		    
+		    stmt.setString(1, formularioFrequencia.getResumoAtividades());
+		    stmt.setString(2, formularioFrequencia.getComentariosEstudante());
+			stmt.setInt(3, formularioFrequencia.getId());
+		    stmt.execute();
+		    connection.close();
+
+		} catch (SQLException e) {
+		    throw new RuntimeException(e);
+		}
+	    }
+
+	
+	public List<FormularioFrequencia> listarFormularioBolsista() {
+		try {
+			List<FormularioFrequencia> listarFormularioBolsista = new ArrayList<FormularioFrequencia>();
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM formulario_frequencia ORDER BY id DESC");
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				FormularioFrequencia formularioFrequencia = new FormularioFrequencia();
+				formularioFrequencia.setId(rs.getInt("id"));
+
+				int idUsuario = rs.getInt("id_orientador");
+				UsuarioDao dao = new UsuarioDao();
+				Usuario usuario = dao.buscarPorId(idUsuario);
+				formularioFrequencia.setUsuario(usuario);
+				
+				int idBolsista = rs.getInt("id_bolsista");
+				BolsistaDao dao2 = new BolsistaDao();
+				Bolsista bolsista = dao2.BuscarBolsistaPorId(idBolsista);
+				formularioFrequencia.setBolsista(bolsista);
+
+				formularioFrequencia.setId(rs.getInt("id"));
+				formularioFrequencia.setNomeBolsista(rs.getString("nome_bolsista"));
+				formularioFrequencia.setMatriculaBolsista(rs.getString("matricula_bolsista"));
+				formularioFrequencia.setMesAno(rs.getString("mesAno"));
+				formularioFrequencia.setTituloPlano(rs.getString("titulo_plano"));
+				formularioFrequencia.setNomeOrientador(rs.getString("nome_orientador"));
+				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
+				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
+				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
+				formularioFrequencia.setDataEntrega(rs.getString("data_estrega"));
+
+				listarFormularioBolsista.add(formularioFrequencia);
+			}
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return listarFormularioBolsista;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	
+	
+	public FormularioFrequencia BuscarPorId(int id) {
+		try {
+
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM formulario_frequencia WHERE id = ?");
+			stmt.setInt(1, id);
+			ResultSet rs = stmt.executeQuery();
+
+			FormularioFrequencia formularioFrequencia = new FormularioFrequencia();
+			formularioFrequencia.setId(rs.getInt("id"));
+
+			while (rs.next()) {
+
+				
+
+				int idUsuario = rs.getInt("id_orientador");
+				UsuarioDao dao = new UsuarioDao();
+				Usuario usuario = dao.buscarPorId(idUsuario);
+				formularioFrequencia.setUsuario(usuario);
+				
+				int idBolsista = rs.getInt("id_bolsista");
+				BolsistaDao dao2 = new BolsistaDao();
+				Bolsista bolsista = dao2.BuscarBolsistaPorId(idBolsista);
+				formularioFrequencia.setBolsista(bolsista);
+
+				formularioFrequencia.setId(rs.getInt("id"));
+				formularioFrequencia.setNomeBolsista(rs.getString("nome_bolsista"));
+				formularioFrequencia.setMatriculaBolsista(rs.getString("matricula_bolsista"));
+				formularioFrequencia.setMesAno(rs.getString("mesAno"));
+				formularioFrequencia.setTituloPlano(rs.getString("titulo_plano"));
+				formularioFrequencia.setNomeOrientador(rs.getString("nome_orientador"));
+				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
+				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
+				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
+				formularioFrequencia.setDataEntrega(rs.getString("data_estrega"));
+			}
+
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return formularioFrequencia;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
 	}
 
 }

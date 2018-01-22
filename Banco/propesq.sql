@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Jan-2018 às 15:07
--- Versão do servidor: 10.1.29-MariaDB
--- PHP Version: 7.2.0
+-- Generation Time: 22-Jan-2018 às 16:39
+-- Versão do servidor: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,16 +46,8 @@ CREATE TABLE `bolsista` (
   `campus` int(11) DEFAULT NULL,
   `tipo_projeto` varchar(400) DEFAULT NULL,
   `banco` varchar(150) NOT NULL,
-  `id_orientador` int(11) NOT NULL
+  `id_orientador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `bolsista`
---
-
-INSERT INTO `bolsista` (`id`, `nome`, `matricula`, `login`, `cpf`, `rg`, `historico_escolar`, `curriculo`, `titulo_plano`, `email`, `telefone`, `agencia`, `conta`, `senha`, `campus`, `tipo_projeto`, `banco`, `id_orientador`) VALUES
-(1, 'Thayane Pereira Lopes da Silva', '324234', 'thayane', '104.496.294-14', '987654321', 'tumblr_ng91c1uzRI1rcfx2ho1_r1_1280.jpg', 'qweqwe', 'd', 'thayanelopes1997@live.com', '8133046256', '324234', '234234', 'sha1:64000:18:50pVp1nYhKvjKpwzmTbUaclk1hWj7xup:Dyjw4UehEDuiNxPJS0AJ0vte', 3, 'PIBITI GRAD CNPq', 'bb', 0),
-(3, 'teste', '123456', 'teste', '98765432100', '123456', 'eeeee', 'eeeee', 'eeeeeee', 'eeeeeeee@dddd', '81987654321', '54545', '54545', 'sha1:64000:18:50pVp1nYhKvjKpwzmTbUaclk1hWj7xup:Dyjw4UehEDuiNxPJS0AJ0vte', 2, 'esdes', 'ddsd', 1);
 
 -- --------------------------------------------------------
 
@@ -82,12 +74,7 @@ CREATE TABLE `campus` (
 --
 
 INSERT INTO `campus` (`id`, `nome`, `telefone`, `logradouro`, `numero_logradouro`, `complemento`, `bairro`, `cidade`, `estado`, `cep`, `numero`) VALUES
-(1, 'Thayane Pereira Lopes da Silva', '8133046256', 'ddd', 158, 'Jardim Progresso', 'Barra de Jangada', 'dsffdfd', 'AC', '55555-555', NULL),
-(2, 'Jaboatão dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
-(3, 'Jaboatão dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
-(4, 'Jaboatão dos Guararapes', '81979082153', 'rus tsd', 158, '', '', 'jaboatao', 'PE', '54.490-000', NULL),
-(5, 'Jaboatão dos Guararapes', '81979082153', 'rus tsd', 158, '', '', 'jaboatao', 'PE', '54.490-000', NULL),
-(6, 'Thayane Pereira Lopes da Silva', '8133046256', 'ddd', 158, 'Jardim Progresso', 'Barra de Jangada', 'dsffdfd', 'AC', '55555-555', NULL);
+(3, 'JaboatÃ£o dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL);
 
 -- --------------------------------------------------------
 
@@ -97,7 +84,6 @@ INSERT INTO `campus` (`id`, `nome`, `telefone`, `logradouro`, `numero_logradouro
 
 CREATE TABLE `formulario_frequencia` (
   `id` int(11) NOT NULL,
-  `mes_ano` varchar(7) NOT NULL,
   `id_bolsista` int(11) DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL,
   `situacao_cronograma` varchar(150) DEFAULT NULL,
@@ -110,7 +96,16 @@ CREATE TABLE `formulario_frequencia` (
   `comentarios_estudante` varchar(150) DEFAULT NULL,
   `comentarios_orientador` varchar(150) DEFAULT NULL,
   `data_entrega` date DEFAULT NULL,
-  `mesAno` varchar(255) DEFAULT NULL
+  `mesAno` varchar(255) DEFAULT NULL,
+  `nome_bolsista` varchar(150) DEFAULT NULL,
+  `matricula_bolsista` varchar(14) DEFAULT NULL,
+  `titulo_plano` varchar(150) DEFAULT NULL,
+  `tipo_projeto` varchar(100) DEFAULT NULL,
+  `nome_orientador` varchar(150) DEFAULT NULL,
+  `status_bolsista` tinyint(1) DEFAULT NULL,
+  `status_orientador` tinyint(1) DEFAULT NULL,
+  `status_gestor` tinyint(1) DEFAULT NULL,
+  `status_propesq` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -130,7 +125,8 @@ CREATE TABLE `tipo_usuario` (
 
 INSERT INTO `tipo_usuario` (`id`, `descricao`) VALUES
 (1, 'Orientador'),
-(3, 'Gestor');
+(3, 'Gestor'),
+(4, 'propesq');
 
 -- --------------------------------------------------------
 
@@ -153,13 +149,6 @@ CREATE TABLE `usuario2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Extraindo dados da tabela `usuario2`
---
-
-INSERT INTO `usuario2` (`id`, `nome`, `login`, `senha`, `curriculo`, `telefone`, `rg`, `cpf`, `email`, `campus`, `tipo_usuario`) VALUES
-(1, 'teste', 'teste', '987654321', 'hhh', '8197822022', '548645', '12345678924', 'eee@dddd', 3, 1);
-
---
 -- Indexes for dumped tables
 --
 
@@ -169,7 +158,8 @@ INSERT INTO `usuario2` (`id`, `nome`, `login`, `senha`, `curriculo`, `telefone`,
 ALTER TABLE `bolsista`
   ADD PRIMARY KEY (`id`),
   ADD KEY `campus` (`campus`),
-  ADD KEY `cpf` (`cpf`) USING BTREE;
+  ADD KEY `cpf` (`cpf`) USING BTREE,
+  ADD KEY `id_orientador` (`id_orientador`);
 
 --
 -- Indexes for table `campus`
@@ -207,7 +197,7 @@ ALTER TABLE `usuario2`
 -- AUTO_INCREMENT for table `bolsista`
 --
 ALTER TABLE `bolsista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `campus`
@@ -219,13 +209,13 @@ ALTER TABLE `campus`
 -- AUTO_INCREMENT for table `formulario_frequencia`
 --
 ALTER TABLE `formulario_frequencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuario2`
@@ -241,7 +231,8 @@ ALTER TABLE `usuario2`
 -- Limitadores para a tabela `bolsista`
 --
 ALTER TABLE `bolsista`
-  ADD CONSTRAINT `bolsista_ibfk_1` FOREIGN KEY (`campus`) REFERENCES `campus` (`id`);
+  ADD CONSTRAINT `bolsista_ibfk_1` FOREIGN KEY (`campus`) REFERENCES `campus` (`id`),
+  ADD CONSTRAINT `id_orientador` FOREIGN KEY (`id_orientador`) REFERENCES `usuario2` (`id`);
 
 --
 -- Limitadores para a tabela `usuario2`

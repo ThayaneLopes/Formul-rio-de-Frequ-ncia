@@ -148,6 +148,16 @@ public class BolsistaDao {
 
 		Bolsista bolsista = new Bolsista();
 
+		int idCampus = rs.getInt("campus");
+		CampusDao dao = new CampusDao();
+		Campus campus = dao.buscarPorId(idCampus);
+		bolsista.setCampus(campus);
+		
+		int idOrientador = rs.getInt("id_orientador");
+		UsuarioDao dao2 = new UsuarioDao();
+		Usuario orientador = dao2.buscarPorId(idOrientador);
+		bolsista.setOrientador(orientador); 
+		
 		bolsista.setId(rs.getInt("id"));
 		bolsista.setNome(rs.getString("nome"));
 		bolsista.setTelefone(rs.getString("telefone"));

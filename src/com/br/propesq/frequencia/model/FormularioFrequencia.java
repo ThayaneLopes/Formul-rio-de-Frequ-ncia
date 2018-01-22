@@ -1,4 +1,4 @@
-package com.br.propesq.frequencia.model;
+ package com.br.propesq.frequencia.model;
 
 
 public class FormularioFrequencia {
@@ -18,8 +18,71 @@ public class FormularioFrequencia {
 	private String comentariosEstudante;
 	private String comentariosOrientador;
 	private String dataEntrega;
+	private String nomeBolsista;
+	private String matriculaBolsista;
+	private String tituloPlano;
+	private String tipoProjeto;
+	private String nomeOrientador;
+	private boolean statusBolsista;
+	private boolean statusOrientador;
+	private boolean statusGestor;
+	private boolean statusPropesq;
 	
 
+	public String getNomeBolsista() {
+		return nomeBolsista;
+	}
+	public void setNomeBolsista(String nomeBolsista) {
+		this.nomeBolsista = nomeBolsista;
+	}
+	public String getMatriculaBolsista() {
+		return matriculaBolsista;
+	}
+	public void setMatriculaBolsista(String matriculaBolsista) {
+		this.matriculaBolsista = matriculaBolsista;
+	}
+	public String getTituloPlano() {
+		return tituloPlano;
+	}
+	public void setTituloPlano(String tituloPlano) {
+		this.tituloPlano = tituloPlano;
+	}
+	public String getTipoProjeto() {
+		return tipoProjeto;
+	}
+	public void setTipoProjeto(String tipoProjeto) {
+		this.tipoProjeto = tipoProjeto;
+	}
+	public String getNomeOrientador() {
+		return nomeOrientador;
+	}
+	public void setNomeOrientador(String nomeOrientador) {
+		this.nomeOrientador = nomeOrientador;
+	}
+	public boolean isStatusBolsista() {
+		return statusBolsista;
+	}
+	public void setStatusBolsista(boolean statusBolsista) {
+		this.statusBolsista = statusBolsista;
+	}
+	public boolean isStatusOrientador() {
+		return statusOrientador;
+	}
+	public void setStatusOrientador(boolean statusOrientador) {
+		this.statusOrientador = statusOrientador;
+	}
+	public boolean isStatusGestor() {
+		return statusGestor;
+	}
+	public void setStatusGestor(boolean statusGestor) {
+		this.statusGestor = statusGestor;
+	}
+	public boolean isStatusPropesq() {
+		return statusPropesq;
+	}
+	public void setStatusPropesq(boolean statusPropesq) {
+		this.statusPropesq = statusPropesq;
+	}
 	public String getDataEntrega() {
 		return dataEntrega;
 	}

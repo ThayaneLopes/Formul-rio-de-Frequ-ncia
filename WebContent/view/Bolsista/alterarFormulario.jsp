@@ -18,16 +18,15 @@
             }
         </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Preenchimento Formulário de Frequencia</title>
+<title>Editar Formulário</title>
 </head>
 <body onload="return InserirData();">
 
 <c:import url="../Bolsista/menuBolsista.jsp"/>
-
 <div class="menu">
- 
-	<form method="post" action="formularioBolsistaComSucesso"  name="formBolsista">
-	<div style="text-align: center; color: red;">${msg}</div>
+<form action="alterarFormularioBolsista" method="post">
+
+<div style="text-align: center; color: red;">${msg}</div>
 	<h2> Formulário do Mês </h2>
 		<input type="hidden" name="mesAno">
 		
@@ -35,42 +34,41 @@
 	<br>
 		<legend><i><b>Dados Usuários</b></i></legend>
 		
-		<input type="hidden" name="bolsista" value=" ${usuarioLogado.id}">
+		<input type="hidden" name="bolsista" value=" ${formularioFrequencia.id}">
 		
 		<label>Nome do Estudante Pesquisador:</label>
-		<input type="text" class="form-control" name="nomeBolsista" value=" ${usuarioLogado.nome}" disabled> <br>
+		<input type="text" class="form-control" name="nomeBolsista" value=" ${formularioFrequencia.nome}" disabled> <br>
 		<label>Matricula do Estudante Pesquisador:</label>
-		<input type="text" class="form-control" name="matriculaBolsista" value=" ${usuarioLogado.matricula}" disabled> <br>
+		<input type="text" class="form-control" name="matriculaBolsista" value=" ${formularioFrequencia.matricula}" disabled> <br>
 		<label>Título do Plano de Trabalho do Bolsista:</label>
-		<input type="Text" class="form-control" name="planoTrabalho" value=" ${usuarioLogado.tituloPlano}" disabled> <br>
-		
-		<input type="hidden" class="form-control" name="orientador" value=" ${usuarioLogado.orientador}" disabled> <br>
+		<input type="Text" class="form-control" name="planoTrabalho" value=" ${formularioFrequencia.tituloPlano}" disabled> <br>
 				
 		<label>Nome do Orientador:</label>
-		<input type="text" class="form-control" name="nomeOrientador" > <br>
+		<input type="text" class="form-control" name="orientador" value=" ${formularioFrequencia.orientador}" disabled> <br>
 		<label>Tipo de Projeto</label>
-		<input type="text" class="form-control" name="tipoProjeto" value=" ${usuarioLogado.tipoProjeto}" disabled ><br>
+		<input type="text" class="form-control" name="tipoProjeto" value=" ${formularioFrequencia.tipoProjeto}" disabled ><br>
 		
 	</fieldset>
 	<fieldset>
 	<br>
 		<legend><i><b>Resumo Atividades Mensais</b></i></legend><br>
 		
-	<textarea rows="10" cols="60" maxlength="500" class="form-control" name="resumoAtividades" required="required"></textarea>
+	<textarea rows="10" cols="60" maxlength="500" class="form-control" value=" ${formularioFrequencia.resumoAtividades}" name="resumoAtividades" required="required"></textarea>
 	</fieldset>
 	<fieldset>
 	<br>
 		<legend><i><b>Comentários</b></i></legend>
 		
 		<label>Comentários e Dificuldades do Bolsista:</label> <br>
-		<textarea rows="10" cols="100" maxlength="500" class="form-control" name="comentariosBolsista" required="required"></textarea> <br>
+		<textarea rows="10" cols="100" maxlength="500" class="form-control" value=" ${formularioFrequencia.comentariosBolsista}" name="comentariosBolsista" required="required"></textarea> <br>
 		
 	</fieldset>
 	
 	<input type="hidden" name="data_entrega">
-	<input type="submit" value="Enviar" class="btn btn-primary"> 
-	<input type="reset" value="limpar" class="btn btn-default">
 
-	</form>
+</form>
 </div>
+
+
+</body>
 </html>

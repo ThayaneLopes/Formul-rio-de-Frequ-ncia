@@ -38,11 +38,10 @@
 						Preencher Formulário </a>
 				</li>
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
-					<a href="#"><i class="fa fa-list"></i> Formulários </a>
+					<a href="listaFormularioBolsista"><i class="fa fa-list"></i> Formulários </a>
 				</li>
 				<li data-toggle="collapse" data-target="#service" class="collapsed">
-					<a href="#"><i class="fa fa-keyboard-o"></i> Alterar Formulário
-				</a>
+					<a href="exibirAlterarFormularioBolsista"><i class="fa fa-keyboard-o"></i> Alterar Formulário</a>
 				</li>
 
 				<li data-toggle="collapse" data-target="#new" class="collapsed">

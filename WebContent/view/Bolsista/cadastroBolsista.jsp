@@ -29,7 +29,7 @@
 			<label>Nome Completo:</label> 
 			<input type="text" name="nome" id="nome" class="form-control" required="required"> <br> 
 			<label>Telefone:</label> 
-			<input	type="text" name="telefone" id="telefone" onkeyup="validar(this,'num');" onkeyup="maskIt(this,event,'(##) #####-####')" class="form-control" required="required"><br> 
+			<input	type="text" name="telefone" id="telefone" onkeyup="maskIt(this,event,'(##) #####-####')" class="form-control" required="required"><br> 
 			<label>E-mail:</label>
 			<input type="text" name="email" id="email" class="form-control" required="required"><br> 
 			<label>Número do Documento de Identificação:</label> 

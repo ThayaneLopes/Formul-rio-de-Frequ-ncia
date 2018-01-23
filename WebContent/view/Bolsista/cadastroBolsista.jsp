@@ -20,7 +20,7 @@
 	<h2>Cadastro de Bolsista</h2><br>
 	
 	<div style="text-align: center; color: red;">${msg}</div>
- 
+ 	<div class="form-group">
 	<form action="cadastroComSucessoBolsista" enctype="multipart/form-data" method="post" class="form" id="form_cadastro">
 		<fieldset>
 		<br>
@@ -44,7 +44,7 @@
 			<label>Banco</label> 
 			<input type="text" name="banco" id="banco" class="form-control" required="required"><br>
 			<label>Agência:</label> 
-			<input type="text" name="agencia"	id="agencia" onkeyup="maskIt(this,event,' ####-###')" class="form-control" required="required"><br>
+			<input type="text" name="agencia"	id="agencia" onkeyup="maskIt(this,event,'####-###')" class="form-control" required="required"><br>
 			<label>Conta:</label> 
 			<input type="text" name="conta" id="conta" onkeyup="maskIt(this,event,'######-#')" class="form-control" required="required"> <br>
 		</fieldset>
@@ -63,7 +63,7 @@
 			<label>Matrícula:</label> 
 			<input type="text"	name="matricula" id="matricula" class="form-control"  required="required"><br> 
 			<label>Histórico Escolar:</label> 
-			<input type="file" name="historicoEscolar"	id="historicoEscolar" class="form-control" required="required"><br> 
+			<input type="file" name="historicoEscolar"	id="historicoEscolar" class="form-control"><br> 
 			<label>Link do Currículo na Plataforma Lattes:</label> 
 			<input type="text" name="curriculo" id="curriculo" class="form-control" required="required">
 		</fieldset>
@@ -108,6 +108,7 @@
 		<input type="reset" class="btn btn-default" value="Limpar">
 		
 	</form>
+	</div>
 	<script src="view/js/mascara.js"></script>
 		<script>
 		function validar(dom, tipo) {

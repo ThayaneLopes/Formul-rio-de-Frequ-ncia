@@ -44,14 +44,15 @@ public class BolsistaController {
 			@RequestParam("historicoEscolar") MultipartFile historicoEscolar, Model model)
 			throws CannotPerformOperationException {
 
-		if (Util.fazerUploadImagem(historicoEscolar)) {
+		if (Util.fazerUploadArquivo(historicoEscolar)) {
 			bolsista.setHistoricoEscolar(
 					Calendar.getInstance().getTime() + " - " + historicoEscolar.getOriginalFilename());
-		}
+			BolsistaDao dao = new BolsistaDao();
+			dao.salvar(bolsista);
+			model.addAttribute("msg", "Usuário Incluído com Sucesso!");
 
-		BolsistaDao dao = new BolsistaDao();
-		dao.salvar(bolsista);
-		model.addAttribute("msg", "Usuário Incluído com Sucesso!");
+			return "forward:listarTodosBolsista";
+		}
 
 		return "forward:listarTodosBolsista";
 

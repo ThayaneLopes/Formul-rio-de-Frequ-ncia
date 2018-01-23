@@ -32,6 +32,7 @@
 			<td>Matrícula</td>
 			<td>Login</td>
 			<td>Título do Plano</td>
+			<td>Historico</td>
 			<td>Tipo de Projeto</td>
 			<td>E-mail</td>
 			<td>Telefone</td>
@@ -48,6 +49,7 @@
 				<td>${bolsista.matricula}</td>
 				<td>${bolsista.login}</td>
 				<td>${bolsista.tituloPlano}</td>
+				<td>${bolsista.historicoEscolar}</td>
 				<td>${bolsista.tipoProjeto}</td>
 				<td>${bolsista.email}</td>
 				<td>${bolsista.telefone}</td>

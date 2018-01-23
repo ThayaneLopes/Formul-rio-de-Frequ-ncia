@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Util {
 	
-	public static boolean fazerUploadImagem(MultipartFile historicoEscolar) {
+	public static boolean fazerUploadArquivo(MultipartFile historicoEscolar) {
 
 		boolean sucessoUpload = false;
 
@@ -20,8 +20,8 @@ public class Util {
 
 		    try {
 			
-			String workspaceProjeto = "C:\\Users\\SandraLopes\\git\\FormularioFrequencia";
-			File dir = new File(workspaceProjeto + "/WebContent/view/historico");
+			String workspaceProjeto = "C:/Users/Sandra Lopes/git/FormularioFrequencia";
+			File dir = new File(workspaceProjeto + "/WebContent/view/historicos");
 			if (!dir.exists()) {
 			    dir.mkdirs();
 			}

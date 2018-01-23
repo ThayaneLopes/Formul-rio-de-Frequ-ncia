@@ -18,9 +18,14 @@
 
 	<br> 
 	<a href="cadastroBolsista" class="btn btn-info">Cadastrar novo bolsista</a>
-	
-	
 <br><br>
+<h3>Pesquisar Bolsista</h3>
+<form action="listarBolsista" method="post"  >
+	<input type="text" name="busca" placeholder="Insira o nome do estudante" class="form-control">
+	<input type="submit" value="Pesquisar" class="btn btn-primary">
+</form>
+<br>
+
 	<table border=1; style="width: 100%" id="tabelaListaBolsista">
 		<tr>
 			<td>Nome</td>
@@ -31,6 +36,7 @@
 			<td>E-mail</td>
 			<td>Telefone</td>
 			<td>Campus</td>
+			<td>Alterar</td>
 			<td>Remover</td>
 			
 			
@@ -46,6 +52,7 @@
 				<td>${bolsista.email}</td>
 				<td>${bolsista.telefone}</td>
 				<td>${bolsista.campus.nome}</td>
+				<td><a href="exibirAlterarCadastroBolsista?id=${bolsista.id}" class="btn btn-warning">Alterar</a></td>
 				<td><a href="removerBolsista?id=${bolsista.id}" class="btn btn-danger">Remover</a></td>
 
 			</tr>

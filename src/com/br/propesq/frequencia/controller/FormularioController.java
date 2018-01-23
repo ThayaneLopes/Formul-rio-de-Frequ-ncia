@@ -53,7 +53,7 @@ public class FormularioController {
 
 	 
 	 @RequestMapping("listaFormularioBolsista")
-		public String listaFormularioBolsista(Model model) {
+		public String listaFormularioBolsista(Model model,String busca,int id) {
 
 			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();
@@ -64,7 +64,7 @@ public class FormularioController {
 			model.addAttribute("listaUsuario", listaUsuario);
 
 			BolsistaDao dao3 = new BolsistaDao();
-			List<Bolsista> listaBolsista = dao3.listar();
+			List<Bolsista> listaBolsista = dao3.listarTodos();
 			model.addAttribute("listaBolsista", listaBolsista);
 
 			return "Bolsista/listaFormularioBolsista";

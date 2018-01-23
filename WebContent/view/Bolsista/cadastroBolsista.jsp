@@ -21,7 +21,7 @@
 	
 	<div style="text-align: center; color: red;">${msg}</div>
  
-	<form action="cadastroComSucessoBolsista" method="post" class="form" id="form_cadastro">
+	<form action="cadastroComSucessoBolsista" enctype="multipart/form-data" method="post" class="form" id="form_cadastro">
 		<fieldset>
 		<br>
 			<legend><i><b>Dados Pessoais</b></i></legend>
@@ -61,7 +61,7 @@
 			</select> <br> 
 			
 			<label>Matrícula:</label> 
-			<input type="text"	name="matricula" id="matricula" class="form-control" required="required"><br> 
+			<input type="text"	name="matricula" id="matricula" class="form-control"  required="required"><br> 
 			<label>Histórico Escolar:</label> 
 			<input type="file" name="historicoEscolar"	id="historicoEscolar" class="form-control" required="required"><br> 
 			<label>Link do Currículo na Plataforma Lattes:</label> 
@@ -132,9 +132,6 @@
                     $("#form_cadastro").validate();
              });
        </script>
-
-}
-
 
 
 

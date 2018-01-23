@@ -17,27 +17,16 @@
 <c:import url="../Bolsista/menuBolsista.jsp"/>
 <div class="menu">
 <hr><h3>Alterar Senha</h3><hr>
-
+<div style="text-align: center; color: blue;">${msg}</div>
 <form action="alterarBolsista" method="post" id="form">
 <input type="hidden" name="id" value="${usuarioLogado.id}" />
 <label>Senha:</label>
 <input type="password" name="senha" id="senha" class="form-control" placeholder="Insira a Sua senha" minlength="8" required><br>
 
-<label for="confirmarSenha">Confirmar Senha:</label> 
-<input type="password" name="confsenha" class="form-control" placeholder="Confirme a Sua senha" id="confsenha" minlength="8" required> <br>
-
 
 <input type="submit" class="btn btn-primary" value="Atualizar">
 </div>
-<script>
 
-$('form').on('submit', function () {
-    if ($('#senha').val() != $('#confsenha').val()) {
-        alert('Atenção As senha devem ser iguais');
-        return false;
-    }
-});
-</script>
 
 </form>
 </div>

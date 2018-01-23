@@ -30,7 +30,7 @@
 
 				<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
 					data-target="#menu-content"></i>
-				<li><a href="#"> <i class="fa fa-home"></i> Home
+				<li><a href="menuBolsista"> <i class="fa fa-home"></i> Home
 				</a></li>
 
 				<li data-toggle="collapse" data-target="#new" class="collapsed">

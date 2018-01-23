@@ -37,6 +37,9 @@
 				<a href="cadastroBolsista"><i class="fa fa-pencil fa-fw"></i> Cadastrar Bolsista </a>
 			</li>
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
+				<a href="buscarBolsista"><i class="fa fa-list"></i> Bolsistas </a>
+			</li>
+			<li data-toggle="collapse" data-target="#new" class="collapsed">
 				<a href="#"><i class="fa fa-pencil fa-fw"></i> Preencher e Validar Formulário </a>
 			</li>
 			<li data-toggle="collapse" data-target="#new" class="collapsed">

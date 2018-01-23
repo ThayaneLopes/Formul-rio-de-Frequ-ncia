@@ -22,7 +22,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 	  	<load-on-startup>1</load-on-startup>
 	</servlet>
 	<session-config> 
-	<session-timeout> 5 </session-timeout> 
+	<session-timeout> 25 </session-timeout> 
 	</session-config>
 
 

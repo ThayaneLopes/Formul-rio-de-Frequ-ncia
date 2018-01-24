@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Jan-2018 às 16:39
+-- Generation Time: 24-Jan-2018 às 01:05
 -- Versão do servidor: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -49,6 +49,14 @@ CREATE TABLE `bolsista` (
   `id_orientador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `bolsista`
+--
+
+INSERT INTO `bolsista` (`id`, `nome`, `matricula`, `login`, `cpf`, `rg`, `historico_escolar`, `curriculo`, `titulo_plano`, `email`, `telefone`, `agencia`, `conta`, `senha`, `campus`, `tipo_projeto`, `banco`, `id_orientador`) VALUES
+(1, 'Thayane Lopes', '1234567891012', 'thayane', '999.999.999-99', '12344994', '417583671350a2cce56f8e2e7c8b1093--cone-dos-desenhos-animados-bola-de-natal-15.png', 'www', 'plano 1', 'teste@email.com', '(81) 97908-2434', '0123-455', '000000-0', 'sha1:64000:18:p0CNmAURMtMUXC4lNaubAZ0Ln0mt8Hwj:cH5lk0B+3J0gHVZIgRJZK8sj', 3, 'PIBITI GRAD CNPq', 'banco do brasil', 1),
+(3, 'Thayane Lopes', '1234567891012', 'sandra', '999.999.999-99', '12344994', 'd8fd0ecf239e0007d54bb163b3ce18de.jpg', 'www', 'ffff', 'teste@email.com', '(81) 97908-2434', '0123-455', '000000-0', 'sha1:64000:18:qvn8RDmzMkBRtfJtvLnoHoEDULkUjyPi:QAh6NMQ8p70kQ+ddbSyecvIu', 3, 'PIBIC AF IFPE', 'banco do brasil', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -74,7 +82,8 @@ CREATE TABLE `campus` (
 --
 
 INSERT INTO `campus` (`id`, `nome`, `telefone`, `logradouro`, `numero_logradouro`, `complemento`, `bairro`, `cidade`, `estado`, `cep`, `numero`) VALUES
-(3, 'JaboatÃ£o dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL);
+(3, 'JaboatÃ£o dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
+(4, 'Jaboatão dos Guararapes', '81979082535', 'sddddddddddddddssssssssss', 22222, 'sdddddddddddd', 'dssssssssssssssssssssss', 'fdgdgfdsdddddddd', 'AL', '54490000', NULL);
 
 -- --------------------------------------------------------
 
@@ -95,7 +104,7 @@ CREATE TABLE `formulario_frequencia` (
   `pagamento_bolsa` varchar(15) DEFAULT NULL,
   `comentarios_estudante` varchar(150) DEFAULT NULL,
   `comentarios_orientador` varchar(150) DEFAULT NULL,
-  `data_entrega` date DEFAULT NULL,
+  `data_entrega` varchar(15) DEFAULT NULL,
   `mesAno` varchar(255) DEFAULT NULL,
   `nome_bolsista` varchar(150) DEFAULT NULL,
   `matricula_bolsista` varchar(14) DEFAULT NULL,
@@ -107,6 +116,13 @@ CREATE TABLE `formulario_frequencia` (
   `status_gestor` tinyint(1) DEFAULT NULL,
   `status_propesq` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `formulario_frequencia`
+--
+
+INSERT INTO `formulario_frequencia` (`id`, `id_bolsista`, `id_usuario`, `situacao_cronograma`, `justificativa`, `resumo_atividades`, `carga_horaria`, `interesse_atividades`, `progresso_alcancado`, `pagamento_bolsa`, `comentarios_estudante`, `comentarios_orientador`, `data_entrega`, `mesAno`, `nome_bolsista`, `matricula_bolsista`, `titulo_plano`, `tipo_projeto`, `nome_orientador`, `status_bolsista`, `status_orientador`, `status_gestor`, `status_propesq`) VALUES
+(1, 1, 1, 'eeee', 'eee', 'ee', NULL, NULL, NULL, NULL, 'eee', 'eeee', '2018-01-17', NULL, 'thayane', 'sdfsg', 'sddsd', 'sdfsdfd', 'dsffdsf', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,6 +163,13 @@ CREATE TABLE `usuario2` (
   `campus` int(11) DEFAULT NULL,
   `tipo_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `usuario2`
+--
+
+INSERT INTO `usuario2` (`id`, `nome`, `login`, `senha`, `curriculo`, `telefone`, `rg`, `cpf`, `email`, `campus`, `tipo_usuario`) VALUES
+(1, 'thayane', 'thayane', '11111111111', 'wwww', 'wwwwww', 'wwwww', 'wwwwww', 'wwwww', 3, 1);
 
 --
 -- Indexes for dumped tables
@@ -197,13 +220,13 @@ ALTER TABLE `usuario2`
 -- AUTO_INCREMENT for table `bolsista`
 --
 ALTER TABLE `bolsista`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `campus`
 --
 ALTER TABLE `campus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `formulario_frequencia`

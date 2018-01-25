@@ -10,14 +10,13 @@
 <link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
 <script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
   <script language="JavaScript" type="text/javascript">
-            function InserirData(){
-            var d=new Date();
-             var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
-            var THISMONTH = monthname[d.getMonth()] +  "/" + d.getFullYear();
-            var TODAY = d.getDate() + "/" + monthname[d.getMonth()] +  "/" + d.getFullYear(); 
-//              formBolsista.mesAno.value = THISMONTH;
-             form_cadastro.dataEntrega.value = TODAY;
-             } 
+//             function InserirData(){
+//             var d=new Date();
+//              var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
+//             var THISMONTH = monthname[d.getMonth()] +  "/" + d.getFullYear();
+//             var TODAY = d.getDate() + "/" + monthname[d.getMonth()] +  "/" + d.getFullYear(); 
+//              form_cadastro.dataEntrega.value = TODAY;
+//              } 
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Preenchimento Formulário de Frequencia</title>
@@ -34,13 +33,13 @@
 	<h2> Formulário do Mês </h2>
 	
 		<label>Mês e Ano</label>
-		<input type="text" name="mesAno" onkeyup="maskIt(this,event,'##/####')" placeholder="Ex.:01/2018">
+		<input type="text" name="mesAno" onkeyup="maskIt(this,event,'##/####')" class="form-control" placeholder="Ex.:01/2018">
 		
 <!-- 	<fieldset> -->
 <!-- 	<br> -->
 <!-- 		<legend><i><b>Dados Usuários</b></i></legend> -->
 		
-		<input type="text" name="bolsista" id="bolsista" value=" ${usuarioLogado.id}" disabled>
+		<input type="hidden" name="Bolsista" id="Bolsista" value=" ${usuarioLogado.id}" class="form-control" disabled>
 		
 <!-- 		<label>Nome do Estudante Pesquisador:</label> -->
 <%-- 		<input type="text" class="form-control" id="nomeBolsista" value=" ${usuarioLogado.nome}" disabled> <br> --%>

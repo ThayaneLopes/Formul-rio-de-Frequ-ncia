@@ -29,21 +29,15 @@ public class FormularioFrequenciaDao {
 	public void salvarBolsista(FormularioFrequencia formularioFrequencia) {
 		try {
 
-			String sql = "INSERT INTO formulario_frequencia (mesAno,id_bolsista, id_usuario, resumo_atividades,comentarios_estudante, data_entrega, nome_bolsista, matricula_bolsista,titulo_plano,tipo_projeto,nome_orientador ) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO formulario_frequencia ( id_bolsista,resumo_atividades,comentarios_estudante,data_entrega,mesAno ) VALUES (?,?,?,NOW(),?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
-			stmt.setString(1, formularioFrequencia.getMesAno());
-			stmt.setInt(2, formularioFrequencia.getBolsista().getId());
-			stmt.setInt(3, formularioFrequencia.getUsuario().getId());
-			stmt.setString(4, formularioFrequencia.getResumoAtividades());
-			stmt.setString(5, formularioFrequencia.getComentariosEstudante());
-			stmt.setString(6, formularioFrequencia.getDataEntrega());
-			stmt.setString(7, formularioFrequencia.getNomeBolsista());
-			stmt.setString(8, formularioFrequencia.getMatriculaBolsista());
-			stmt.setString(9, formularioFrequencia.getTituloPlano());
-			stmt.setString(10, formularioFrequencia.getTipoProjeto());
-			stmt.setString(11, formularioFrequencia.getNomeOrientador());
 			
-			
+			stmt.setInt(1, formularioFrequencia.getBolsista().getId());
+			stmt.setString(2, formularioFrequencia.getResumoAtividades());
+			stmt.setString(3, formularioFrequencia.getComentariosEstudante());
+			stmt.setDate(4, new java.sql.Date(formularioFrequencia.getDataEntrega().getTime()));
+			stmt.setString(5, formularioFrequencia.getMesAno());
+						
 			stmt.execute();
 			connection.close();
 		} catch (SQLException e) {
@@ -101,7 +95,7 @@ public class FormularioFrequenciaDao {
 				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
-				formularioFrequencia.setDataEntrega(rs.getString("data_entrega"));
+				formularioFrequencia.setDataEntrega(rs.getDate("data_entrega"));
 
 				listarFormularioBolsista.add(formularioFrequencia);
 			}
@@ -151,7 +145,7 @@ public class FormularioFrequenciaDao {
 				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
-				formularioFrequencia.setDataEntrega(rs.getString("data_entrega"));
+				formularioFrequencia.setDataEntrega(rs.getDate("data_entrega"));
 			}
 
 			rs.close();

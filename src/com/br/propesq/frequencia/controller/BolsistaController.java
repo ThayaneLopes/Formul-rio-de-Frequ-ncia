@@ -47,12 +47,12 @@ public class BolsistaController {
 		if (Util.fazerUploadArquivo(historicoEscolar)) {
 			bolsista.setHistoricoEscolar(
 					Calendar.getInstance().getTime() + " - " + historicoEscolar.getOriginalFilename());
-			BolsistaDao dao = new BolsistaDao();
-			dao.salvar(bolsista);
-			model.addAttribute("msg", "Usuário Incluído com Sucesso!");
-
-			return "forward:listarTodosBolsista";
+			
 		}
+
+		BolsistaDao dao = new BolsistaDao();
+		dao.salvar(bolsista);
+		model.addAttribute("msg", "Usuário Incluído com Sucesso!");
 
 		return "forward:listarTodosBolsista";
 

@@ -54,6 +54,9 @@ $("#form_cadastro").validate({
              },
              tipoProjeto:{
             	 required:true,
+             },
+             resumoAtividades:{
+            	 required:true,
              }
        },
        messages:{
@@ -110,6 +113,9 @@ $("#form_cadastro").validate({
              },
              tipoProjeto:{
             	 required:"O Tipo de Projeto deve ser preenchido",
+             },
+             resumoAtividades:{
+            	 required:"O Resumo das Atividades deve ser preenchido",
              }
        }
 });

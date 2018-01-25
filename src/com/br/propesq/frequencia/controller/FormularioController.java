@@ -2,6 +2,7 @@ package com.br.propesq.frequencia.controller;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,13 @@ import com.br.propesq.frequencia.model.Usuario;
 @Controller
 public class FormularioController {
 	
+	
 	@RequestMapping("formularioBolsista")
 	public String formularioBolsista() {
-		return "Bolsista/formularioBolsista";		
+		return "Bolsista/formularioBolsista";
 	}
+	
+	
 	@RequestMapping("formularioBolsistaComSucesso")
 	public String formularioBolsistaComSucesso(FormularioFrequencia formularioFrequencia, Model model) {
 
@@ -53,7 +57,7 @@ public class FormularioController {
 
 	 
 	 @RequestMapping("listaFormularioBolsista")
-		public String listaFormularioBolsista(Model model,String busca,int id) {
+		public String listaFormularioBolsista(Model model) {
 
 			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();

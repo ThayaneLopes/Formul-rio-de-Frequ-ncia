@@ -125,18 +125,18 @@
 		
 		
 	</script>
-	 <script src="view/jq/jquery-3.2.1.min.js"></script>
-       <script src="view/jq/jquery.validate.min.js"></script>
-       <script src="view/js/cadastroMain.js"></script>
-       <script>
-             $(function(){
-                    $("#form_cadastro").validate();
-             });
-       </script>
+		<script src="view/jq/jquery-3.2.1.min.js"></script>
+		<script src="view/jq/jquery.validate.min.js"></script>
+		<script src="view/js/cadastroMain.js"></script>
+		<script>
+			$(function() {
+				$("#form_cadastro").validate();
+			});
+		</script>
 
 
 
 
-</div>
+	</div>
 </body>
 </html>

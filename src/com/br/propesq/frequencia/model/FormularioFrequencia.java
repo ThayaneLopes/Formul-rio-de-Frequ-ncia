@@ -1,5 +1,6 @@
  package com.br.propesq.frequencia.model;
 
+import java.sql.Date;
 
 public class FormularioFrequencia {
 
@@ -14,10 +15,10 @@ public class FormularioFrequencia {
 	private String cargaHoraria;
 	private String interesseAtividades;
 	private String progressoAlcancado;
-	private String pagamentoBolsa;
+	private boolean pagamentoBolsa;
 	private String comentariosEstudante;
 	private String comentariosOrientador;
-	private String dataEntrega;
+	private Date dataEntrega;
 	private String nomeBolsista;
 	private String matriculaBolsista;
 	private String tituloPlano;
@@ -59,6 +60,7 @@ public class FormularioFrequencia {
 	public void setNomeOrientador(String nomeOrientador) {
 		this.nomeOrientador = nomeOrientador;
 	}
+	
 	public boolean isStatusBolsista() {
 		return statusBolsista;
 	}
@@ -83,10 +85,10 @@ public class FormularioFrequencia {
 	public void setStatusPropesq(boolean statusPropesq) {
 		this.statusPropesq = statusPropesq;
 	}
-	public String getDataEntrega() {
+	public Date getDataEntrega() {
 		return dataEntrega;
 	}
-	public void setDataEntrega(String dataEntrega) {
+	public void setDataEntrega(Date dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
 	public int getId() {
@@ -131,6 +133,7 @@ public class FormularioFrequencia {
 	public void setJustificativa(String justificativa) {
 		this.justificativa = justificativa;
 	}
+
 	public String getCargaHoraria() {
 		return cargaHoraria;
 	}
@@ -149,10 +152,10 @@ public class FormularioFrequencia {
 	public void setProgressoAlcancado(String progressoAlcancado) {
 		this.progressoAlcancado = progressoAlcancado;
 	}
-	public String getPagamentoBolsa() {
+	public boolean isPagamentoBolsa() {
 		return pagamentoBolsa;
 	}
-	public void setPagamentoBolsa(String pagamentoBolsa) {
+	public void setPagamentoBolsa(boolean pagamentoBolsa) {
 		this.pagamentoBolsa = pagamentoBolsa;
 	}
 	public String getComentariosEstudante() {

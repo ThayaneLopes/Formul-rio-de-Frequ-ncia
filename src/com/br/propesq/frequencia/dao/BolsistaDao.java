@@ -196,7 +196,7 @@ public class BolsistaDao {
 	public List<Bolsista> listarTodos() {
 		try {
 			List<Bolsista> listaBolsista = new ArrayList<Bolsista>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM bolsista ORDER by id");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM bolsista ORDER by id DESC");
 					
 			ResultSet rs = stmt.executeQuery();
 

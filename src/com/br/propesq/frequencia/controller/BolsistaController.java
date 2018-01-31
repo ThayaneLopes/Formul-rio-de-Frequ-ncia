@@ -1,6 +1,5 @@
 package com.br.propesq.frequencia.controller;
 
-import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,8 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.CampusDao;
@@ -20,7 +17,6 @@ import com.br.propesq.frequencia.model.Usuario;
 import com.br.propesq.frequencia.util.PasswordStorage;
 import com.br.propesq.frequencia.util.PasswordStorage.CannotPerformOperationException;
 import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
-import com.br.propesq.frequencia.util.Util;
 
 @Controller
 public class BolsistaController {
@@ -40,14 +36,8 @@ public class BolsistaController {
 	}
 
 	@RequestMapping("cadastroComSucessoBolsista")
-	public String cadastroComSucessoBolsista(Bolsista bolsista,	@RequestParam("historicoEscolar") MultipartFile historicoEscolar, Model model)
+	public String cadastroComSucessoBolsista(Bolsista bolsista,	 Model model)
 			throws CannotPerformOperationException {
-
-		if (Util.fazerUploadArquivo(historicoEscolar)) {
-			bolsista.setHistoricoEscolar(
-					Calendar.getInstance().getTime() + " - " + historicoEscolar.getOriginalFilename());
-			
-		}
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.salvar(bolsista);

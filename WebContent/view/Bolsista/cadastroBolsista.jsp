@@ -21,7 +21,7 @@
 	
 	<div style="text-align: center; color: red;">${msg}</div>
  	<div class="form-group">
-	<form action="cadastroComSucessoBolsista" enctype="multipart/form-data" method="post" class="form" id="form_cadastro">
+	<form action="cadastroComSucessoBolsista" method="post" class="form" id="form_cadastro">
 		<fieldset>
 		<br>
 			<legend><i><b>Dados Pessoais</b></i></legend>

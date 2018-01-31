@@ -32,6 +32,7 @@
 				<bean class="com.br.propesq.frequencia.converter.CampusConverter" />
 				<bean class="com.br.propesq.frequencia.converter.TipoUsuarioConverter" />
 				<bean class="com.br.propesq.frequencia.converter.UsuarioConverter" />
+				<bean class="com.br.propesq.frequencia.converter.BolsistaConverter" />
 			</list>
 		</property>
 	</bean>

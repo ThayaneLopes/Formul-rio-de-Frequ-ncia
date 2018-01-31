@@ -2,7 +2,6 @@ package com.br.propesq.frequencia.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,22 +19,25 @@ public class FormularioController {
 	
 	
 	@RequestMapping("formularioBolsista")
-	public String formularioBolsista(HttpSession session) {
+	public String formularioBolsista(Model model) {
 		
+		BolsistaDao dao = new BolsistaDao();
+		List<Bolsista> listaBolsista = dao.listarTodos();
+		model.addAttribute("listaBolsista", listaBolsista);
 		
 		return "Bolsista/formularioBolsista";
 	}
 	
 	
 	@RequestMapping("formularioBolsistaComSucesso")
-	public String formularioBolsistaComSucesso(FormularioFrequencia formularioFrequencia, Model model,HttpSession session) {
+	public String formularioBolsistaComSucesso(FormularioFrequencia formularioFrequencia, Model model) {
 
 		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 		dao.salvarBolsista(formularioFrequencia);
 		model.addAttribute("msg", "Seu formulário foi enviado com sucesso");
 		
 		
-		return "forward:exibirAlterarFormularioBolsista";
+		return "forward:formularioBolsista";
 
 	}
 	

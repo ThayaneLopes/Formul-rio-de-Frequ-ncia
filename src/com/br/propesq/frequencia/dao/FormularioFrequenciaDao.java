@@ -29,7 +29,7 @@ public class FormularioFrequenciaDao {
 	public void salvarBolsista(FormularioFrequencia formularioFrequencia) {
 		try {
 
-			String sql = "INSERT INTO formulario_frequencia ( id_bolsista,resumo_atividades,comentarios_estudante,data_entrega,mesAno ) VALUES (?,?,?,NOW(),?)";
+			String sql = "INSERT INTO formulario_frequencia (id_bolsista,resumo_atividades,comentarios_estudante,data_entrega,mesAno ) VALUES (?,?,?,NOW(),?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
 			stmt.setInt(1, formularioFrequencia.getBolsista().getId());

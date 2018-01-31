@@ -40,8 +40,7 @@ public class BolsistaController {
 	}
 
 	@RequestMapping("cadastroComSucessoBolsista")
-	public String cadastroComSucessoBolsista(Bolsista bolsista,
-			@RequestParam("historicoEscolar") MultipartFile historicoEscolar, Model model)
+	public String cadastroComSucessoBolsista(Bolsista bolsista,	@RequestParam("historicoEscolar") MultipartFile historicoEscolar, Model model)
 			throws CannotPerformOperationException {
 
 		if (Util.fazerUploadArquivo(historicoEscolar)) {
@@ -124,7 +123,7 @@ public class BolsistaController {
 		Bolsista bolsista;
 		BolsistaDao dao = new BolsistaDao();
 		bolsista = dao.buscarBolsista(login);
-
+		
 		BolsistaDao dao2 = new BolsistaDao();
 		Bolsista usuarioLogado = dao2.sessaoBolsista(bolsista);
 

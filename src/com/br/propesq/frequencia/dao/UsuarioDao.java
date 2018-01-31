@@ -29,7 +29,7 @@ public class UsuarioDao {
 	public void salvar(Usuario usuario) throws CannotPerformOperationException {
 		try {
 
-			String sql = "INSERT INTO usuario2 (nome,telefone,rg,cpf,email,tipo_usuario, login, senha, curriculo, campus) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO usuario (nome,telefone,rg,cpf,email,tipo_usuario, login, senha, curriculo, campus) VALUES (?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getTelefone());
@@ -54,7 +54,7 @@ public class UsuarioDao {
 	public Usuario buscarPorId(int id) {
 		try {
 
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario2 WHERE id = ?");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario WHERE id = ?");
 			stmt.setInt(1, id);
 			ResultSet rs = stmt.executeQuery();
 
@@ -98,7 +98,7 @@ public class UsuarioDao {
 
 		try {
 			List<Usuario> listaUsuario = new ArrayList<Usuario>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario2 ORDER BY nome");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario ORDER BY nome");
 
 			ResultSet rs = stmt.executeQuery();
 

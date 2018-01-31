@@ -10,13 +10,13 @@
 <link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
 <script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
   <script language="JavaScript" type="text/javascript">
-//             function InserirData(){
-//             var d=new Date();
-//              var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
-//             var THISMONTH = monthname[d.getMonth()] +  "/" + d.getFullYear();
-//             var TODAY = d.getDate() + "/" + monthname[d.getMonth()] +  "/" + d.getFullYear(); 
-//              form_cadastro.dataEntrega.value = TODAY;
-//              } 
+            function InserirData(){
+            var d=new Date();
+             var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
+            var THISMONTH = monthname[d.getMonth()] +  "/" + d.getFullYear();
+            var TODAY = d.getDate() + "/" + monthname[d.getMonth()] +  "/" + d.getFullYear(); 
+             form_cadastro.dataEntrega.value = TODAY;
+             } 
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Preenchimento Formulário de Frequencia</title>
@@ -27,7 +27,7 @@
 
 <div class="menu">
  
-	<form method="post" action="formularioBolsistaComSucesso"   id="form_cadastro">
+	<form method="post" action="formularioBolsistaComSucesso" id="form_cadastro">
 	<div style="text-align: center; color: red;">${msg}</div>
 	
 	<h2> Formulário do Mês </h2>
@@ -35,24 +35,9 @@
 		<label>Mês e Ano</label>
 		<input type="text" name="mesAno" onkeyup="maskIt(this,event,'##/####')" class="form-control" placeholder="Ex.:01/2018">
 		
-<!-- 	<fieldset> -->
-<!-- 	<br> -->
-<!-- 		<legend><i><b>Dados Usuários</b></i></legend> -->
+		<input type="text"  name="bolsista" id="bolsista" value="${usuarioLogado.id}" class="form-control" disabled>
 		
-		<input type="hidden" name="Bolsista" id="Bolsista" value=" ${usuarioLogado.id}" class="form-control" disabled>
-		
-<!-- 		<label>Nome do Estudante Pesquisador:</label> -->
-<%-- 		<input type="text" class="form-control" id="nomeBolsista" value=" ${usuarioLogado.nome}" disabled> <br> --%>
-<!-- 		<label>Matricula do Estudante Pesquisador:</label> -->
-<%-- 		<input type="text" class="form-control" name="matriculaBolsista" value=" ${usuarioLogado.matricula}" disabled> <br> --%>
-<!-- 		<label>Título do Plano de Trabalho do Bolsista:</label> -->
-<%-- 		<input type="text" class="form-control" name="planoTrabalho" value=" ${usuarioLogado.tituloPlano}" disabled> <br> --%>
-		
-	
-<!-- 		<label>Tipo de Projeto</label> -->
-<%-- 		<input type="text" class="form-control" name="tipoProjeto" value=" ${usuarioLogado.tipoProjeto}" disabled ><br> --%>
-		
-<!-- 	</fieldset> -->
+
 	<fieldset>
 	<br>
 		<legend><i><b>Resumo Atividades Mensais</b></i></legend><br>
@@ -64,11 +49,11 @@
 		<legend><i><b>Comentários</b></i></legend>
 		
 		<label>Comentários e Dificuldades do Bolsista:</label> <br>
-		<textarea rows="10" cols="100" maxlength="500" class="form-control" name="comentariosBolsista" id="comentariosBolsista"></textarea> <br>
+		<textarea rows="10" cols="100" maxlength="500" class="form-control" name="comentariosEstudante" id="comentariosEstudante"></textarea> <br>
 		
 	</fieldset>
 	
-	<input type="hidden" name="dataEntrega" id="dataEntrega" value="" disabled>
+	<input type="text" name="dataEntrega" id="dataEntrega" disabled >
 	
 	<input type="submit" value="Enviar" class="btn btn-primary"> 
 	<input type="reset" value="limpar" class="btn btn-default">

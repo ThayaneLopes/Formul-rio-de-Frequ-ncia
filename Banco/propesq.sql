@@ -1,23 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: 24-Jan-2018 às 01:05
--- Versão do servidor: 10.1.30-MariaDB
--- PHP Version: 7.2.1
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `propesq`
 --
@@ -82,7 +62,7 @@ CREATE TABLE `campus` (
 --
 
 INSERT INTO `campus` (`id`, `nome`, `telefone`, `logradouro`, `numero_logradouro`, `complemento`, `bairro`, `cidade`, `estado`, `cep`, `numero`) VALUES
-(3, 'JaboatÃ£o dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
+(3, 'Jaboatão dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
 (4, 'Jaboatão dos Guararapes', '81979082535', 'sddddddddddddddssssssssss', 22222, 'sdddddddddddd', 'dssssssssssssssssssssss', 'fdgdgfdsdddddddd', 'AL', '54490000', NULL);
 
 -- --------------------------------------------------------
@@ -144,33 +124,6 @@ INSERT INTO `tipo_usuario` (`id`, `descricao`) VALUES
 (3, 'Gestor'),
 (4, 'propesq');
 
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `usuario2`
---
-
-CREATE TABLE `usuario2` (
-  `id` int(11) NOT NULL,
-  `nome` varchar(14) NOT NULL,
-  `login` varchar(14) NOT NULL,
-  `senha` varchar(14) NOT NULL,
-  `curriculo` varchar(14) NOT NULL,
-  `telefone` varchar(14) NOT NULL,
-  `rg` varchar(14) NOT NULL,
-  `cpf` varchar(14) NOT NULL,
-  `email` varchar(14) NOT NULL,
-  `campus` int(11) DEFAULT NULL,
-  `tipo_usuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `usuario2`
---
-
-INSERT INTO `usuario2` (`id`, `nome`, `login`, `senha`, `curriculo`, `telefone`, `rg`, `cpf`, `email`, `campus`, `tipo_usuario`) VALUES
-(1, 'thayane', 'thayane', '11111111111', 'wwww', 'wwwwww', 'wwwww', 'wwwwww', 'wwwww', 3, 1);
-
 --
 -- Indexes for dumped tables
 --
@@ -205,14 +158,6 @@ ALTER TABLE `tipo_usuario`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuario2`
---
-ALTER TABLE `usuario2`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `campus` (`campus`),
-  ADD KEY `tipo_usuario` (`tipo_usuario`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -221,31 +166,21 @@ ALTER TABLE `usuario2`
 --
 ALTER TABLE `bolsista`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `campus`
 --
 ALTER TABLE `campus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `formulario_frequencia`
 --
 ALTER TABLE `formulario_frequencia`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tipo_usuario`
 --
 ALTER TABLE `tipo_usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `usuario2`
---
-ALTER TABLE `usuario2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Constraints for dumped tables
 --
@@ -255,15 +190,7 @@ ALTER TABLE `usuario2`
 --
 ALTER TABLE `bolsista`
   ADD CONSTRAINT `bolsista_ibfk_1` FOREIGN KEY (`campus`) REFERENCES `campus` (`id`),
-  ADD CONSTRAINT `id_orientador` FOREIGN KEY (`id_orientador`) REFERENCES `usuario2` (`id`);
-
---
--- Limitadores para a tabela `usuario2`
---
-ALTER TABLE `usuario2`
-  ADD CONSTRAINT `usuario2_ibfk_1` FOREIGN KEY (`campus`) REFERENCES `campus` (`id`),
-  ADD CONSTRAINT `usuario2_ibfk_2` FOREIGN KEY (`tipo_usuario`) REFERENCES `tipo_usuario` (`id`);
-COMMIT;
+  ADD CONSTRAINT `id_orientador` FOREIGN KEY (`id_orientador`) REFERENCES `usuario` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -8,18 +8,6 @@
 <link rel="stylesheet" type="text/css"	href="view/css/cadastroStyle.css" />
 <link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
 <script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
-
- <script language="JavaScript" type="text/javascript">
-            function InserirData(){
-            var d=new Date();
-             var monthname=new Array("01","02","03","04","05","06","07","08","09","10","11","12");
-            var THISMONTH = monthname[d.getMonth()] +  "/" + d.getFullYear();
-//             var TODAY = d.getDate() + "/" + monthname[d.getMonth()] +  "/" + d.getFullYear(); 
-            var TODAY = d.getFullYear() + "/" + monthname[d.getMonth()]  + "/" + d.getDate() ; 
-            form_cadastro.dataEntrega.value = TODAY;
-             } 
-</script>
-
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Preenchimento Formulário de Frequencia</title>
 </head>
@@ -37,19 +25,8 @@
 		<label>Mês e Ano</label>
 		<input type="text" name="mesAno" onkeyup="maskIt(this,event,'##/####')" class="form-control" placeholder="Ex.:01/2018">
 		
-<!-- 		<label>Bolsista:</label>  -->
-<!-- 			<select name="bolsista" class="form-control" style="width: 300px;" class="form-control" required="required" disabled > -->
-<!-- 				<option value="">Selecione</option> -->
-<%-- 				<c:forEach items="${listaBolsista}" var="obj"> --%>
-<%-- 					<option value="${obj.id}">${obj.nome}</option> --%>
-<%-- 				</c:forEach> --%>
-<!-- 			</select> <br>  -->
-			
-			<select name="bolsista" class="form-control" style="width: 300px;" class="form-control" required="required" >
-				<option value="${usuarioLogado.id}">${usuarioLogado.nome}</option>
-			</select >
-		
-<%-- 		<input type="text"  name="bolsista" id="bolsista" value="${usuarioLogado.id}" class="form-control" disabled> --%>
+
+		<input type="hidden"  name="bolsista" id="bolsista" value="${usuarioLogado.id}" class="form-control" disabled>
 		
 
 	<fieldset>
@@ -67,7 +44,6 @@
 		
 	</fieldset>
 	
-	<input type="date" name="dataEntrega" id="dataEntrega" value="">
 	
 	<input type="submit" value="Enviar" class="btn btn-primary"> 
 	<input type="reset" value="limpar" class="btn btn-default">

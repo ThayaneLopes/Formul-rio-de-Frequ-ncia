@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.FormularioFrequencia;
 import com.br.propesq.frequencia.model.Usuario;
@@ -28,15 +30,16 @@ public class FormularioFrequenciaDao {
 	
 	public void salvarBolsista(FormularioFrequencia formularioFrequencia) {
 		try {
-
+		
+			
+			
 			String sql = "INSERT INTO formulario_frequencia (id_bolsista,resumo_atividades,comentarios_estudante,data_entrega,mesAno ) VALUES (?,?,?,NOW(),?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
 			stmt.setInt(1, formularioFrequencia.getBolsista().getId());
 			stmt.setString(2, formularioFrequencia.getResumoAtividades());
 			stmt.setString(3, formularioFrequencia.getComentariosEstudante());
-			stmt.setDate(4, new java.sql.Date(formularioFrequencia.getDataEntrega().getTime()));
-			stmt.setString(5, formularioFrequencia.getMesAno());
+	    	stmt.setString(4, formularioFrequencia.getMesAno());
 						
 			stmt.execute();
 			connection.close();
@@ -48,7 +51,7 @@ public class FormularioFrequenciaDao {
 	
 	public void alterarBolsista(FormularioFrequencia formularioFrequencia){
 
-		String sql = "UPDATE formulario_frequencia SET resumo_atividades=?,comentarios_estudante=? WHERE id =?";
+		String sql = "UPDATE formulario_frequencia SET resumo_atividades=?,comentarios_estudante=?, mesAno=? WHERE id =?";
 		PreparedStatement stmt;
 		
 		try {
@@ -56,7 +59,9 @@ public class FormularioFrequenciaDao {
 		    
 		    stmt.setString(1, formularioFrequencia.getResumoAtividades());
 		    stmt.setString(2, formularioFrequencia.getComentariosEstudante());
-			stmt.setInt(3, formularioFrequencia.getId());
+		    stmt.setString(3, formularioFrequencia.getMesAno());
+//		    stmt.setInt(4, formularioFrequencia.getBolsista().getId());
+			stmt.setInt(4, formularioFrequencia.getId());
 		    stmt.execute();
 		    connection.close();
 
@@ -120,29 +125,13 @@ public class FormularioFrequenciaDao {
 			ResultSet rs = stmt.executeQuery();
 
 			FormularioFrequencia formularioFrequencia = new FormularioFrequencia();
-			formularioFrequencia.setId(rs.getInt("id"));
+			
 
 			while (rs.next()) {
 
-				
-
-				int idUsuario = rs.getInt("id_usuario");
-				UsuarioDao dao = new UsuarioDao();
-				Usuario usuario = dao.buscarPorId(idUsuario);
-				formularioFrequencia.setUsuario(usuario);
-				
-				int idBolsista = rs.getInt("id_bolsista");
-				BolsistaDao dao2 = new BolsistaDao();
-				Bolsista bolsista = dao2.BuscarBolsistaPorId(idBolsista);
-				formularioFrequencia.setBolsista(bolsista);
 
 				formularioFrequencia.setId(rs.getInt("id"));
-				formularioFrequencia.setNomeBolsista(rs.getString("nome_bolsista"));
-				formularioFrequencia.setMatriculaBolsista(rs.getString("matricula_bolsista"));
 				formularioFrequencia.setMesAno(rs.getString("mesAno"));
-				formularioFrequencia.setTituloPlano(rs.getString("titulo_plano"));
-				formularioFrequencia.setNomeOrientador(rs.getString("nome_orientador"));
-				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
 				formularioFrequencia.setDataEntrega(rs.getDate("data_entrega"));

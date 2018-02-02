@@ -19,6 +19,7 @@
 <hr><h3>Alterar Senha</h3><hr>
 <div style="text-align: center; color: blue;">${msg}</div>
 <form action="alterarBolsista" method="post" id="form">
+
 <input type="hidden" name="id" value="${usuarioLogado.id}" />
 <label>Senha:</label>
 <input type="password" name="senha" id="senha" class="form-control" placeholder="Insira a Sua senha" minlength="8" required><br>

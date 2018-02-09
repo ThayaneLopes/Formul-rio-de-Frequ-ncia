@@ -29,6 +29,21 @@ CREATE TABLE `bolsista` (
   `id_orientador` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(150) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `cpf` varchar(14) NOT NULL,
+  `rg` varchar(14) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `telefone` varchar(20) NOT NULL,
+  `senha` varchar(100) NOT NULL,
+  `campus` int(11) DEFAULT NULL,
+  `tipo_usuario` varchar(400) DEFAULT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 --
 -- Extraindo dados da tabela `bolsista`
 --
@@ -62,8 +77,8 @@ CREATE TABLE `campus` (
 --
 
 INSERT INTO `campus` (`id`, `nome`, `telefone`, `logradouro`, `numero_logradouro`, `complemento`, `bairro`, `cidade`, `estado`, `cep`, `numero`) VALUES
-(3, 'Jaboat√£o dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
-(4, 'Jaboat√£o dos Guararapes', '81979082535', 'sddddddddddddddssssssssss', 22222, 'sdddddddddddd', 'dssssssssssssssssssssss', 'fdgdgfdsdddddddd', 'AL', '54490000', NULL);
+(3, 'Jaboat„o dos Guararapes', '81979082153', 'rus tsd', 158, '', 'Barra de Jangada', 'jaboatao', 'PE', '54.490-000', NULL),
+(4, 'Jaboat„o dos Guararapes', '81979082535', 'sddddddddddddddssssssssss', 22222, 'sdddddddddddd', 'dssssssssssssssssssssss', 'fdgdgfdsdddddddd', 'AL', '54490000', NULL);
 
 -- --------------------------------------------------------
 
@@ -122,7 +137,7 @@ CREATE TABLE `tipo_usuario` (
 INSERT INTO `tipo_usuario` (`id`, `descricao`) VALUES
 (1, 'Orientador'),
 (3, 'Gestor'),
-(4, 'propesq');
+(4, 'Propesq');
 
 --
 -- Indexes for dumped tables
@@ -136,6 +151,13 @@ ALTER TABLE `bolsista`
   ADD KEY `campus` (`campus`),
   ADD KEY `cpf` (`cpf`) USING BTREE,
   ADD KEY `id_orientador` (`id_orientador`);
+  
+  
+  ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `campus` (`campus`),[
+   ADD KEY `tipo_usuario` (`tipo_usuario`),
+  ADD KEY `cpf` (`cpf`) USING BTREE;
 
 --
 -- Indexes for table `campus`

@@ -48,12 +48,12 @@
 					</a>
 				</li>
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
-					<a href="listaFormularioBolsista">
+					<a href="enviarFormularioOrientador">
 						<i class="fa fa-list"></i> Formulários 
 					</a>
 				</li>
 				<li data-toggle="collapse" data-target="#service" class="collapsed">
-					<a href="exibirAlterarFormularioBolsista">
+					<a href="listaFormularioBolsista">
 						<i class="fa fa-keyboard-o"></i> Alterar Formulário
 					</a>
 				</li>

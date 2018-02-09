@@ -18,6 +18,7 @@
 <c:import url="../Orientador/menuOrientador.jsp"/>
 <div class="menu">
 	<h2>Cadastro de Bolsista</h2><br>
+	<input type="text" disabled>
 	
 	<div style="text-align: center; color: red;">${msg}</div>
  	<div class="form-group">

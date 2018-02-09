@@ -57,6 +57,9 @@ $("#form_cadastro").validate({
              },
              resumoAtividades:{
             	 required:true,
+             },
+             tipoUsuario:{
+            	 required: true,
              }
        },
        messages:{
@@ -116,6 +119,9 @@ $("#form_cadastro").validate({
              },
              resumoAtividades:{
             	 required:"O Resumo das Atividades deve ser preenchido",
+             },
+             tipoUsuario:{
+            	 required:"O tipo de Usuario deve ser informado",
              }
        }
 });

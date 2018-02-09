@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.Usuario;
 import com.br.propesq.frequencia.util.ConnectionFactory;
 import com.br.propesq.frequencia.util.PasswordStorage;
@@ -29,7 +30,7 @@ public class UsuarioDao {
 	public void salvar(Usuario usuario) throws CannotPerformOperationException {
 		try {
 
-			String sql = "INSERT INTO usuario (nome,telefone,rg,cpf,email,tipo_usuario, login, senha, curriculo, campus) VALUES (?,?,?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO usuario (nome,telefone,rg,cpf,email,tipo_usuario, login, senha, campus) VALUES (?,?,?,?,?,?,?,?,?)";
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, usuario.getNome());
 			stmt.setString(2, usuario.getTelefone());
@@ -41,8 +42,7 @@ public class UsuarioDao {
 			new PasswordStorage();
 			String hash = PasswordStorage.createHash(usuario.getSenha());
 			stmt.setString(8, hash);
-			stmt.setString(9, usuario.getCurriculo());
-			stmt.setInt(10, usuario.getCampus().getId());
+			stmt.setInt(9, usuario.getCampus().getId());
 			
 			stmt.execute();
 			connection.close();
@@ -51,6 +51,33 @@ public class UsuarioDao {
 		}
 	}
 
+	public void alterarCadastroUsuario(Usuario usuario) {
+
+		String sql = "UPDATE usuario SET nome=?,telefone=?, rg=?,cpf=?,email=?,tipo_usuario=?,login=?,campus=? WHERE id =?";
+		PreparedStatement stmt;
+		
+		try {
+		    stmt = connection.prepareStatement(sql);
+
+		   
+		    stmt.setString(1, usuario.getNome());
+			stmt.setString(2, usuario.getTelefone());
+			stmt.setString(3, usuario.getRg());
+			stmt.setString(4, usuario.getCpf());
+			stmt.setString(5, usuario.getEmail());
+			stmt.setInt(6, usuario.getTipoUsuario().getId());
+			stmt.setString(7, usuario.getLogin());
+			stmt.setInt(8, usuario.getCampus().getId());
+			stmt.setInt(9, usuario.getId());
+			
+		    stmt.execute();
+		    connection.close();
+
+		} catch (SQLException e) {
+		    throw new RuntimeException(e);
+		}
+	    }
+	
 	public Usuario buscarPorId(int id) {
 		try {
 
@@ -68,7 +95,6 @@ public class UsuarioDao {
 				usuario.setEmail(rs.getString("email"));
 				usuario.setRg(rs.getString("rg"));
 				usuario.setCpf(rs.getString("cpf"));
-				usuario.setCurriculo(rs.getString("curriculo"));
 				usuario.setLogin(rs.getString("login"));
 				usuario.setSenha(rs.getString("senha"));
 			}

@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.FormularioFrequencia;
@@ -42,7 +41,7 @@ public class FormularioFrequenciaDao {
 	    	stmt.setString(4, formularioFrequencia.getMesAno());
 						
 			stmt.execute();
-			connection.close();
+			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -51,7 +50,7 @@ public class FormularioFrequenciaDao {
 	
 	public void alterarBolsista(FormularioFrequencia formularioFrequencia){
 
-		String sql = "UPDATE formulario_frequencia SET resumo_atividades=?,comentarios_estudante=?, mesAno=? WHERE id =?";
+		String sql = "UPDATE formulario_frequencia SET resumo_atividades=?,comentarios_estudante=?, mesAno=?, data_entrega=NOW() WHERE id =?";
 		PreparedStatement stmt;
 		
 		try {
@@ -60,7 +59,6 @@ public class FormularioFrequenciaDao {
 		    stmt.setString(1, formularioFrequencia.getResumoAtividades());
 		    stmt.setString(2, formularioFrequencia.getComentariosEstudante());
 		    stmt.setString(3, formularioFrequencia.getMesAno());
-//		    stmt.setInt(4, formularioFrequencia.getBolsista().getId());
 			stmt.setInt(4, formularioFrequencia.getId());
 		    stmt.execute();
 		    connection.close();
@@ -92,15 +90,11 @@ public class FormularioFrequenciaDao {
 				formularioFrequencia.setBolsista(bolsista);
 
 				formularioFrequencia.setId(rs.getInt("id"));
-				formularioFrequencia.setNomeBolsista(rs.getString("nome_bolsista"));
-				formularioFrequencia.setMatriculaBolsista(rs.getString("matricula_bolsista"));
 				formularioFrequencia.setMesAno(rs.getString("mesAno"));
-				formularioFrequencia.setTituloPlano(rs.getString("titulo_plano"));
-				formularioFrequencia.setNomeOrientador(rs.getString("nome_orientador"));
-				formularioFrequencia.setTipoProjeto(rs.getString("tipo_projeto"));
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
 				formularioFrequencia.setDataEntrega(rs.getDate("data_entrega"));
+				formularioFrequencia.setStatusBolsista(rs.getBoolean("status_bolsista"));
 
 				listarFormularioBolsista.add(formularioFrequencia);
 			}
@@ -135,6 +129,16 @@ public class FormularioFrequenciaDao {
 				formularioFrequencia.setResumoAtividades(rs.getString("resumo_atividades"));
 				formularioFrequencia.setComentariosEstudante(rs.getString("comentarios_estudante"));
 				formularioFrequencia.setDataEntrega(rs.getDate("data_entrega"));
+				formularioFrequencia.setSituacaoCronograma(rs.getString("situacao_cronograma"));
+				formularioFrequencia.setCargaHoraria(rs.getString("carga_horaria"));
+				formularioFrequencia.setInteresseAtividades(rs.getString("interesse_atividades"));
+				formularioFrequencia.setProgressoAlcancado(rs.getString("progresso_alcancado"));
+				formularioFrequencia.setPagamentoBolsa(rs.getBoolean("pagamento_bolsa"));
+				formularioFrequencia.setComentariosOrientador(rs.getString("comentarios_orientador"));
+				formularioFrequencia.setStatusBolsista(rs.getBoolean("status_bolsista"));
+				formularioFrequencia.setStatusOrientador(rs.getBoolean("status_orientador"));
+				formularioFrequencia.setStatusGestor(rs.getBoolean("status_gestor"));
+				formularioFrequencia.setStatusPropesq(rs.getBoolean("status_propesq"));
 			}
 
 			rs.close();
@@ -148,5 +152,22 @@ public class FormularioFrequenciaDao {
 		}
 
 	}
+	
+	public void alterarStatusBolsista(FormularioFrequencia formularioFrequencia){
+
+		String sql = "UPDATE formulario_frequencia SET status_bolsista=true WHERE id = ?";
+		PreparedStatement stmt;
+		
+		try {
+		    stmt = connection.prepareStatement(sql);
+		    
+		    stmt.setInt(1, formularioFrequencia.getId());
+		    stmt.execute();
+		    connection.close();
+
+		} catch (SQLException e) {
+		    throw new RuntimeException(e);
+		}
+	    }
 
 }

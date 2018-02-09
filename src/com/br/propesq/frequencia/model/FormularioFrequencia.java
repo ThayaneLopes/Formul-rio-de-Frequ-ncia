@@ -24,7 +24,7 @@ public class FormularioFrequencia {
 	private String tituloPlano;
 	private String tipoProjeto;
 	private String nomeOrientador;
-	private boolean statusBolsista;
+	public boolean statusBolsista;
 	private boolean statusOrientador;
 	private boolean statusGestor;
 	private boolean statusPropesq;

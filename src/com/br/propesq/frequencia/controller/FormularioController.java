@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.FormularioFrequenciaDao;
-import com.br.propesq.frequencia.dao.UsuarioDao;
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.FormularioFrequencia;
-import com.br.propesq.frequencia.model.Usuario;
 
 @Controller
 public class FormularioController {
@@ -44,6 +42,7 @@ public class FormularioController {
 		return "forward:listaFormularioBolsista";
 
 	}
+	//Alterar Formulario do Bolsista
 	
 	@RequestMapping("exibirAlterarFormularioBolsista")
     public String exibirAlterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model) {
@@ -60,10 +59,10 @@ public class FormularioController {
 	 @RequestMapping("alterarFormularioBolsista")
 	    public String alterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model,  HttpSession session){
 		 
-		 Bolsista bolsista = (Bolsista) session.getAttribute("usuarioLogado");
+		Bolsista bolsista = (Bolsista) session.getAttribute("usuarioLogado");
 		formularioFrequencia.setBolsista(bolsista);	
 
-		 FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 		dao.alterarBolsista(formularioFrequencia);
 		model.addAttribute("msg", "Dados Alterados com Sucesso!");
 
@@ -71,21 +70,38 @@ public class FormularioController {
 	    }
 
 	 
+	 //Listar Formulario para editar
+	 
 	 @RequestMapping("listaFormularioBolsista")
 		public String listaFormularioBolsista(Model model) {
 
 			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();
 			model.addAttribute("listaFormularioBolsista", listaFormularioBolsista);
-			
-			UsuarioDao dao2 = new UsuarioDao();
-			List<Usuario> listaUsuario = dao2.listar();
-			model.addAttribute("listaUsuario", listaUsuario);
-
-			BolsistaDao dao3 = new BolsistaDao();
-			List<Bolsista> listaBolsista = dao3.listarTodos();
-			model.addAttribute("listaBolsista", listaBolsista);
-
+				
 			return "Bolsista/listaFormularioBolsista";
 		}
+	 
+	// Listar Formulario para enviar ao orientador 
+	 
+	 @RequestMapping("enviarFormularioOrientador")
+		public String enviarFormularioOrientador(Model model) {
+
+			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();
+			model.addAttribute("listaFormularioBolsista", listaFormularioBolsista);
+			
+			return "Bolsista/enviarFormularioOrientador";
+		}
+	 
+	 @RequestMapping("EnviarAoOrientador")
+	    public String EnviarAoOrientador (FormularioFrequencia formularioFrequencia, Model model){
+		 
+		
+			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+			dao.alterarStatusBolsista(formularioFrequencia);
+
+
+		return "forward:enviarFormularioOrientador";
+	    }
 }

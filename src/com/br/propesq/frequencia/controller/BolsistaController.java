@@ -110,6 +110,7 @@ public class BolsistaController {
 	@RequestMapping("efetuarLoginBolsista")
 	public String efetuarLoginBolsista(String login, String senha, Model model, HttpSession session)
 			throws CannotPerformOperationException, InvalidHashException {
+		
 		Bolsista bolsista;
 		BolsistaDao dao = new BolsistaDao();
 		bolsista = dao.buscarBolsista(login);
@@ -188,5 +189,7 @@ public class BolsistaController {
 
 		return "forward:listarBolsista";
 	}
+	
+	
 
 }

@@ -14,12 +14,12 @@
 <body>
 
 <c:import url="../Bolsista/menuBolsista.jsp"/>
+
 <div class="menu">
 
-<form action="alterarFormularioBolsista" method="post">
 
+<form action="alterarFormularioBolsista" method="post" name="form_cadastro">
 
-	
 	<h2> Formulário do Mês </h2>
 	
 		<label>Mês e Ano</label>
@@ -27,6 +27,7 @@
 		
 
 		<input type="hidden"  name="bolsista" id="bolsista" value="${usuarioLogado.id}" class="form-control" disabled>
+		<input type="hidden"  name="id"  value="${formularioFrequencia.id}" class="form-control" >
 		
 
 	<fieldset>

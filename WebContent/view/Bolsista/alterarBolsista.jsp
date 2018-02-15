@@ -23,7 +23,7 @@
 
 <input type="hidden" name="id" value="${usuarioLogado.id}" />
 <label>Senha:</label>
-<input type="password" name="senha" id="senha" class="form-control" placeholder="Insira a Sua senha" minlength="8" required><br>
+<input type="password" name="senha" id="senha" class="form-control" placeholder="Insira a sua senha" minlength="8" required><br>
 
 
 <input type="submit" class="btn btn-primary" value="Atualizar">

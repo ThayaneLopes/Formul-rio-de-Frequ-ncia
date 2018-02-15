@@ -14,9 +14,9 @@
 <body>
 <c:import url="../Bolsista/menuBolsista.jsp"/>
 
-<div class="menu">
-<div style="text-align: center; color: red;">${msg}</div>
 
+<div style="text-align: center; color: red;">${msg}</div>
+<div class="menu">
 <br><br>
 	<table border=1; style="width: 100%" id="tabelaListaFormularioBolsista">
 		<tr>
@@ -35,7 +35,15 @@
 				<td>${formularioFrequencia.resumoAtividades}</td>
 				<td>${formularioFrequencia.comentariosEstudante}</td>
 				<td>${formularioFrequencia.dataEntrega}</td>
+				
+				<c:choose>
+				<c:when test="${formularioFrequencia.statusBolsista == false}">
 				<td><a href="exibirAlterarFormularioBolsista?id=${formularioFrequencia.id}" class="btn btn-warning">Alterar</a></td>
+				</c:when>
+				<c:when test="${formularioFrequencia.statusBolsista == true}">
+				<td><a class="btn btn-warning" disabled>Alterar</a></td>
+				</c:when>
+				</c:choose>
 
 			</tr>
 		</c:forEach>

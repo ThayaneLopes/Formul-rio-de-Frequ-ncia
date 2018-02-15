@@ -11,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Preenchimento Formulário de Frequencia</title>
 </head>
-<body onload="return InserirData();">
+<body>
 
 <c:import url="../Bolsista/menuBolsista.jsp"/>
 

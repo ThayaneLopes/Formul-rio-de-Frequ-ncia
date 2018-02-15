@@ -50,16 +50,18 @@ public class FormularioFrequenciaDao {
 	
 	public void alterarBolsista(FormularioFrequencia formularioFrequencia){
 
-		String sql = "UPDATE formulario_frequencia SET resumo_atividades=?,comentarios_estudante=?, mesAno=?, data_entrega=NOW() WHERE id =?";
+		String sql = "UPDATE formulario_frequencia SET id_bolsista=?,resumo_atividades=?,comentarios_estudante=?, "
+				+ "mesAno=? WHERE id =?";
 		PreparedStatement stmt;
 		
 		try {
 		    stmt = connection.prepareStatement(sql);
 		    
-		    stmt.setString(1, formularioFrequencia.getResumoAtividades());
-		    stmt.setString(2, formularioFrequencia.getComentariosEstudante());
-		    stmt.setString(3, formularioFrequencia.getMesAno());
-			stmt.setInt(4, formularioFrequencia.getId());
+		    stmt.setInt(1, formularioFrequencia.getBolsista().getId());
+		    stmt.setString(2, formularioFrequencia.getResumoAtividades());
+		    stmt.setString(3, formularioFrequencia.getComentariosEstudante());
+		    stmt.setString(4, formularioFrequencia.getMesAno());
+			stmt.setInt(5, formularioFrequencia.getId());
 		    stmt.execute();
 		    connection.close();
 

@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.FormularioFrequenciaDao;
@@ -34,6 +36,7 @@ public class FormularioController {
 	
 		Bolsista bolsista = (Bolsista) session.getAttribute("usuarioLogado");
 		formularioFrequencia.setBolsista(bolsista);
+		
 		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 		dao.salvarBolsista(formularioFrequencia);
 		model.addAttribute("msg", "Seu formulário foi enviado com sucesso");
@@ -46,9 +49,13 @@ public class FormularioController {
 	
 	@RequestMapping("exibirAlterarFormularioBolsista")
     public String exibirAlterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model) {
+		
+	BolsistaDao dao2 = new BolsistaDao();
+	
 
 	FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 	FormularioFrequencia formularioBolsistaCompleto = dao.BuscarPorId(formularioFrequencia.getId());
+
 	model.addAttribute("formularioFrequencia", formularioBolsistaCompleto);
 
 
@@ -57,16 +64,17 @@ public class FormularioController {
 	
 	
 	 @RequestMapping("alterarFormularioBolsista")
-	    public String alterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model,  HttpSession session){
+	    public String alterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model, HttpSession session){
 		 
 		Bolsista bolsista = (Bolsista) session.getAttribute("usuarioLogado");
-		formularioFrequencia.setBolsista(bolsista);	
+		formularioFrequencia.setBolsista(bolsista);
+		
 
 		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 		dao.alterarBolsista(formularioFrequencia);
 		model.addAttribute("msg", "Dados Alterados com Sucesso!");
 
-		return "forward:listaFormularioBolsista";
+		return "forward:exibirAlterarFormularioBolsista";
 	    }
 
 	 

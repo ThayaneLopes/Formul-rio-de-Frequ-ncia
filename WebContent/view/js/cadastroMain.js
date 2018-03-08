@@ -72,15 +72,15 @@ $("#form_cadastro").validate({
                  minlength:"O nome deve ter pelo menos 14 caracteres"
           },
              email:{
-                    required:"É necessário informar um email"
+                    required:"Favor, informe um e-mail"
              },
              rg:{
-                    required:"O rg não pode ficar em branco"
+                    required:"Favor, preencha o rg"
              } ,
              cpf:{
-            	 required:"O CPF não pode ficar em branco",
-            	minlength:"O CPF deve ter pelo menos 14 caracteres",
-            	maxlength:"O CPF deve ter no máximo 14 caracteres"
+            	 required:"Favor, preencha o campo CPF",
+            	minlength:"O CPF deve ter 11 caracteres",
+            	maxlength:"O CPF deve ter 11 caracteres"
              },
              banco:{
             	 required:"O nome do banco deve ser preenchido",

@@ -24,7 +24,7 @@
 			<td>Resumo de Atividades</td>
 			<td>Comentários do Estudante</td>
 			<td>Data Entregue</td>
-			<td>Alterar</td>
+			<td>Ações</td>
 			
 			
 		</tr>

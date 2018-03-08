@@ -48,6 +48,22 @@ public class FormularioFrequenciaDao {
 		
 	}
 	
+	public void removerFormularioBolsista(Integer id) {
+
+		try {
+
+			String sql = "DELETE FROM formulario_frequencia WHERE id = ?";
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, id);
+
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public void alterarBolsista(FormularioFrequencia formularioFrequencia){
 
 		String sql = "UPDATE formulario_frequencia SET id_bolsista=?,resumo_atividades=?,comentarios_estudante=?, "

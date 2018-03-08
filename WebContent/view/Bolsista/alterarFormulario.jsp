@@ -47,6 +47,7 @@
 	
 	
 	<input type="submit" value="Alterar" class="btn btn-primary"> 
+	<a href="removerFormularioBolsista?id=${formularioFrequencia.id}" class="btn btn-danger">Remover</a>
 	<input type="reset" value="limpar" class="btn btn-default">
 
 	</form>

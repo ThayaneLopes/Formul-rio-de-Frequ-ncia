@@ -39,19 +39,28 @@ public class FormularioController {
 		
 		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 		dao.salvarBolsista(formularioFrequencia);
-		model.addAttribute("msg", "Seu formulário foi enviado com sucesso");
+		model.addAttribute("msg", "Seu formulï¿½rio foi enviado com sucesso");
 		
 		
 		return "forward:listaFormularioBolsista";
 
 	}
+//	Remover o formulÃ¡rio do Bolsista
+	@RequestMapping("removerFormularioBolsista")
+	public String removerFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model) {
+
+		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+		dao.removerFormularioBolsista(formularioFrequencia.getId());
+		model.addAttribute("mensagem", "Bolsista Removido com Sucesso");
+
+		return "forward:listaFormularioBolsista";
+	}
 	//Alterar Formulario do Bolsista
 	
 	@RequestMapping("exibirAlterarFormularioBolsista")
-    public String exibirAlterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model) {
+    public String exibirAlterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model,HttpSession session) {
 		
-	BolsistaDao dao2 = new BolsistaDao();
-	
+		
 
 	FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 	FormularioFrequencia formularioBolsistaCompleto = dao.BuscarPorId(formularioFrequencia.getId());
@@ -74,7 +83,7 @@ public class FormularioController {
 		dao.alterarBolsista(formularioFrequencia);
 		model.addAttribute("msg", "Dados Alterados com Sucesso!");
 
-		return "forward:exibirAlterarFormularioBolsista";
+		return "forward:enviarFormularioOrientador";
 	    }
 
 	 

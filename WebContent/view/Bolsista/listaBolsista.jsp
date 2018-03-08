@@ -4,8 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" type="text/css"
-	href="view/css/cadastroStyle.css" />
+<link rel="stylesheet" type="text/css" href="view/css/cadastroStyle.css" />
 <script type="text/javascript" src="view/js/main.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -19,13 +18,18 @@
 	<br> 
 	<a href="cadastroBolsista" class="btn btn-info">Cadastrar novo bolsista</a>
 <br><br>
+
 <h3>Pesquisar Bolsista</h3>
-<form action="listarBolsista" method="post"  >
+<div>
+<div style="text-align: center; color: red;">${msg}</div>
+<form action="buscarBolsista" method="post"  >
+
 	<input type="text" name="busca" placeholder="Insira o nome do estudante" class="form-control">
 	<input type="submit" value="Pesquisar" class="btn btn-primary">
 </form>
 <br>
-
+</div>
+<div>
 	<table border=1; style="width: 100%" id="tabelaListaBolsista">
 		<tr>
 			<td>Nome</td>
@@ -61,7 +65,7 @@
 		</c:forEach>
 
 	</table>
-
+</div>
 </div>
 </body>
 </html>

@@ -11,44 +11,49 @@
 <link rel="stylesheet" type="text/css" href="view/bootstrap/css/bootstrap.min.css" />
 <script type="text/javascript" src="view/bootstrap/js/bootstrap.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta charset="uft-8">
 
 <title>Cadastro Bolsista</title>
 </head>
 <body>
+
 <c:import url="../Orientador/menuOrientador.jsp"/>
 <div class="menu">
 	<h2>Cadastro de Bolsista</h2><br>
-	<input type="text" disabled>
 	
 	<div style="text-align: center; color: red;">${msg}</div>
+	
  	<div class="form-group">
 	<form action="cadastroComSucessoBolsista" method="post" class="form" id="form_cadastro">
+		
 		<fieldset>
 		<br>
 			<legend><i><b>Dados Pessoais</b></i></legend>
 			
 			<label>Nome Completo:</label> 
-			<input type="text" name="nome" id="nome" class="form-control" required="required"> <br> 
+			<input type="text" name="nome" id="nome" class="form-control" required="required" onkeyup="validar(this,'text')"> <br> 
 			<label>Telefone:</label> 
-			<input	type="text" name="telefone" id="telefone" onkeyup="maskIt(this,event,'(##) #####-####')" class="form-control" required="required"><br> 
+			<input	type="text" name="telefone" id="telefone" onkeyup="validar(this,'num'),maskIt(this,event,'(##) #####-####')"  class="form-control" required="required"><br> 
 			<label>E-mail:</label>
-			<input type="text" name="email" id="email" class="form-control" required="required"><br> 
+			<input type="text" name="email" id="email" class="form-control"  required="required"><br> 
 			<label>Número do Documento de Identificação:</label> 
-			<input type="text" name="rg" id="rg" class="form-control" required="required"><br>
+			<input type="text" name="rg" id="rg" class="form-control" onkeyup="validar(this,'num')" required="required" ><br>
 			<label>CPF:</label> 
-			<input type="text" name="cpf" id="cpf"	onkeyup="maskIt(this,event,'###.###.###-##')" class="form-control" required="required"><br>
+			<input type="text" name="cpf" id="cpf"	onkeyup="validar(this,'num'), maskIt(this,event,'###.###.###-##')" class="form-control" required="required"><br>
 		</fieldset>
+		
 		<fieldset>
 		<br>
 			<legend><i><b>Dados Bancários</b></i></legend>
 
 			<label>Banco</label> 
-			<input type="text" name="banco" id="banco" class="form-control" required="required"><br>
+			<input type="text" name="banco" id="banco" onkeyup="validar(this,'text')" class="form-control" required="required"><br>
 			<label>Agência:</label> 
-			<input type="text" name="agencia"	id="agencia" onkeyup="maskIt(this,event,'####-###')" class="form-control" required="required"><br>
+			<input type="text" name="agencia" id="agencia" onkeyup="validar(this,'num'),maskIt(this,event,'####-###')" class="form-control" required="required"><br>
 			<label>Conta:</label> 
-			<input type="text" name="conta" id="conta" onkeyup="maskIt(this,event,'######-#')" class="form-control" required="required"> <br>
+			<input type="text" name="conta" id="conta" onkeyup="validar(this,'num'), maskIt(this,event,'######-#')" class="form-control" required="required"> <br>
 		</fieldset>
+		
 		<fieldset>
 		<br>
 			<legend><i><b>Dados Escolar</b></i></legend>
@@ -68,6 +73,7 @@
 			<label>Link do Currículo na Plataforma Lattes:</label> 
 			<input type="text" name="curriculo" id="curriculo" class="form-control" required="required">
 		</fieldset>
+		
 		<fieldset>
 		<br>
 			<legend><i> <b>Dados para o Projeto</b></i></legend>

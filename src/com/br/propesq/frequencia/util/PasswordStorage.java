@@ -1,10 +1,13 @@
 package com.br.propesq.frequencia.util;
 
-import java.security.SecureRandom;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.SecretKeyFactory;
+import java.math.BigInteger;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
+
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 import javax.xml.bind.DatatypeConverter;
 
 public class PasswordStorage {
@@ -71,6 +74,34 @@ public class PasswordStorage {
 	            ":" +
 	            toBase64(hash);
 	        return parts;
+	    }
+	    
+	    private static char[] hexCodes(byte[] text) {
+	        char[] hexOutput = new char[text.length * 2];
+	        String hexString;
+	 
+	        for (int i = 0; i < text.length; i++) {
+	            hexString = "00" + Integer.toHexString(text[i]);
+	            hexString.toUpperCase().getChars(hexString.length() - 2,
+	                                    hexString.length(), hexOutput, i * 2);
+	        }
+	        return hexOutput;
+	}
+	    
+	    public static String md5(String input) {
+	        String md5 = null;
+	        if(null == input) return null;
+	        try {
+	        //Create MessageDigest object for MD5
+	        MessageDigest digest = MessageDigest.getInstance("MD5");
+	        //Update input string in message digest
+	        digest.update(input.getBytes(), 0, input.length());
+	        //Converts message digest value in base 16 (hex) 
+	        md5 = new BigInteger(1, digest.digest()).toString(16);
+	        } catch (NoSuchAlgorithmException e) {
+	            e.printStackTrace();
+	        }
+	        return md5;
 	    }
 
 	    public static boolean verifyPassword(String password, String correctHash)

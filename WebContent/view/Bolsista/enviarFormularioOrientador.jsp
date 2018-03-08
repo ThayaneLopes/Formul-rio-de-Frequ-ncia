@@ -25,7 +25,6 @@
 			<td>Resumo de Atividades</td>
 			<td>Comentários do Estudante</td>
 			<td>Data Entregue</td>
-			<td>Status</td>
 			<td>Ações</td>
 			
 			
@@ -37,7 +36,6 @@
 				<td>${formularioFrequencia.resumoAtividades}</td>
 				<td>${formularioFrequencia.comentariosEstudante}</td>
 				<td>${formularioFrequencia.dataEntrega}</td>
-				<td>${formularioFrequencia.statusBolsista}</td>
 				
 				<c:choose>
 				<c:when test="${formularioFrequencia.statusBolsista == false}">

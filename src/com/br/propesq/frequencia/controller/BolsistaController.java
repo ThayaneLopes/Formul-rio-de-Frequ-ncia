@@ -69,7 +69,7 @@ public class BolsistaController {
 
 	}
 
-	@RequestMapping("buscarBolsista")
+	@RequestMapping("buscarBolsista") 
 	public String buscarBolsista(Model model, String busca) {
 		if (busca == null) {
 			BolsistaDao dao = new BolsistaDao();

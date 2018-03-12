@@ -49,7 +49,7 @@ public class BolsistaDao {
 			stmt.setString(12, bolsista.getCurriculo());
 			stmt.setString(13, bolsista.getLogin());
 			new PasswordStorage();
-			String hash = PasswordStorage.createHash(bolsista.getSenha());
+			String hash = PasswordStorage.md5(bolsista.getSenha());
 			stmt.setString(14, hash);
 			stmt.setString(15, bolsista.getTituloPlano());
 			stmt.setString(16, bolsista.getTipoProjeto());
@@ -104,7 +104,7 @@ public class BolsistaDao {
 		    stmt = connection.prepareStatement(sql);
 
 		    new PasswordStorage();
-			String hash = PasswordStorage.createHash(bolsista.getSenha());
+			String hash = PasswordStorage.md5(bolsista.getSenha());
 			stmt.setString(1, hash);
 			stmt.setInt(2, bolsista.getId());
 		    stmt.execute();

@@ -20,7 +20,7 @@ import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
 
 @Controller
 public class BolsistaController {
-
+	/** Cadastro Bolsista */
 	@RequestMapping("cadastroBolsista")
 	public String cadastroBolsista(Model model) {
 
@@ -29,15 +29,14 @@ public class BolsistaController {
 		model.addAttribute("listaCampus", listaCampus);
 
 		UsuarioDao dao2 = new UsuarioDao();
-		List<Usuario> listaUsuario = dao2.listar();
+		List<Usuario> listaUsuario = dao2.listarTodos();
 		model.addAttribute("listaUsuario", listaUsuario);
 
 		return "Bolsista/cadastroBolsista";
 	}
 
 	@RequestMapping("cadastroComSucessoBolsista")
-	public String cadastroComSucessoBolsista(Bolsista bolsista,	 Model model)
-			throws CannotPerformOperationException {
+	public String cadastroComSucessoBolsista(Bolsista bolsista, Model model) throws CannotPerformOperationException {
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.salvar(bolsista);
@@ -57,6 +56,7 @@ public class BolsistaController {
 		return "forward:buscarBolsista";
 	}
 
+	/** Mapeamento da pagina de menu e de login */
 	@RequestMapping("/menuBolsista")
 	public String menuBolsista() {
 		return "Bolsista/menuBolsista";
@@ -69,30 +69,30 @@ public class BolsistaController {
 
 	}
 
-	@RequestMapping("buscarBolsista") 
+	/** Busca de bolsista por nome + lista de todos os bolsistas cadastrados */
+	@RequestMapping("buscarBolsista")
 	public String buscarBolsista(Model model, String busca) {
 		if (busca == null) {
 			BolsistaDao dao = new BolsistaDao();
 			List<Bolsista> listaBolsista = dao.listarTodos();
 			model.addAttribute("listaBolsista", listaBolsista);
-			
-			return "Bolsista/listaBolsista";
-		}else{
-		
-		BolsistaDao dao = new BolsistaDao();
-		List<Bolsista> listaBolsista = dao.listar(busca);
-		model.addAttribute("listaBolsista", listaBolsista);
 
-		return "Bolsista/listaBolsista";
+			return "Bolsista/listaBolsista";
+		} else {
+
+			BolsistaDao dao = new BolsistaDao();
+			List<Bolsista> listaBolsista = dao.listar(busca);
+			model.addAttribute("listaBolsista", listaBolsista);
+
+			return "Bolsista/listaBolsista";
 		}
 	}
-	
-	
 
+	/** Metodo de efetuar login */
 	@RequestMapping("efetuarLoginBolsista")
 	public String efetuarLoginBolsista(Bolsista bolsista, Model model, HttpSession session)
 			throws CannotPerformOperationException, InvalidHashException {
-		
+
 		bolsista.setSenha(PasswordStorage.md5(bolsista.getSenha()));
 		BolsistaDao dao2 = new BolsistaDao();
 		Bolsista usuarioLogado = dao2.sessaoBolsista(bolsista);
@@ -104,10 +104,10 @@ public class BolsistaController {
 			model.addAttribute("msg", "Login ou Senha incorreto");
 			return "forward:loginBolsista";
 		}
-		
 
 	}
 
+	/** Metodo para efetuar o logout */
 	@RequestMapping("efetuarLogoutBolsista")
 	public String efetuarLogoutBolsista(HttpSession session) {
 		session.invalidate();
@@ -116,6 +116,7 @@ public class BolsistaController {
 
 	}
 
+	/** Alterar senha do bolsista */
 	@RequestMapping("exibirAlterarBolsista")
 	public String exibirAlterarBolsista(Bolsista bolsista, Model model) {
 
@@ -136,6 +137,7 @@ public class BolsistaController {
 		return "forward:exibirAlterarBolsista";
 	}
 
+	/** Alterar dados do bolsista (feito pelo orientador) */
 	@RequestMapping("exibirAlterarCadastroBolsista")
 	public String exibirAlterarCadastroBolsista(Bolsista bolsista, Model model) {
 
@@ -148,24 +150,20 @@ public class BolsistaController {
 		model.addAttribute("listaCampus", listaCampus);
 
 		UsuarioDao dao2 = new UsuarioDao();
-		List<Usuario> listaUsuario = dao2.listar();
+		List<Usuario> listaUsuario = dao2.listarTodos();
 		model.addAttribute("listaUsuario", listaUsuario);
 
 		return "Bolsista/editarCadastroBolsista";
 	}
 
 	@RequestMapping("/alterarCadastroBolsista")
-	public String alterarCadastroBolsista(Bolsista bolsista, Model model, int id) {
+	public String alterarCadastroBolsista(Bolsista bolsista, Model model) {
 
-		
-				
 		BolsistaDao dao = new BolsistaDao();
 		dao.alterarCadastroBolsista(bolsista);
 		model.addAttribute("msg", "Dados Alterado com Sucesso!");
 
 		return "forward:buscarBolsista";
 	}
-	
-	
 
 }

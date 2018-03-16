@@ -7,30 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "campus")
+
 public class Campus {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	
 	private Integer id;
-	@Column
 	private String nome;
-	@Column
 	private String telefone;
-	@Column
 	private String logradouro;
-	@Column
 	private String numero;
-	@Column
 	private String complemento;
-	@Column
 	private String bairro;
-	@Column
 	private String cidade;
-	@Column
 	private String estado;
-	@Column
 	private String cep;
 
 	public Integer getId() {

@@ -48,15 +48,15 @@
 					</a>
 				</li>
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
-					<a href="enviarFormularioOrientador">
+					<a href="listaFormularioBolsista">
 						<i class="fa fa-list"></i> Formulários 
 					</a>
 				</li>
-				<li data-toggle="collapse" data-target="#service" class="collapsed">
-					<a href="listaFormularioBolsista">
-						<i class="fa fa-keyboard-o"></i> Alterar Formulário
-					</a>
-				</li>
+<!-- 				<li data-toggle="collapse" data-target="#service" class="collapsed"> -->
+<!-- 					<a href="listaFormularioBolsista"> -->
+<!-- 						<i class="fa fa-keyboard-o"></i> Alterar Formulário -->
+<!-- 					</a> -->
+<!-- 				</li> -->
 				<li data-toggle="collapse" data-target="#new" class="collapsed">
 					<a href="exibirAlterarBolsista">
 						<i class="fa fa-key"></i> Alterar Senha 

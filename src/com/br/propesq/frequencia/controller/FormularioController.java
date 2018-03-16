@@ -18,7 +18,7 @@ import com.br.propesq.frequencia.model.FormularioFrequencia;
 @Controller
 public class FormularioController {
 	
-	
+	/**********************FORMULARIO DE FREQUENCIA DO BOLSISTA**********************/
 	@RequestMapping("formularioBolsista")
 	public String formularioBolsista(Model model) {
 		
@@ -39,7 +39,7 @@ public class FormularioController {
 		
 		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
 		dao.salvarBolsista(formularioFrequencia);
-		model.addAttribute("msg", "Seu formul�rio foi enviado com sucesso");
+		model.addAttribute("msg", "Seu formulário foi enviado com sucesso");
 		
 		
 		return "forward:listaFormularioBolsista";
@@ -83,7 +83,7 @@ public class FormularioController {
 		dao.alterarBolsista(formularioFrequencia);
 		model.addAttribute("msg", "Dados Alterados com Sucesso!");
 
-		return "forward:enviarFormularioOrientador";
+		return "forward:listaFormularioBolsista";
 	    }
 
 	 
@@ -99,18 +99,7 @@ public class FormularioController {
 			return "Bolsista/listaFormularioBolsista";
 		}
 	 
-	// Listar Formulario para enviar ao orientador 
-	 
-	 @RequestMapping("enviarFormularioOrientador")
-		public String enviarFormularioOrientador(Model model) {
-
-			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
-			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();
-			model.addAttribute("listaFormularioBolsista", listaFormularioBolsista);
-			
-			return "Bolsista/enviarFormularioOrientador";
-		}
-	 
+	
 	 @RequestMapping("EnviarAoOrientador")
 	    public String EnviarAoOrientador (FormularioFrequencia formularioFrequencia, Model model){
 		 
@@ -119,6 +108,6 @@ public class FormularioController {
 			dao.alterarStatusBolsista(formularioFrequencia);
 
 
-		return "forward:enviarFormularioOrientador";
+		return "forward:listaFormularioBolsista";
 	    }
 }

@@ -121,7 +121,7 @@ public class UsuarioDao {
 	}
 
 	/** Metodo de Alterar senha do usuario Usuario */
-	public void alterar(Usuario usuario) throws CannotPerformOperationException {
+	public void alterarSenha(Usuario usuario) throws CannotPerformOperationException {
 		String sql = "UPDATE usuario SET senha=? WHERE id =?";
 		PreparedStatement stmt;
 
@@ -224,7 +224,7 @@ public class UsuarioDao {
 	public List<Usuario> listarTodos() {
 		try {
 			List<Usuario> listaUsuario = new ArrayList<Usuario>();
-			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario ORDER by nome DESC");
+			PreparedStatement stmt = this.connection.prepareStatement("SELECT * FROM usuario ORDER by nome ");
 
 			ResultSet rs = stmt.executeQuery();
 

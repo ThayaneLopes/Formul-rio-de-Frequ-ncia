@@ -95,10 +95,10 @@ public class BolsistaController {
 
 		bolsista.setSenha(PasswordStorage.md5(bolsista.getSenha()));
 		BolsistaDao dao2 = new BolsistaDao();
-		Bolsista usuarioLogado = dao2.sessaoBolsista(bolsista);
+		Bolsista bolsistaLogado = dao2.sessaoBolsista(bolsista);
 
-		if (usuarioLogado != null) {
-			session.setAttribute("usuarioLogado", usuarioLogado);
+		if (bolsistaLogado != null) {
+			session.setAttribute("bolsistaLogado", bolsistaLogado);
 			return "forward:menuBolsista";
 		} else {
 			model.addAttribute("msg", "Login ou Senha incorreto");

@@ -23,8 +23,8 @@
 			<img id="profile-img" class="profile-img-card"
 				src="view/img/logo.png" />
 			<p id="profile-name" class="profile-name-card"></p>
-
-			<form action="login" class="form-signin">
+			<div style="text-align: center; color: red;"><b>${msg}</b></div>
+			<form action="efetuarLoginUsuario" class="form-signin">
 
 				<input type="text" id="inputLogin" class="form-control"	placeholder="Login" required autofocus> 
 				<input	type="password" id="inputPassword" class="form-control"	placeholder="Password" required>

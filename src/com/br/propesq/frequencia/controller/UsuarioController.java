@@ -23,22 +23,22 @@ public class UsuarioController {
 	/** Mapeamento de menu e login do orientador e do gestor */
 	@RequestMapping("loginOrientador")
 	public String loginOrientador() {
-		return "Orientador/loginOrientador";
+		return "usuario/loginOrientador";
 	}
 
 	@RequestMapping("/menuOrientador")
 	public String menuOrientador() {
-		return "Orientador/menuOrientador";
+		return "usuario/menuOrientador";
 	}
 
 	@RequestMapping("loginGestor")
 	public String loginGestor() {
-		return "Gestor/loginGestor";
+		return "usuario/loginGestor";
 	}
 
 	@RequestMapping("/menuGestor")
 	public String menuGestor() {
-		return "Gestor/menuGestor";
+		return "usuario/menuGestor";
 	}
 
 	/** Metodos */
@@ -53,7 +53,7 @@ public class UsuarioController {
 		List<TipoUsuario> listaTipoUsuario = dao2.listar();
 		model.addAttribute("listaTipoUsuario", listaTipoUsuario);
 
-		return "cadastrar/cadastroUsuario";
+		return "usuario/cadastroUsuario";
 	}
 
 	@RequestMapping("cadastroComSucessoUsuario")
@@ -76,7 +76,7 @@ public class UsuarioController {
 		usuario = dao.buscarPorId(usuario.getId());
 		model.addAttribute("usuario", usuario);
 
-		return "xxxxx/xxxxx";
+		return "usuario/alterarSenhaUsuario";
 	}
 
 	@RequestMapping("alterarSenhaUsuario")
@@ -105,7 +105,7 @@ public class UsuarioController {
 		List<TipoUsuario> listaTipoUsuario = dao2.listar();
 		model.addAttribute("listaTipoUsuario", listaTipoUsuario);
 
-		return "xxxx/xxxxx";
+		return "usuario/alterarUsuario";
 	}
 
 	@RequestMapping("/alterarCadastroUsuario")
@@ -115,7 +115,7 @@ public class UsuarioController {
 		dao.alterarCadastroUsuario(usuario);
 		model.addAttribute("msg", "Dados Alterado com Sucesso!");
 
-		return "forward:xxxxx";
+		return "forward:buscarUsuario";
 	}
 
 	@RequestMapping("removerUsuario")
@@ -125,7 +125,7 @@ public class UsuarioController {
 		dao.remover(usuario.getId());
 		model.addAttribute("mensagem", "Usuario Removido com Sucesso");
 
-		return "forward:xxxxxxx";
+		return "forward:buscarUsuario";
 	}
 
 	/** Metodo de efetuar login */
@@ -142,7 +142,7 @@ public class UsuarioController {
 			return "forward:xxxxx";
 		} else {
 			model.addAttribute("msg", "Login ou Senha incorreto");
-			return "forward:xxxxxx";
+			return "forward:efetuarLoginUsuario";
 		}
 
 	}
@@ -155,14 +155,14 @@ public class UsuarioController {
 			List<Usuario> listaBolsista = dao.listarTodos();
 			model.addAttribute("listaBolsista", listaBolsista);
 
-			return "xxxxx/xxxxxx";
+			return "usuario/listarUsuario";
 		} else {
 
 			UsuarioDao dao = new UsuarioDao();
 			List<Usuario> listaBolsista = dao.listar(busca);
 			model.addAttribute("listaBolsista", listaBolsista);
 
-			return "xxxxx/xxxxxx";
+			return "usuario/listarUsuario";
 		}
 	}
 

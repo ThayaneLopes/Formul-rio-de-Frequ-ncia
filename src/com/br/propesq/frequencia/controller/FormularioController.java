@@ -26,7 +26,7 @@ public class FormularioController {
 		List<Bolsista> listaBolsista = dao.listarTodos();
 		model.addAttribute("listaBolsista", listaBolsista);
 		
-		return "Bolsista/formularioBolsista";
+		return "formulario/formularioBolsista";
 	}
 	
 	
@@ -68,7 +68,7 @@ public class FormularioController {
 	model.addAttribute("formularioFrequencia", formularioBolsistaCompleto);
 
 
-	return "Bolsista/alterarFormulario";
+	return "formulario/alterarFormularioBolsista";
     }
 	
 	
@@ -96,7 +96,7 @@ public class FormularioController {
 			List<FormularioFrequencia> listaFormularioBolsista = dao.listarFormularioBolsista();
 			model.addAttribute("listaFormularioBolsista", listaFormularioBolsista);
 				
-			return "Bolsista/listaFormularioBolsista";
+			return "formulario/listaFormularioBolsista";
 		}
 	 
 	

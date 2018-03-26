@@ -21,19 +21,14 @@ import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
 @Controller
 public class UsuarioController {
 	/** Mapeamento de menu e login do orientador e do gestor */
-	@RequestMapping("loginOrientador")
-	public String loginOrientador() {
-		return "usuario/loginOrientador";
+	@RequestMapping("loginUsuario")
+	public String loginUsuario() {
+		return "usuario/loginUsuario";
 	}
 
 	@RequestMapping("/menuOrientador")
 	public String menuOrientador() {
 		return "usuario/menuOrientador";
-	}
-
-	@RequestMapping("loginGestor")
-	public String loginGestor() {
-		return "usuario/loginGestor";
 	}
 
 	@RequestMapping("/menuGestor")
@@ -139,7 +134,7 @@ public class UsuarioController {
 
 		if (usuarioLogado != null) {
 			session.setAttribute("usuarioLogado", usuarioLogado);
-			return "forward:xxxxx";
+			return "forward:menuOrientador";
 		} else {
 			model.addAttribute("msg", "Login ou Senha incorreto");
 			return "forward:efetuarLoginUsuario";

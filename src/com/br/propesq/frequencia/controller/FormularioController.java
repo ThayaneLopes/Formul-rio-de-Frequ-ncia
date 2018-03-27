@@ -14,6 +14,7 @@ import com.br.propesq.frequencia.dao.BolsistaDao;
 import com.br.propesq.frequencia.dao.FormularioFrequenciaDao;
 import com.br.propesq.frequencia.model.Bolsista;
 import com.br.propesq.frequencia.model.FormularioFrequencia;
+import com.br.propesq.frequencia.model.Usuario;
 
 @Controller
 public class FormularioController {
@@ -34,7 +35,7 @@ public class FormularioController {
 	public String formularioBolsistaComSucesso(FormularioFrequencia formularioFrequencia, Model model, HttpSession session) {
 
 	
-		Bolsista bolsista = (Bolsista) session.getAttribute("usuarioLogado");
+		Bolsista bolsista = (Bolsista) session.getAttribute("bolsistaLogado");
 		formularioFrequencia.setBolsista(bolsista);
 		
 		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
@@ -75,7 +76,7 @@ public class FormularioController {
 	 @RequestMapping("alterarFormularioBolsista")
 	    public String alterarFormularioBolsista(FormularioFrequencia formularioFrequencia, Model model, HttpSession session){
 		 
-		Bolsista bolsista = (Bolsista) session.getAttribute("usuarioLogado");
+		Bolsista bolsista = (Bolsista) session.getAttribute("bolsistaLogado");
 		formularioFrequencia.setBolsista(bolsista);
 		
 
@@ -110,4 +111,46 @@ public class FormularioController {
 
 		return "forward:listaFormularioBolsista";
 	    }
+	 
+	 /***********************FORMULARIO DE FREQUENCIA DO ORIENTADOR ORIENTADOR*************/
+	 //lista de formularios
+	 @RequestMapping("listaFormularioOrientador")
+		public String listaFormularioOrientador(Model model) {
+
+			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+			List<FormularioFrequencia> listaFormularioOrientador = dao.listarFormularioOrientador();
+			model.addAttribute("listaFormularioOrientador", listaFormularioOrientador);
+				
+			return "formulario/listaFormularioOrientador";
+		}
+	 
+	 //Alterar Formulario do Orientador
+	 @RequestMapping("exibirIncluirFormularioOrientador")
+	    public String exibirIncluirFormularioOrientador(FormularioFrequencia formularioFrequencia, Model model,HttpSession session) {
+			
+			
+
+		FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+		FormularioFrequencia formularioOrientadorCompleto = dao.BuscarPorId(formularioFrequencia.getId());
+
+		model.addAttribute("formularioFrequencia", formularioOrientadorCompleto);
+
+
+		return "formulario/incluirFormularioOrientador";
+	    }
+		
+		
+		 @RequestMapping("incluirFormularioOrientador")
+		    public String incluirFormularioOrientador(FormularioFrequencia formularioFrequencia, Model model, HttpSession session){
+			 
+			Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+			formularioFrequencia.setUsuario(usuario);
+			
+
+			FormularioFrequenciaDao dao = new FormularioFrequenciaDao();
+			dao.salvarOrientador(formularioFrequencia);
+			model.addAttribute("msg", "Dados Alterados com Sucesso!");
+
+			return "forward:listaFormularioBolsista";
+		    }
 }

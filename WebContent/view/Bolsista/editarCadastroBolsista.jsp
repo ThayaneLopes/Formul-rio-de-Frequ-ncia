@@ -13,7 +13,7 @@
 <title>Alterar Dados Bolsista</title>
 </head>
 <body >
-<c:import url="../Orientador/menuOrientador.jsp"/>
+<c:import url="../usuario/menuOrientador.jsp"/>
 
 
 <div class="menu">

@@ -40,16 +40,8 @@
 				<a href="buscarBolsista"><i class="fa fa-list"></i> Bolsistas </a>
 			</li>
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-pencil fa-fw"></i> Preencher e Validar Formulário </a>
+				<a href="listaFormularioOrientador"><i class="fa fa-list"></i> Formulários </a>
 			</li>
-			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-list"></i> Formulários </a>
-			</li>
-			<li data-toggle="collapse" data-target="#service" class="collapsed">
-				<a href="#"><i class="fa fa-keyboard-o"></i> Alterar Formulário
-			</a>
-			</li>
-
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
 				<a href="#"><i class="fa fa-key"></i> Alterar Senha </a>
 			</li>

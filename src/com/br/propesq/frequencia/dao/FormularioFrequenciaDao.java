@@ -184,5 +184,75 @@ public class FormularioFrequenciaDao {
 			throw new RuntimeException(e);
 		}
 	}
+	/********************** METODOS EFETUADOS PELO ORIENTADOR **********************/
+	public List<FormularioFrequencia> listarFormularioOrientador() {
+		try {
+			List<FormularioFrequencia> listarFormularioOrientador = new ArrayList<FormularioFrequencia>();
+			PreparedStatement stmt = this.connection
+					.prepareStatement("SELECT * FROM formulario_frequencia ORDER BY id DESC");
+			ResultSet rs = stmt.executeQuery();
 
+			while (rs.next()) {
+				FormularioFrequencia formularioFrequencia = new FormularioFrequencia();
+				formularioFrequencia = montarObjeto(rs);
+
+				listarFormularioOrientador.add(formularioFrequencia);
+			}
+			rs.close();
+			stmt.close();
+			connection.close();
+
+			return listarFormularioOrientador;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
+	
+	public void salvarOrientador(FormularioFrequencia formularioFrequencia) {
+
+		String sql = "UPDATE formulario_frequencia SET id_bolsista=?,resumo_atividades=?,comentarios_estudante=?,mesAno=?, "
+				+ "situacao_cronograma=?, justificativa?, carga_horaria=?, interesse_atividades=?, progresso_alcancado=?, pagamento_bolsa=?, comentarios_orientador=? WHERE id =?";
+		PreparedStatement stmt;
+
+		try {
+			stmt = connection.prepareStatement(sql);
+
+			stmt.setInt(1, formularioFrequencia.getBolsista().getId());
+			stmt.setString(2, formularioFrequencia.getResumoAtividades());
+			stmt.setString(3, formularioFrequencia.getComentariosEstudante());
+			stmt.setString(4, formularioFrequencia.getMesAno());
+			stmt.setString(5, formularioFrequencia.getSituacaoCronograma());
+			stmt.setString(6, formularioFrequencia.getJustificativa());
+			stmt.setString(7, formularioFrequencia.getCargaHoraria());
+			stmt.setString(8, formularioFrequencia.getInteresseAtividades());
+			stmt.setString(9, formularioFrequencia.getProgressoAlcancado());
+			stmt.setBoolean(10, formularioFrequencia.isPagamentoBolsa());
+			stmt.setString(11, formularioFrequencia.getComentariosOrientador());
+			stmt.setInt(12, formularioFrequencia.getId());
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void alterarStatusOrientador(FormularioFrequencia formularioFrequencia) {
+
+		String sql = "UPDATE formulario_frequencia SET status_orientador=true WHERE id = ?";
+		PreparedStatement stmt;
+
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setInt(1, formularioFrequencia.getId());
+			stmt.execute();
+			connection.close();
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
 }

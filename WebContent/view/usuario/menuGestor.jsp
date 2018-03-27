@@ -26,7 +26,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="menuGestor.html">Formulário de
+		<a class="navbar-brand" href="#">Formulário de
 			Frequência</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
@@ -46,7 +46,7 @@
 				</a></li>
 
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Tables"><a class="nav-link" href="#"> <i
+					title="Tables"><a class="nav-link" href="cadastroUsuario"> <i
 						class="fa fa-pencil fa-fw"></i> <span class="nav-link-text">Cadastrar
 							Orientador</span>
 				</a></li>
@@ -60,9 +60,8 @@
 						class="fa fa-cog"></i> <span class="nav-link-text">Ajustes</span>
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseExamplePages">
-						<li><a href="#">Alterar sua Conta</a></li>
+						<li><a href="alterarSenhaUsuario">Alterar sua Senha</a></li>
 						<li><a href="#">Alterar conta de Orientador</a></li>
-						<li><a href="#">Alterar conta de Bolsista</a></li>
 					</ul>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Menu Levels"><a
@@ -73,8 +72,7 @@
 				</a>
 					<ul class="sidenav-second-level collapse" id="collapseMulti">
 						<li><a href="#">Buscar por Formulário</a></li>
-						<li><a href="#">Buscar por Bolsista</a></li>
-						<li><a href="#">Buscar por Orientador</a></li>
+						<li><a href="buscarUsuario">Buscar por Orientador</a></li>
 
 					</ul></li>
 

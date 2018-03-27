@@ -43,10 +43,10 @@
 				<a href="listaFormularioOrientador"><i class="fa fa-list"></i> Formulários </a>
 			</li>
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-key"></i> Alterar Senha </a>
+				<a href="exibirAlterarSenhaUsuario"><i class="fa fa-key"></i> Alterar Senha </a>
 			</li>
 			<li data-toggle="collapse" data-target="#new" class="collapsed">
-				<a href="#"><i class="fa fa-sign-out"></i> Sair </a>
+				<a href="efetuarLogoutUsuario"><i class="fa fa-sign-out"></i> Sair </a>
 			</li>
 
 

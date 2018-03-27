@@ -137,7 +137,7 @@ public class UsuarioController {
 			return "forward:menuOrientador";
 		} else {
 			model.addAttribute("msg", "Login ou Senha incorreto");
-			return "forward:efetuarLoginUsuario";
+			return "forward:loginUsuario";
 		}
 
 	}
@@ -166,7 +166,7 @@ public class UsuarioController {
 	public String efetuarLogoutUsuario(HttpSession session) {
 		session.invalidate();
 		System.out.println("logout efetuado com sucesso");
-		return "forward:xxxxx";
+		return "forward:index";
 
 	}
 

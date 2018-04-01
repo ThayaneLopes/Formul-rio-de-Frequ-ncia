@@ -25,6 +25,10 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
+<!-- 	<mvc:interceptors> -->
+<!-- 		<bean class="com.br.propesq.frequencia.interceptor.AutorizadorInterceptorBolsista" /> -->
+<!-- 	</mvc:interceptors> -->
+
 	<bean id="conversionService"
 		class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">

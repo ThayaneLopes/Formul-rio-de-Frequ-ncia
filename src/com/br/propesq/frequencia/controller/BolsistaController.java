@@ -112,7 +112,7 @@ public class BolsistaController {
 	public String efetuarLogoutBolsista(HttpSession session) {
 		session.invalidate();
 		System.out.println("logout efetuado com sucesso");
-		return "forward:index";
+		return "forward:loginBolsista";
 
 	}
 

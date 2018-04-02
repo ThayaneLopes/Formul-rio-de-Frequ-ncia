@@ -80,10 +80,11 @@
 			
 			<label>Orientador</label>
 			<select name="orientador" class="form-control" style="width: 300px;" class="form-control" required="required">
-				<option value="">Selecione</option>
-				<c:forEach items="${listaUsuario}" var="obj">
-					<option value="${obj.id}">${obj.nome}</option>
-				</c:forEach>
+<!-- 				<option value="">Selecione</option> -->
+<%-- 				<c:forEach items="${listaUsuario}" var="obj"> --%>
+					<option ${usuarioLogado.id}>${usuarioLogado.nome}</option>
+<%-- 					<option value="${obj.id}">${obj.nome}</option> --%>
+<%-- 				</c:forEach> --%>
 			</select> <br>
 			
 			<label>Login:</label> 

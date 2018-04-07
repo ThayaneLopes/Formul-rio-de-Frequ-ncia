@@ -1,5 +1,7 @@
 package com.br.propesq.frequencia.controller;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -40,7 +42,7 @@ public class BolsistaController {
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.salvar(bolsista);
-		model.addAttribute("msg", "Usuário Incluído com Sucesso!");
+		model.addAttribute("msg", "Usu�rio Incluido com Sucesso!");
 
 		return "forward:buscarBolsista";
 
@@ -71,7 +73,7 @@ public class BolsistaController {
 
 	/** Busca de bolsista por nome + lista de todos os bolsistas cadastrados */
 	@RequestMapping("buscarBolsista")
-	public String buscarBolsista(Model model, String busca) {
+	public String buscarBolsista(Model model, String busca, Bolsista bolsista, Usuario usuario) {
 		if (busca == null) {
 			BolsistaDao dao = new BolsistaDao();
 			List<Bolsista> listaBolsista = dao.listarTodos();
@@ -86,6 +88,7 @@ public class BolsistaController {
 
 			return "Bolsista/listaBolsista";
 		}
+
 	}
 
 	/** Metodo de efetuar login */
@@ -132,7 +135,7 @@ public class BolsistaController {
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.alterar(bolsista);
-		model.addAttribute("msg", "Senha Alterado com Sucesso!");
+		model.addAttribute("msg", "Senha Alterada com Sucesso!");
 
 		return "forward:exibirAlterarBolsista";
 	}
@@ -148,10 +151,6 @@ public class BolsistaController {
 		CampusDao dao3 = new CampusDao();
 		List<Campus> listaCampus = dao3.listar();
 		model.addAttribute("listaCampus", listaCampus);
-
-		UsuarioDao dao2 = new UsuarioDao();
-		List<Usuario> listaUsuario = dao2.listarTodos();
-		model.addAttribute("listaUsuario", listaUsuario);
 
 		return "Bolsista/editarCadastroBolsista";
 	}

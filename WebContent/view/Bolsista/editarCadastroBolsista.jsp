@@ -68,29 +68,12 @@
 			
 			<label>Matrícula:</label> 
 			<input type="text"	name="matricula" id="matricula" class="form-control"  required="required" value="${bolsista.matricula}"><br> 
-			<label>Histórico Escolar:</label> 
-			<input type="file" name="historicoEscolar"	id="historicoEscolar" class="form-control" required="required" value="${bolsista.historicoEscolar}"><br> 
 			<label>Link do Currículo na Plataforma Lattes:</label> 
 			<input type="text" name="curriculo" id="curriculo" class="form-control" required="required" value="${bolsista.curriculo}">
 		</fieldset>
 		<fieldset>
 		<br>
 			<legend><i> <b>Dados para o Projeto</b></i></legend>
-			
-			<label>Orientador</label>
-			<select name="orientador" class="form-control"	style="width: 300px;" class="form-control" required="required">
-			<c:forEach items="${listaUsuario}" var="obj">
-				<c:choose>
-					<c:when test="${bolsista.orientador.id == obj.id}">
-						<option value="${obj.id}" selected>${obj.nome}</option>
-					</c:when>
-					<c:otherwise>
-						<option value="${obj.id}">${obj.nome}</option>
-					</c:otherwise>
-				</c:choose>
-
-			</c:forEach>
-		</Select>  <br>
 			
 			<label>Login:</label> 
 			<input type="text" name="login" id="login" class="form-control" required="required" value="${bolsista.login}">	<br> 

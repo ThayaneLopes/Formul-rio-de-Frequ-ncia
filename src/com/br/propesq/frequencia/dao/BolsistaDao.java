@@ -28,7 +28,7 @@ public class BolsistaDao {
 
 	}
 
-	private Bolsista montarObjeto(ResultSet rs) throws SQLException {
+	public Bolsista montarObjeto(ResultSet rs) throws SQLException {
 
 		Bolsista bolsista = new Bolsista();
 
@@ -164,7 +164,7 @@ public class BolsistaDao {
 	/** Metodo para alterar o cadastro do bolsista */
 	public void alterarCadastroBolsista(Bolsista bolsista) {
 
-		String sql = "UPDATE bolsista SET nome=?,telefone=?,email=?,rg=?,cpf=?,banco=?,agencia=?,conta=?,campus=?,matricula=?,historico_escolar=?,curriculo=?,id_orientador=?,login=?,titulo_plano=?,tipo_projeto=? WHERE id=?";
+		String sql = "UPDATE bolsista SET nome=?,telefone=?,email=?,rg=?,cpf=?,banco=?,agencia=?,conta=?,campus=?,matricula=?,curriculo=?,login=?,titulo_plano=?,tipo_projeto=? WHERE id=?";
 		PreparedStatement stmt;
 
 		try {
@@ -179,13 +179,11 @@ public class BolsistaDao {
 			stmt.setString(8, bolsista.getConta());
 			stmt.setInt(9, bolsista.getCampus().getId());
 			stmt.setString(10, bolsista.getMatricula());
-			stmt.setString(11, bolsista.getHistoricoEscolar());
-			stmt.setString(12, bolsista.getCurriculo());
-			stmt.setInt(13, bolsista.getOrientador().getId());
-			stmt.setString(14, bolsista.getLogin());
-			stmt.setString(15, bolsista.getTituloPlano());
-			stmt.setString(16, bolsista.getTipoProjeto());
-			stmt.setInt(17, bolsista.getId());
+			stmt.setString(11, bolsista.getCurriculo());
+			stmt.setString(12, bolsista.getLogin());
+			stmt.setString(13, bolsista.getTituloPlano());
+			stmt.setString(14, bolsista.getTipoProjeto());
+			stmt.setInt(15, bolsista.getId());
 			stmt.execute();
 
 		} catch (SQLException e) {

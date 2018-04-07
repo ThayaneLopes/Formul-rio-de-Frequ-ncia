@@ -28,7 +28,7 @@ public class UsuarioDao {
 
 	}
 
-	private Usuario montarObjeto(ResultSet rs) throws SQLException {
+	public Usuario montarObjeto(ResultSet rs) throws SQLException {
 
 		Usuario usuario = new Usuario();
 

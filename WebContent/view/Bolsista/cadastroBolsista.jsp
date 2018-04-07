@@ -79,14 +79,9 @@
 			<legend><i> <b>Dados para o Projeto</b></i></legend>
 			
 			<label>Orientador</label>
-			<select name="orientador" class="form-control" style="width: 300px;" class="form-control" required="required">
-<!-- 				<option value="">Selecione</option> -->
-<%-- 				<c:forEach items="${listaUsuario}" var="obj"> --%>
-					<option ${usuarioLogado.id}>${usuarioLogado.nome}</option>
-<%-- 					<option value="${obj.id}">${obj.nome}</option> --%>
-<%-- 				</c:forEach> --%>
-			</select> <br>
-			
+			<input type="hidden" name="orientador" id="orientador" value="${usuarioLogado.id }"> 
+			${usuarioLogado.nome }
+			<br>
 			<label>Login:</label> 
 			<input type="text" name="login" id="login" class="form-control" required="required">	<br> 
 			<label>Senha Inicial de Acesso:</label> 

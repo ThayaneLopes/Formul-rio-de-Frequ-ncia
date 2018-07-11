@@ -1,7 +1,5 @@
 package com.br.propesq.frequencia.controller;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -22,7 +20,7 @@ import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
 
 @Controller
 public class BolsistaController {
-	/** Cadastro Bolsista */
+//Nilson
 	@RequestMapping("cadastroBolsista")
 	public String cadastroBolsista(Model model) {
 
@@ -31,20 +29,21 @@ public class BolsistaController {
 		model.addAttribute("listaCampus", listaCampus);
 
 		UsuarioDao dao2 = new UsuarioDao();
-		List<Usuario> listaUsuario = dao2.listarTodos();
+		List<Usuario> listaUsuario = dao2.listar();
 		model.addAttribute("listaUsuario", listaUsuario);
 
 		return "Bolsista/cadastroBolsista";
 	}
 
 	@RequestMapping("cadastroComSucessoBolsista")
-	public String cadastroComSucessoBolsista(Bolsista bolsista, Model model) throws CannotPerformOperationException {
+	public String cadastroComSucessoBolsista(Bolsista bolsista,	 Model model)
+			throws CannotPerformOperationException {
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.salvar(bolsista);
-		model.addAttribute("msg", "Usuário Incluido com Sucesso!");
+		model.addAttribute("msg", "Usuï¿½rio Incluï¿½do com Sucesso!");
 
-		return "forward:buscarBolsista";
+		return "forward:listarTodosBolsista";
 
 	}
 
@@ -55,10 +54,9 @@ public class BolsistaController {
 		dao.remover(bolsista.getId());
 		model.addAttribute("mensagem", "Bolsista Removido com Sucesso");
 
-		return "forward:buscarBolsista";
+		return "forward:listarBolsista";
 	}
 
-	/** Mapeamento da pagina de menu e de login */
 	@RequestMapping("/menuBolsista")
 	public String menuBolsista() {
 		return "Bolsista/menuBolsista";
@@ -71,38 +69,63 @@ public class BolsistaController {
 
 	}
 
-	/** Busca de bolsista por nome + lista de todos os bolsistas cadastrados */
 	@RequestMapping("buscarBolsista")
-	public String buscarBolsista(Model model, String busca, Bolsista bolsista, Usuario usuario) {
+	public String buscarBolsista() {
+		return "Bolsista/listaBolsista";
+	}
+	
+	@RequestMapping("listarBolsista")
+	public String listarBolsista(Model model, String busca) {
 		if (busca == null) {
-			BolsistaDao dao = new BolsistaDao();
-			List<Bolsista> listaBolsista = dao.listarTodos();
-			model.addAttribute("listaBolsista", listaBolsista);
-
 			return "Bolsista/listaBolsista";
-		} else {
+		}else{
+		
+		BolsistaDao dao3 = new BolsistaDao();
+		List<Bolsista> listaBolsista = dao3.listar(busca);
+		model.addAttribute("listaBolsista", listaBolsista);
 
-			BolsistaDao dao = new BolsistaDao();
-			List<Bolsista> listaBolsista = dao.listar(busca);
-			model.addAttribute("listaBolsista", listaBolsista);
-
-			return "Bolsista/listaBolsista";
+		return "Bolsista/listaBolsista";
 		}
+	}
+	
 
+	@RequestMapping("listarTodosBolsista")
+	public String listarTodosBolsista(Model model) {
+
+		CampusDao dao = new CampusDao();
+		List<Campus> listaCampus = dao.listar();
+		model.addAttribute("listaCampus", listaCampus);
+
+		UsuarioDao dao2 = new UsuarioDao();
+		List<Usuario> listaUsuario = dao2.listar();
+		model.addAttribute("listaUsuario", listaUsuario);
+
+		BolsistaDao dao3 = new BolsistaDao();
+		List<Bolsista> listaBolsista = dao3.listarTodos();
+		model.addAttribute("listaBolsista", listaBolsista);
+
+		return "Bolsista/listaBolsista";
 	}
 
-	/** Metodo de efetuar login */
 	@RequestMapping("efetuarLoginBolsista")
-	public String efetuarLoginBolsista(Bolsista bolsista, Model model, HttpSession session)
+	public String efetuarLoginBolsista(String login, String senha, Model model, HttpSession session)
 			throws CannotPerformOperationException, InvalidHashException {
-
-		bolsista.setSenha(PasswordStorage.md5(bolsista.getSenha()));
+		Bolsista bolsista;
+		BolsistaDao dao = new BolsistaDao();
+		bolsista = dao.buscarBolsista(login);
+		
 		BolsistaDao dao2 = new BolsistaDao();
-		Bolsista bolsistaLogado = dao2.sessaoBolsista(bolsista);
+		Bolsista usuarioLogado = dao2.sessaoBolsista(bolsista);
 
-		if (bolsistaLogado != null) {
-			session.setAttribute("bolsistaLogado", bolsistaLogado);
-			return "forward:menuBolsista";
+		if (bolsista.getLogin() != null) {
+			if (PasswordStorage.verifyPassword(senha, bolsista.getSenha())) {
+				session.setAttribute("usuarioLogado", usuarioLogado);
+				return "forward:menuBolsista";
+			} else {
+				model.addAttribute("msg", "Login ou Senha incorreto");
+				return "forward:loginBolsista";
+
+			}
 		} else {
 			model.addAttribute("msg", "Login ou Senha incorreto");
 			return "forward:loginBolsista";
@@ -110,7 +133,6 @@ public class BolsistaController {
 
 	}
 
-	/** Metodo para efetuar o logout */
 	@RequestMapping("efetuarLogoutBolsista")
 	public String efetuarLogoutBolsista(HttpSession session) {
 		session.invalidate();
@@ -119,7 +141,6 @@ public class BolsistaController {
 
 	}
 
-	/** Alterar senha do bolsista */
 	@RequestMapping("exibirAlterarBolsista")
 	public String exibirAlterarBolsista(Bolsista bolsista, Model model) {
 
@@ -135,12 +156,11 @@ public class BolsistaController {
 
 		BolsistaDao dao = new BolsistaDao();
 		dao.alterar(bolsista);
-		model.addAttribute("msg", "Senha Alterada com Sucesso!");
+		model.addAttribute("msg", "Senha Alterado com Sucesso!");
 
 		return "forward:exibirAlterarBolsista";
 	}
 
-	/** Alterar dados do bolsista (feito pelo orientador) */
 	@RequestMapping("exibirAlterarCadastroBolsista")
 	public String exibirAlterarCadastroBolsista(Bolsista bolsista, Model model) {
 
@@ -152,6 +172,10 @@ public class BolsistaController {
 		List<Campus> listaCampus = dao3.listar();
 		model.addAttribute("listaCampus", listaCampus);
 
+		UsuarioDao dao2 = new UsuarioDao();
+		List<Usuario> listaUsuario = dao2.listar();
+		model.addAttribute("listaUsuario", listaUsuario);
+
 		return "Bolsista/editarCadastroBolsista";
 	}
 
@@ -162,7 +186,7 @@ public class BolsistaController {
 		dao.alterarCadastroBolsista(bolsista);
 		model.addAttribute("msg", "Dados Alterado com Sucesso!");
 
-		return "forward:buscarBolsista";
+		return "forward:listarBolsista";
 	}
 
 }

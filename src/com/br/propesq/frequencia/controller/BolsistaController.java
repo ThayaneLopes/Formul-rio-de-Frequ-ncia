@@ -20,7 +20,7 @@ import com.br.propesq.frequencia.util.PasswordStorage.InvalidHashException;
 
 @Controller
 public class BolsistaController {
-
+//Nilson
 	@RequestMapping("cadastroBolsista")
 	public String cadastroBolsista(Model model) {
 
